@@ -1,0 +1,86 @@
+.footer_container {
+    height: auto;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem 0;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Enable wrapping for smaller screens */
+  }
+  
+  .footer_logo {
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer_contents {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow list items to wrap */
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  
+  a {
+    color: #979797;
+  }
+  
+  .contact_num_and_address {
+    display: flex;
+    justify-content: right;
+    margin-right: 10%;
+    gap: 1rem;
+    color: #979797;
+  }
+  
+  /* Responsive design for smaller devices */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column; /* Stack the list and contact info vertically */
+      align-items: center;
+    }
+  
+    .footer_contents {
+      flex-direction: column; /* Stack the list items vertically */
+      text-align: center;
+      gap: 1rem; /* Reduce the gap between list items */
+      margin-bottom: 1rem; /* Add space below the list */
+    }
+  
+    .footer_logo,
+    .contact_num_and_address {
+      order: 1; /* Keep logo and contact info together at the bottom */
+      margin-bottom: 0;
+    }
+  
+    .footer_logo img,
+    .contact_num_and_address li {
+      display: inline-block; /* Align logo, number, and address in one line */
+      margin: 0;
+    }
+  
+    .footer_logo,
+    .contact_num_and_address {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem; /* Gap between logo, number, and address */
+      flex-direction: row; /* Ensure they are on the same line */
+    }
+    
+    .footer_logo img {
+      width: 40px; /* Adjust logo size for smaller screens */
+    }
+  
+    .contact_num_and_address {
+      margin-right: 0;
+    }
+  }
+  

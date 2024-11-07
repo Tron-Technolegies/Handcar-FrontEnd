@@ -1,0 +1,119 @@
+/* Existing styles */
+.best_deal_heading span { 
+    color: #d60609; 
+}
+
+.best_deals { 
+    position: relative;
+    min-height: 70vh;
+    width: 100%;
+    background-color: #F5F5F7;
+    padding: 2rem 0;
+    /* margin-left: 2%; */
+}
+
+.best_deal_heading { 
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.top_deal_products { 
+    flex: 0 0 auto;
+    width: 308px;
+    background-color: #FFFFFF;
+    padding: 37px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.top_deal_offer { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.top_deal_product_price { 
+    display: flex;
+    gap: 3rem;
+}
+
+.offerbtn { 
+    background-color: #D50104;
+    color: #F5F5F7;
+    border: none;
+    padding: 8px 10px;
+    height: 30px;
+    width: 120px;
+    border-radius: 4px;
+}
+
+.top_deal_offer p { 
+    color: #D50104;
+}
+
+.listof_top_deal_products { 
+   
+    display: flex;
+   justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .best_deals {
+        padding: 1rem 0;
+    }
+
+    .listof_top_deal_products {
+        justify-content: flex-start;
+        padding-bottom: 1rem; /* Space for scrollbar */
+    }
+
+    .top_deal_products {
+        scroll-snap-align: start;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .best_deal_heading {
+        font-size: 0.9em;
+    }
+
+    .top_deal_products {
+        width: 250px; /* Slightly smaller on mobile for better fit */
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .best_deal_heading {
+        font-size: 0.8em;
+    }
+
+    .top_deal_products {
+        width: 220px; /* Even smaller on very small devices */
+        padding: 15px;
+    }
+
+    .top_deal_product_price {
+        gap: 1rem;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.listof_top_deal_products::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+/* .listof_top_deal_products {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+} */

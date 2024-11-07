@@ -1,0 +1,164 @@
+.maintainance_plans_container{
+    height: 203vh;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.subscriptionplans_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    top: 8%;
+  }
+  .subscription_heading h1 {
+    font-weight: 700;
+  }
+  .subscription_heading p {
+    font-weight: 500;
+  }
+  .subscription_underline {
+    margin-left: 47%;
+  }
+  .subscriptionplans_content p {
+    font-weight: 800;
+  }
+  .sub_offer {
+    color: #DB1215;
+  }
+  .subscriptionplans_content img {
+    width: 200px;
+  }
+  
+  .subscriptionpage_buttons {
+    height: 70px;
+    width: 294px;
+    background-color: #ffd9d9;
+    border-radius: 99px;
+    padding: 6px;
+  }
+  .subscriptionpage_buttons button {
+    height: 54px;
+    width: 139px;
+    border-radius: 99px;
+    border: none;
+    color: #da1e21;
+    font-weight: 700;
+  }
+  .sub_twelvemonth {
+    background-color: #ffd9d9;
+  }
+  
+  .subscription_plan {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .basic_plan {
+    height: 655px;
+    width: 380px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .plan_price {
+    display: flex;
+    align-items: center;
+  }
+  
+  .plan_feature_points {
+    /* height: 24px;
+      width: 24px;
+      border-radius: 99px;
+      background-color: #E1F7DF;
+      
+      display: flex; */
+    display: flex;
+    gap: 15px;
+  }
+  .plan_feature_icon {
+    height: 24px;
+    width: 24px;
+    border-radius: 99px;
+    background-color: #e1f7df;
+    padding: 3px;
+  }
+  
+  .subscription_discounts {
+    height: 35vh;
+    width: 96%;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 5%;
+  }
+  .plan_number {
+    height: 32px;
+    width: 32px;
+    border-radius: 99px;
+    background-color: #1d9112;
+    color: #ffffff;
+    padding: 5px;
+    padding-left: 12px;
+  }
+  .number_of_plans {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .subscription_plans_and_discounts {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .plan_subscribe_btn {
+    height: 48px;
+    width: 320px;
+    border-radius: 6px;
+    margin-top: 3%;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  
+  .plan_subscribe_btn:hover {
+    background-color: black;
+    color: #ffffff;
+  }
+  
+  .plan_tittle p{
+    font-weight: 700;
+  }
+  .subscription_discounts p{
+    font-weight: 700;
+  }
+  
+  .maintainancepage_buttons{
+    background-color:#EEEEEE;
+  }
+  .maintainance_sixmonth{
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+  .maintainancepage_header_img img{
+    /* height: 330px; */
+    max-width: 100%;
+    height: auto;
+    width: 1200px;
+    /* position: relative;
+    left: 8%; */
+    margin-top: 5%;
+    margin-left: 12%;
+    
+  }
+  .maintainanace_plan{
+    margin-top: 12%;
+  }

@@ -1,0 +1,94 @@
+.faq_container {
+  width: 90%; /* Make it more flexible on smaller devices */
+  max-width: 1200px; /* Add max-width to prevent too wide on larger screens */
+  margin: 20px auto;
+}
+
+.faq_heading h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem; /* Adjust font size for responsiveness */
+}
+
+.faq_list {
+  margin-top: 10px;
+}
+
+.faq_item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(157, 157, 157);
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.faq_question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.faq_question h3 {
+  margin: 0;
+  font-size: 1.25rem; /* Adjust font size */
+}
+
+.icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.faq_answer {
+  margin-top: 10px;
+  padding: 10px;
+  color: #000000;
+  background-color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem; /* Adjust font size */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .faq_container {
+    width: 95%;
+  }
+
+  .faq_heading h1 {
+    font-size: 1.75rem; /* Slightly smaller heading on tablets */
+  }
+
+  .faq_question h3 {
+    font-size: 1.125rem; /* Slightly smaller question text */
+  }
+
+  .faq_answer {
+    font-size: 0.95rem; /* Adjust answer text */
+  }
+
+  .icon {
+    font-size: 1.3rem; /* Smaller icon size */
+  }
+}
+
+@media (max-width: 480px) {
+  .faq_container {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .faq_heading h1 {
+    font-size: 1.5rem; /* Smaller heading on mobile devices */
+  }
+
+  .faq_question h3 {
+    font-size: 1rem; /* Smaller question text */
+  }
+
+  .faq_answer {
+    font-size: 0.85rem; /* Adjust answer text */
+  }
+
+  .icon {
+    font-size: 1.1rem; /* Smaller icon size */
+  }
+}

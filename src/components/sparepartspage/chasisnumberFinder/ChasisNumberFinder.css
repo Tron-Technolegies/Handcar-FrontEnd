@@ -1,0 +1,110 @@
+.chasis_number_finder_container {
+    min-height: 54vh;
+    width: 100%;
+    background: linear-gradient(to right, #FE8F91, #D50104);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 45px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .chasis_number_finder_container_img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .chasisnumber_header_img {
+    max-width: 100%;
+    height: auto;
+    max-height: 390px;
+  }
+  
+  .spare_parts_finder {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .spare_parts_content h1 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    font-size: 2.5rem;
+  }
+  
+  .spare_parts_content p {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-size: 1rem;
+  }
+  
+  .spare_parts_finder_searchs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .spare_parts_finder_searchs input {
+    height: 40px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 6px;
+    border: none;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .spare_parts_finder_searchs button {
+    height: 40px;
+    width: 180px;
+    border-radius: 6px;
+    border: none;
+    background-color: #191919;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .chasis_number_finder_container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .chasis_number_finder_container_img,
+    .spare_parts_finder {
+      width: 100%;
+    }
+  
+    .spare_parts_content h1 {
+      font-size: 2rem;
+    }
+  
+    .spare_parts_content p {
+      font-size: 0.9rem;
+    }
+  
+    .spare_parts_finder_searchs input,
+    .spare_parts_finder_searchs button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .spare_parts_content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .spare_parts_content p {
+      font-size: 0.8rem;
+    }
+  
+    .spare_parts_finder {
+      gap: 20px;
+    }
+  }

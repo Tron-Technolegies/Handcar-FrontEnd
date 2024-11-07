@@ -1,0 +1,122 @@
+.brand_accessories_container {
+  height: 75vh;
+  width: 100%;
+  position: relative;
+}
+
+.brand_accessories_heading {
+  position: absolute;
+  left: 35%;
+  text-align: center;
+}
+
+.brand_accessories {
+  margin-top: 5%;
+}
+
+.brand_accessories_content {
+  position: absolute;
+  top: 20%;
+  left: 13%;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but allow scrolling */
+.brand_accessories_content::-webkit-scrollbar {
+  display: none;
+}
+
+.brand_accessories_content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.accessories_scroll_btn {
+  height: 82px;
+  width: 82px;
+  background-color: #FBFBFD;
+  padding: 15px;
+  margin-top: 15%;
+  cursor: pointer;
+}
+
+.brand_accessories_products {
+  height: 400px;
+  width: 485px;
+  background-color: #FBFBFD;
+  padding: 25px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.pioneer_logo {
+  position: absolute;
+  top: 12%;
+  left: 20%;
+}
+
+.about_pioneer {
+  height: 25px;
+  width: 270px;
+  background-color: #ffe500;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 1024px) {
+  .brand_accessories_heading {
+    left: 20%;
+  }
+
+  .brand_accessories_content {
+    top: 18%;
+    left: 8%;
+    gap: 5px; /* Smaller gap between items */
+  }
+
+  .brand_accessories_products {
+    width: 350px; /* Reduce width for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .brand_accessories_heading {
+    left: 10%;
+    text-align: left; /* Align text to the left */
+  }
+
+  .brand_accessories_content {
+    top: 15%;
+    left: 5%;
+    gap: 0; /* Remove gap for smooth scrolling */
+    flex-wrap: nowrap;
+  }
+
+  .brand_accessories_products {
+    width: 300px; /* Reduce width for smaller screens */
+  }
+
+  .accessories_scroll_btn {
+    display: none; /* Optionally hide scroll buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .brand_accessories_heading {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+
+  .brand_accessories_content {
+    top: 10%;
+    left: 3%;
+  }
+
+  .brand_accessories_products {
+    width: 260px; /* Further reduce width */
+  }
+}

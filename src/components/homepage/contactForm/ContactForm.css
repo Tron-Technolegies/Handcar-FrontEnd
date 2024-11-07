@@ -1,0 +1,134 @@
+.contact_form_container {
+  min-height: 60vh;
+  width: 100%;
+  background-image: url('../../../assets/contactfrom_bg_car.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 18rem;
+}
+
+.contact_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact_details {
+  margin-bottom: 1rem;
+}
+
+.contact_details h1 {
+  font-weight: 800;
+  font-size: 40px;
+}
+
+.contact_details_and_logo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 20px;
+}
+
+.contact_detail_content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact_detail_content p {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.contact_details_logo {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(165, 167, 161);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.contact_form {
+  padding: 20px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.name_and_ph_no {
+  display: flex;
+  gap: 10px;
+}
+
+.name_and_ph_no input,
+.contact_form_email input,
+.contact_form_message input {
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact_form_message input {
+  padding: 40px;
+}
+
+.contact_form_button button {
+  padding: 6px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  width: 30%;
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.contact_form_button button:hover {
+  background-color: #cc0000;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .contact_form_container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 20px;
+  }
+
+  .contact_section {
+    display: none; /* Hide contact details on mobile */
+  }
+
+  .contact_form {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .name_and_ph_no {
+    flex-direction: column;
+  }
+
+  .contact_form_button button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact_form_container {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,92 @@
+.about_handcar_container {
+  position: relative;
+  padding: 20px;
+}
+
+.about_handcar {
+  display: flex;
+  flex-direction: column;
+}
+
+.about_handcar_contents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 5%;
+}
+
+.about_handcar_contents h1 {
+  font-weight: 800;
+}
+
+.about_handcar_content {
+  background-color: rgb(255, 255, 255);
+}
+
+.about_handcar_content p {
+  margin-top: 4%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.customer_and_product_count {
+  margin-top: 20px;
+}
+
+.counts {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 36px;
+  color: #db1215;
+  margin-bottom: 10px;
+}
+
+.customer_and_product_name {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.about_handcar_image {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.about_handcar_image img {
+  max-width: 100%;
+  height: auto;
+  margin-left: 5%;
+}
+
+@media (min-width: 768px) {
+  .about_handcar {
+    flex-direction: row;
+  }
+
+  .about_handcar_contents {
+    flex: 2;
+    margin-left: 15%;
+  }
+
+  .about_handcar_content {
+    width: 80%;
+  }
+
+  .counts {
+    font-size: 48px;
+    gap: 11rem;
+  }
+
+  .customer_and_product_name {
+    font-size: 24px;
+    gap: 5rem;
+  }
+
+  .about_handcar_image {
+    flex: 1;
+    margin-top: 0;
+  }
+}

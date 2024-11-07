@@ -1,0 +1,46 @@
+.spare_parts_slider {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spare_parts_slider_heading {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.spare_parts_slider_img_container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.spare_parts_slider_img {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.spare_parts_slider_img img {
+  height: 80px;
+  margin-right: 20px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .spare_parts_slider_heading h1 {
+    font-size: 1.5em;
+  }
+
+  .spare_parts_slider_img img {
+    height: 60px;
+  }
+}

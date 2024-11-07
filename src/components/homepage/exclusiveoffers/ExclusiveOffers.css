@@ -1,0 +1,178 @@
+.offers-scroll-container {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  padding-left: 1rem;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
+.offers-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.offers-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.responsive-div {
+  flex: 0 0 auto;
+  width: 391px;
+  height: 235px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  scroll-snap-align: start;
+  color: white;
+  margin-top: 5%;
+  margin-left: 5%;
+  
+}
+
+.responsive-div:nth-child(1) {
+  background: linear-gradient(to right, #3399ff, #66b3ff);
+}
+
+.responsive-div:nth-child(2) {
+  background: linear-gradient(to right, #33cc33, #66cc66);
+}
+
+.responsive-div:nth-child(3) {
+  background: linear-gradient(to right, #ff6666, #ff9999);
+}
+
+.offer-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.offer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  max-width: 60%;
+}
+
+.exclusive-tag {
+  background-color: #ffe600;
+  color: #333;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.offer-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.1;
+}
+
+.offer-subtitle, .free_car_service {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.offer-code {
+  background-color: white;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.offer-image {
+  width: 40%;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+}
+
+.offer-image img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .responsive-div {
+    width: 260px;
+    height: 180px;
+    padding: 0.5rem;
+  }
+
+  .offer-content-container {
+    padding: 0.75rem;
+  }
+
+  .offer-title {
+    font-size: 1.4rem;
+  }
+
+  .offer-subtitle,
+  .free_car_service {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exclusive-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-code {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+
+  .offer-image {
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-div {
+    width: 220px;
+    height: 160px;
+  }
+
+  .offer-title {
+    font-size: 1.2rem;
+  }
+
+  .offer-subtitle,
+  .free_car_service {
+    font-size: 0.7rem;
+  }
+
+  .exclusive-tag {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+
+  .offer-code {
+    font-size: 0.6rem;
+    padding: 4px 6px;
+  }
+
+  .offer-image {
+    width: 50%;
+    /* height: 25px; */
+  }
+}

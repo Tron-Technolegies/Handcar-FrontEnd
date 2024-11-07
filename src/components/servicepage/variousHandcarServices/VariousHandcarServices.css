@@ -1,0 +1,65 @@
+.handcar_services_main_heading {
+    height: 118px;
+    width: 100%;
+    background-color: rgb(211, 92, 92);
+    text-align: center;
+    padding: 25px;
+    margin-top: 25px;
+    color: #ffffff;
+  }
+  
+  .various_services_container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3, 1fr); /* Responsive for 3 columns */
+    justify-content: center;
+    padding: 20px;
+    margin-top: 2%;
+    margin-left: 5%;
+  }
+  
+  .box {
+    background-color: #F5F5F7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 235px;
+    width: 270px;
+    font-size: 24px;
+    border-radius: 15px;
+  }
+
+  .service_box_contents{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+  }
+  .service_box_contents img{
+    height: 65px;
+    width: 65px;
+  }
+  .service_box_contents p{
+    font-size: medium;
+    color: #878686;
+  }
+  .service_box_contents h4{
+    color: black;
+  }
+  .accessories_explore_btn p{
+    color: #DB1215;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .various_services_container {
+      grid-template-columns: 1fr; /* Show 1 box per row */
+    }
+  
+    .box {
+      width: 100%; /* Adjust width to full on small screens */
+    }
+  }
+  
