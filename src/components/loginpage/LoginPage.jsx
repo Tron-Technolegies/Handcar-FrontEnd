@@ -5,7 +5,11 @@ import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
 import useLoginWithPassword from "../../hooks/auth/useLoginWithPassword";
 
-export default function LoginPage({ setShowLogin, setShowSignup }) {
+export default function LoginPage({
+  setShowLogin,
+  setShowSignup,
+  setShowOtpLogin,
+}) {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const { loading, loginUser } = useLoginWithPassword();
@@ -71,7 +75,13 @@ export default function LoginPage({ setShowLogin, setShowSignup }) {
           </button>
 
           <p className="font-semibold">OR</p>
-          <button className="px-5 py-3 bg-[#E1E1E1] rounded-lg w-full font-semibold">
+          <button
+            className="px-5 py-3 bg-[#E1E1E1] rounded-lg w-full font-semibold"
+            onClick={() => {
+              setShowLogin(false);
+              setShowOtpLogin(true);
+            }}
+          >
             Login with OTP
           </button>
         </div>
