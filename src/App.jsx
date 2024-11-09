@@ -15,6 +15,7 @@ import AccessorySinglePage from "./pages/AccessorySinglePage";
 import AddressSelectPage from "./pages/AddressSelectPage";
 import ErrorPage from "./pages/ErrorPage";
 import ConfirmOrderPage from "./pages/ConfirmOrderPage";
+import WishListPage from "./pages/WishListPage";
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         { path: "cart", element: <CartPage /> },
         { path: "address", element: <AddressSelectPage /> },
         { path: "confirm", element: <ConfirmOrderPage /> },
+        { path: "wishlist", element: <WishListPage /> },
       ],
     },
   ]);

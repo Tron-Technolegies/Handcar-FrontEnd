@@ -52,7 +52,7 @@ const Header = ({ setShowPopup, setSignupPopup }) => {
       </div>
       <div className="flex xl:gap-5 gap-3 items-center">
         <div className="flex xl:gap-5 gap-3 items-center">
-          <Link>
+          <Link to={"/wishlist"}>
             <img src={heart_icons} alt="Favorites" />
           </Link>
           <Link to={"/cart"}>
