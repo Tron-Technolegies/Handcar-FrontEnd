@@ -2,16 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const useGetWishListItems = () => {
+const useGetSingleService = () => {
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState([]);
+  const [service, setService] = useState({});
 
-  const getWishListItems = async () => {
+  const getSingleService = async ({ id }) => {
     setLoading(true);
     try {
       const res = await axios.get("url");
       const data = res.data;
-      setItems(data.items);
+      setService(data.service);
     } catch (err) {
       toast.error(
         err?.response?.data?.msg || err?.error || "something went wrong"
@@ -21,10 +21,10 @@ const useGetWishListItems = () => {
     }
   };
   useEffect(() => {
-    getWishListItems();
+    getSingleService();
   }, []);
 
-  return { loading, items };
+  return { loading, service };
 };
 
-export default useGetWishListItems;
+export default useGetSingleService;
