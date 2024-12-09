@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { BsCartPlus } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-export default function ProductCard() {
+export default function ProductCard({ name, brand, price, id }) {
   return (
     <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg">
       <p className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto">
@@ -22,12 +22,12 @@ export default function ProductCard() {
           <p>4.0</p>
         </div>
       </div>
-      <Link to={"/accessories/1"} className="font-medium">
-        Bosch F002H60041 Front Brake Pad for Passenger Cars{" "}
+      <Link to={`/accessories/${id}`} className="font-medium">
+        {name}
       </Link>
-      <p className="font-medium me-auto">(Set of 4)</p>
+      <p className="font-medium me-auto">{brand}</p>
       <div className="flex gap-3 me-auto items-center">
-        <p className="font-semibold">AED 120</p>
+        <p className="font-semibold">{price}</p>
         <p className="font-medium text-[#959595] line-through">AED 199</p>
         <p className="text-[#17A600] font-bold text-xs">9% OFF</p>
       </div>

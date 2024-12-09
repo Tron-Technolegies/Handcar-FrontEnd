@@ -1,10 +1,13 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { CiFilter } from "react-icons/ci";
+import useGetAllProducts from "../../../hooks/products/useGetAllProducts";
+import Loading from "../../Loading";
 
 const list = ["Default", "Low - High", "High - Low"];
 
 export default function ProductList({ setShowSmallFilter }) {
+  const { loading, products } = useGetAllProducts();
   return (
     <div className="my-10">
       <div className="flex justify-between items-center">
@@ -37,15 +40,23 @@ export default function ProductList({ setShowSmallFilter }) {
         </span>
         Filter
       </button>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 place-items-center my-5">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 place-items-center my-5">
+          {products.length > 0 &&
+            products.map((x) => (
+              <div key={x.id}>
+                <ProductCard
+                  name={x.name}
+                  brand={x.brand}
+                  price={x.price}
+                  id={x.id}
+                />
+              </div>
+            ))}
+        </div>
+      )}
     </div>
   );
 }
