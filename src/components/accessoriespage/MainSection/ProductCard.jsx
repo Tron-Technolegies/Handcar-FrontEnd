@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ name, brand, price, id }) {
   return (
-    <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg">
+    <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg w-[330px]">
       <p className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto">
         <CiHeart />
       </p>
@@ -22,7 +22,10 @@ export default function ProductCard({ name, brand, price, id }) {
           <p>4.0</p>
         </div>
       </div>
-      <Link to={`/accessories/${id}`} className="font-medium">
+      <Link
+        to={`/accessories/${id}`}
+        className="font-medium text-start me-auto"
+      >
         {name}
       </Link>
       <p className="font-medium me-auto">{brand}</p>
