@@ -3,13 +3,21 @@ import { CiHeart } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import { BsCartPlus } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import useAddItemtoCart from "../../../hooks/cart/useAddItemtoCart";
+import Loading from "../../Loading";
+import useAddItemtoWishList from "../../../hooks/wishlist/useAddItemtoWishList";
 
 export default function ProductCard({ name, brand, price, id }) {
+  const { loading, addItemToCart } = useAddItemtoCart();
+  const { addItemtoWishList } = useAddItemtoWishList();
   return (
     <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg w-[330px]">
-      <p className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto">
+      <button
+        onClick={() => addItemtoWishList({ id: parseInt(id) })}
+        className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto"
+      >
         <CiHeart />
-      </p>
+      </button>
       <img src="/accessories/product.png" className="w-[212px] h-[141px]"></img>
       <div className="flex justify-between w-full items-center">
         <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
@@ -34,12 +42,18 @@ export default function ProductCard({ name, brand, price, id }) {
         <p className="font-medium text-[#959595] line-through">AED 199</p>
         <p className="text-[#17A600] font-bold text-xs">9% OFF</p>
       </div>
-      <button className="flex items-center gap-3 border rounded-lg hover:bg-black hover:text-white border-[#BBBBBB] p-2 w-full justify-center">
+      <button
+        onClick={() => {
+          addItemToCart({ id });
+        }}
+        className="flex items-center gap-3 border rounded-lg hover:bg-black hover:text-white border-[#BBBBBB] p-2 w-full justify-center"
+      >
         <span>Add to cart</span>
         <span>
           <BsCartPlus />
         </span>
       </button>
+      {loading && <Loading />}
     </div>
   );
 }
