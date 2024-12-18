@@ -9,9 +9,17 @@ const useAddItemtoCart = () => {
   const navigate = useNavigate();
 
   const addItemToCart = async ({ id }) => {
+    const product_id = id;
     setLoading(true);
     try {
-      const res = await axios.post(`${base_url}/cart/add/${id}/`);
+      const res = await axios.post(
+        `${base_url}/cart/add/${product_id}/`,
+        {
+          product_id: id,
+        },
+        { withCredentials: true }
+      );
+
       const data = res.data;
       navigate("/cart");
     } catch (err) {

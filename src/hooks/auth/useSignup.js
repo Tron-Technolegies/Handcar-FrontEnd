@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useSignup = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,12 @@ const useSignup = () => {
   const signUp = async ({ name, email, phone, password }) => {
     setLoading(true);
     try {
-      const res = await axios.post("url", { name, email, phone, password });
+      const res = await axios.post(`${base_url}/signup`, {
+        name,
+        email,
+        phone,
+        password,
+      });
       const data = res.data;
       toast.success("successfully logged in");
     } catch (err) {

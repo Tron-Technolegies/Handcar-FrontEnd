@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import FormInput from "../FormInput";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
+import useSignup from "../../hooks/auth/useSignup";
+import Loading from "../Loading";
 
 export default function SignUpPage({ setShowSignUp, setShowLogin }) {
+  const { loading, signUp } = useSignup();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -36,11 +43,23 @@ export default function SignUpPage({ setShowSignUp, setShowLogin }) {
           </button>
         </div>
         <div className="w-full px-10 flex flex-col gap-7">
-          <FormInput type={"text"} placeholder={"Name"} />
-          <FormInput type={"email"} placeholder={"Email"} />
+          <FormInput
+            type={"text"}
+            placeholder={"Name"}
+            value={name}
+            onchange={(e) => setName(e.target.value)}
+          />
+          <FormInput
+            type={"email"}
+            placeholder={"Email"}
+            value={email}
+            onchange={(e) => setEmail(e.target.value)}
+          />
           <p>Phone</p>
           <PhoneInput
             country={"ae"} // Set default country code (UAE in this case)
+            value={phone}
+            onChange={setPhone}
             inputStyle={{
               padding: "20px",
               paddingLeft: "40px",
@@ -50,12 +69,21 @@ export default function SignUpPage({ setShowSignUp, setShowLogin }) {
               borderRadius: "8px",
             }}
           />
-          <FormInput placeholder={"Password"} type={"password"} />
+          <FormInput
+            placeholder={"Password"}
+            type={"password"}
+            value={password}
+            onchange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <div className="w-full px-10 flex flex-col gap-3 items-center">
-          <button className="px-5 py-3 bg-[#DB1215] rounded-lg w-full text-white font-semibold">
+          <button
+            onClick={() => signUp({ name, email, password, phone })}
+            className="px-5 py-3 bg-[#DB1215] rounded-lg w-full text-white font-semibold"
+          >
             Sign Up
           </button>
+          {loading && <Loading />}
         </div>
         <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
