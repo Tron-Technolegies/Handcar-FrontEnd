@@ -3,11 +3,16 @@ import { motion } from "framer-motion";
 import { carWashPlans } from "../../../utils/plans";
 import PlanCard from "./PlanCard";
 import SmallScreenPlanSwitcher from "./SmallScreenPlanSwitcher";
+import useGetCarWashPlans from "../../../hooks/plans/useGetCarWashPlans";
+import Loading from "../../Loading";
 
 export default function CarWashPlans() {
   const [long, setLong] = useState(6);
   const [type, setType] = useState("basic");
-  return (
+  const { loading, plans } = useGetCarWashPlans();
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="xl:px-[120px] px-10 py-10 bg-gradient-to-b from-[#D50104] to-40%">
       <div className="max-w-[750px] flex flex-col gap-5 items-center mx-auto">
         <h1 className="md:text-4xl text-2xl text-center font-semibold text-white">

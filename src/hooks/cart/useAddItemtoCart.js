@@ -23,6 +23,7 @@ const useAddItemtoCart = () => {
       const data = res.data;
       navigate("/cart");
     } catch (err) {
+      console.log(err);
       toast.error(
         err?.response?.data?.msg || err?.error || "something went wrong"
       );
