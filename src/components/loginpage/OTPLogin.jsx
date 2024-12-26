@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import FormInput from "../FormInput";
+import { UserContext } from "../../UserContext";
 
-export default function OTPLogin({ setShowOtpLogin, setShowEnterOtp }) {
+export default function OTPLogin() {
+  const { setShowOtpLogin, setShowEnterOtp } = useContext(UserContext);
   return (
     <motion.div
       initial={{ opacity: 0 }}

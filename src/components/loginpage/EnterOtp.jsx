@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormInput from "../FormInput";
+import { UserContext } from "../../UserContext";
 
-export default function EnterOtp({ setShowEnterOtp }) {
+export default function EnterOtp() {
+  const { setShowEnterOtp } = useContext(UserContext);
   const [otp, setOtp] = useState(["", "", "", ""]);
 
   const handleChange = (e, index) => {

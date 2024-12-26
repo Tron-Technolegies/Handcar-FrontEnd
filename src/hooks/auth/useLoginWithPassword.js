@@ -1,12 +1,14 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { base_url } from "../../constants";
+import { UserContext } from "../../UserContext";
 
 const useLoginWithPassword = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { setShowLogin } = useContext(UserContext);
 
   const loginUser = async ({ phone, password }) => {
     setLoading(true);
@@ -24,6 +26,8 @@ const useLoginWithPassword = () => {
 
       const data = res.data;
       console.log(data);
+      navigate("/");
+      setShowLogin(false);
     } catch (err) {
       console.log(
         err?.response?.data?.msg || err?.error || "something went wrong"

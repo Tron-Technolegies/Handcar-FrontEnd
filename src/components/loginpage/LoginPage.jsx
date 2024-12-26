@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormInput from "../FormInput";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
 import useLoginWithPassword from "../../hooks/auth/useLoginWithPassword";
+import { UserContext } from "../../UserContext";
+import Loading from "../Loading";
 
-export default function LoginPage({
-  setShowLogin,
-  setShowSignup,
-  setShowOtpLogin,
-}) {
+export default function LoginPage() {
+  const { setShowLogin, setShowSignup, setShowOtpLogin } =
+    useContext(UserContext);
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const { loading, loginUser } = useLoginWithPassword();
@@ -73,7 +73,7 @@ export default function LoginPage({
           >
             Login with Password
           </button>
-
+          {loading && <Loading />}
           <p className="font-semibold">OR</p>
           <button
             className="px-5 py-3 bg-[#E1E1E1] rounded-lg w-full font-semibold"

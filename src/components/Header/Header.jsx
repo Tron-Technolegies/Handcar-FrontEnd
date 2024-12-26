@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import handcar_logo from "../../assets/handcar_logo.svg";
 import heart_icons from "../../assets/heart_icons.svg";
 import shopping_cart from "../../assets/shopping_cart.svg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import SmallHeader from "./SmallHeader";
+import { UserContext } from "../../UserContext";
 
-const Header = ({ setShowPopup, setSignupPopup }) => {
+const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
+  const { setShowLogin, setShowSignup } = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -61,13 +63,13 @@ const Header = ({ setShowPopup, setSignupPopup }) => {
         </div>
         <button
           className="px-4 py-2 rounded-lg bg-white border hidden lg:block border-black"
-          onClick={() => setShowPopup(true)}
+          onClick={() => setShowLogin(true)}
         >
           Login
         </button>
         <button
           className="px-4 py-2 rounded-lg bg-black hidden lg:block text-white border"
-          onClick={() => setSignupPopup(true)}
+          onClick={() => setShowSignup(true)}
         >
           Sign up
         </button>
@@ -82,7 +84,7 @@ const Header = ({ setShowPopup, setSignupPopup }) => {
         <div className="absolute w-full top-20 left-0 z-20 animate-slideInTop">
           <SmallHeader
             setSmallBar={setShowSmallBar}
-            setShowPopup={setShowPopup}
+            setShowPopup={setShowLogin}
           />
         </div>
       )}

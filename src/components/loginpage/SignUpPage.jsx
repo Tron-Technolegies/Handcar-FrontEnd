@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormInput from "../FormInput";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { motion } from "framer-motion";
 import useSignup from "../../hooks/auth/useSignup";
 import Loading from "../Loading";
+import { UserContext } from "../../UserContext";
 
-export default function SignUpPage({ setShowSignUp, setShowLogin }) {
+export default function SignUpPage() {
+  const { setShowLogin, setShowSignup } = useContext(UserContext);
   const { loading, signUp } = useSignup();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,7 +20,7 @@ export default function SignUpPage({ setShowSignUp, setShowLogin }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
-      onClick={() => setShowSignUp(false)}
+      onClick={() => setShowSignup(false)}
     >
       <motion.div
         initial={{ scale: 0.9 }}
@@ -33,7 +35,7 @@ export default function SignUpPage({ setShowSignUp, setShowLogin }) {
             className="w-1/2 py-3 text-lg font-semibold "
             onClick={() => {
               setShowLogin(true);
-              setShowSignUp(false);
+              setShowSignup(false);
             }}
           >
             LOGIN
@@ -94,7 +96,7 @@ export default function SignUpPage({ setShowSignUp, setShowLogin }) {
         </div>
         <button
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
-          onClick={() => setShowSignUp(false)}
+          onClick={() => setShowSignup(false)}
         >
           &times;
         </button>
