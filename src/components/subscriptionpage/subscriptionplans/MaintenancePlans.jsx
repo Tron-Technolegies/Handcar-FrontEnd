@@ -1,13 +1,40 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
-import { carWashPlans, maintenancePlans } from "../../../utils/plans";
+import React, { useEffect, useState } from "react";
 import PlanCard from "./PlanCard";
-import SmallScreenPlanSwitcher from "./SmallScreenPlanSwitcher";
+import useGetCarWashPlans from "../../../hooks/plans/useGetCarWashPlans";
+import Loading from "../../Loading";
 
 export default function MaintenancePlans() {
   const [long, setLong] = useState(6);
-  const [type, setType] = useState("basic");
-  return (
+  const [maintenancePlans, setMaintenancePlans] = useState([]);
+  const { loading, plans } = useGetCarWashPlans();
+
+  useEffect(() => {
+    if (plans) {
+      const filteredPlans = plans.filter(
+        (x) => x.duration === "6" && x.service_type === "Maintenance"
+      );
+      setMaintenancePlans(filteredPlans);
+    }
+  }, [loading]);
+
+  const handlefunction1 = () => {
+    setLong(6);
+    const filteredPlans = plans.filter(
+      (x) => x.duration === "6" && x.service_type === "Maintenance"
+    );
+    setMaintenancePlans(filteredPlans);
+  };
+  const handlefunction2 = () => {
+    setLong(12);
+    const filteredPlans = plans.filter(
+      (x) => x.duration === "12" && x.service_type === "Maintenance"
+    );
+    setMaintenancePlans(filteredPlans);
+  };
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="lg:px-[120px] px-10 py-10">
       <img
         src="/subs/img-1.png"
@@ -32,7 +59,7 @@ export default function MaintenancePlans() {
               borderRadius: long === 6 ? "999px" : "0px",
             }}
             transition={{ duration: 0.3 }}
-            onClick={() => setLong(6)}
+            onClick={handlefunction1}
           >
             6 Months
           </motion.button>
@@ -43,7 +70,7 @@ export default function MaintenancePlans() {
               borderRadius: long === 12 ? "999px" : "0px",
             }}
             transition={{ duration: 0.3 }}
-            onClick={() => setLong(12)}
+            onClick={handlefunction2}
           >
             12 Months
           </motion.button>
@@ -52,42 +79,16 @@ export default function MaintenancePlans() {
           <span className="text-[#1D9112]">Save 10% off </span>on 6 months
           subscription
         </p>
-        <SmallScreenPlanSwitcher type={type} setType={setType} />
       </div>
-      <div className="my-10 flex justify-center lg:hidden">
-        {type === "basic" && (
-          <PlanCard
-            name={maintenancePlans[0].name}
-            list={maintenancePlans[0].list}
-            price={maintenancePlans[0].price}
-            popular={maintenancePlans[0].popular}
-          />
-        )}
-        {type === "premium" && (
-          <PlanCard
-            name={maintenancePlans[1].name}
-            list={maintenancePlans[1].list}
-            price={maintenancePlans[1].price}
-            popular={maintenancePlans[1].popular}
-          />
-        )}
-        {type === "luxury" && (
-          <PlanCard
-            name={maintenancePlans[2].name}
-            list={maintenancePlans[2].list}
-            price={maintenancePlans[2].price}
-            popular={maintenancePlans[2].popular}
-          />
-        )}
-      </div>
-      <div className="lg:flex justify-around my-10 hidden">
+      <div className="flex justify-center gap-7 my-10">
         {maintenancePlans.map((x) => (
           <PlanCard
             key={x.id}
             name={x.name}
-            list={x.list}
+            list={x.description
+              .match(/<li>(.*?)<\/li>/g)
+              .map((item) => item.replace(/<\/?li>/g, ""))}
             price={x.price}
-            popular={x.popular}
           />
         ))}
       </div>

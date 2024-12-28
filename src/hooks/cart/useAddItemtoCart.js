@@ -11,12 +11,11 @@ const useAddItemtoCart = () => {
   const addItemToCart = async ({ id }) => {
     const product_id = id;
     setLoading(true);
-    const formdata = new FormData();
-    formdata.append("product_id", product_id);
+
     try {
       const res = await axios.post(
         `${base_url}/add_to_cart/${product_id}/`,
-        formdata,
+        {},
         { withCredentials: true }
       );
 

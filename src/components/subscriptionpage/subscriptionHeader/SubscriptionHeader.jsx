@@ -17,7 +17,7 @@ const SubscriptionHeader = () => {
           View all plans
         </button>
       </div>
-      <img src={subscription_page_headerimg} alt="" srcset="" className="" />
+      <img src={subscription_page_headerimg} alt="" className="" />
     </div>
   );
 };

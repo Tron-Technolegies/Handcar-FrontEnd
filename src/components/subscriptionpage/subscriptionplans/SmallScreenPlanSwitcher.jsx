@@ -29,11 +29,11 @@ export default function SmallScreenPlanSwitcher({ type, setType }) {
       <motion.button
         className={`text-[#DA1E21] p-2 `}
         animate={{
-          backgroundColor: type === "luxury" ? "#FFFFFF" : "#FFD9D9",
-          borderRadius: type === "luxury" ? "999px" : "0px",
+          backgroundColor: type === "luxuary" ? "#FFFFFF" : "#FFD9D9",
+          borderRadius: type === "luxuary" ? "999px" : "0px",
         }}
         transition={{ duration: 0.3 }}
-        onClick={() => setType("luxury")}
+        onClick={() => setType("luxuary")}
       >
         Luxury
       </motion.button>

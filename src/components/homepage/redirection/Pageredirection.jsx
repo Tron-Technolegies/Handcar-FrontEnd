@@ -3,7 +3,7 @@ import "../redirection/Pageredirection.css";
 import { Link } from "react-router-dom";
 const Pageredirection = () => {
   return (
-    <div className="home_page_redirection">
+    <div className="bg-black text-white lg:flex justify-around py-3 text-lg hidden ">
       {/* <p>Accessories</p> */}
       <Link to="/accessories">
         <p>Accessories</p>

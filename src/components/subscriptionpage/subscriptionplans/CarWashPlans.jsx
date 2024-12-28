@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { carWashPlans } from "../../../utils/plans";
 import PlanCard from "./PlanCard";
@@ -8,8 +8,32 @@ import Loading from "../../Loading";
 
 export default function CarWashPlans() {
   const [long, setLong] = useState(6);
-  const [type, setType] = useState("basic");
+  const [washPlans, setWashPlans] = useState([]);
   const { loading, plans } = useGetCarWashPlans();
+
+  useEffect(() => {
+    if (plans) {
+      const filteredPlans = plans.filter(
+        (x) => x.duration === "6" && x.service_type === "Car Wash"
+      );
+      setWashPlans(filteredPlans);
+    }
+  }, [loading]);
+
+  const handlefunction1 = () => {
+    setLong(6);
+    const filteredPlans = plans.filter(
+      (x) => x.duration === "6" && x.service_type === "Car Wash"
+    );
+    setWashPlans(filteredPlans);
+  };
+  const handlefunction2 = () => {
+    setLong(12);
+    const filteredPlans = plans.filter(
+      (x) => x.duration === "12" && x.service_type === "Car Wash"
+    );
+    setWashPlans(filteredPlans);
+  };
   return loading ? (
     <Loading />
   ) : (
@@ -32,7 +56,7 @@ export default function CarWashPlans() {
               borderRadius: long === 6 ? "999px" : "0px",
             }}
             transition={{ duration: 0.3 }}
-            onClick={() => setLong(6)}
+            onClick={handlefunction1}
           >
             6 Months
           </motion.button>
@@ -43,7 +67,7 @@ export default function CarWashPlans() {
               borderRadius: long === 12 ? "999px" : "0px",
             }}
             transition={{ duration: 0.3 }}
-            onClick={() => setLong(12)}
+            onClick={handlefunction2}
           >
             12 Months
           </motion.button>
@@ -52,42 +76,16 @@ export default function CarWashPlans() {
           <span className="text-[#DA1E21]">Save 10% off </span>on 6 months
           subscription
         </p>
-        <SmallScreenPlanSwitcher type={type} setType={setType} />
       </div>
-      <div className="my-10 flex justify-center lg:hidden">
-        {type === "basic" && (
-          <PlanCard
-            name={carWashPlans[0].name}
-            list={carWashPlans[0].list}
-            price={carWashPlans[0].price}
-            popular={carWashPlans[0].popular}
-          />
-        )}
-        {type === "premium" && (
-          <PlanCard
-            name={carWashPlans[1].name}
-            list={carWashPlans[1].list}
-            price={carWashPlans[1].price}
-            popular={carWashPlans[1].popular}
-          />
-        )}
-        {type === "luxury" && (
-          <PlanCard
-            name={carWashPlans[2].name}
-            list={carWashPlans[2].list}
-            price={carWashPlans[2].price}
-            popular={carWashPlans[2].popular}
-          />
-        )}
-      </div>
-      <div className="lg:flex justify-around my-10 hidden">
-        {carWashPlans.map((x) => (
+      <div className="my-10 flex lg:flex-row flex-col items-center justify-center gap-7">
+        {washPlans.map((x) => (
           <PlanCard
             key={x.id}
             name={x.name}
-            list={x.list}
             price={x.price}
-            popular={x.popular}
+            list={x.description
+              .match(/<li>(.*?)<\/li>/g)
+              .map((item) => item.replace(/<\/?li>/g, ""))}
           />
         ))}
       </div>

@@ -10,7 +10,7 @@ export default function PlanCard({ name, price, list, popular }) {
         opacity: { duration: 1 }, // Duration for the fade-in
         scale: { duration: 1, ease: "easeOut" }, // Duration and easing for the scale-in
       }}
-      className="w-[310px] bg-white py-3 px-4 rounded-lg flex flex-col justify-between min-h-[600px] items-center shadow-md"
+      className="w-[310px] bg-white py-3 px-4 rounded-lg flex flex-col justify-between min-h-[400px] items-center shadow-md"
     >
       <div className="flex flex-col gap-5">
         <div className="flex justify-between w-full pt-5">
@@ -35,7 +35,7 @@ export default function PlanCard({ name, price, list, popular }) {
         </div>
       </div>
       <div className="flex flex-col gap-5 w-full">
-        <div className="bg-[#F7F7F7] rounded-lg p-3 w-full flex flex-col gap-7">
+        {/* <div className="bg-[#F7F7F7] rounded-lg p-3 w-full flex flex-col gap-7">
           <p className="font-bold">Multiple Cars Discount</p>
           <div className="flex w-full justify-between items-center">
             <div className="flex gap-3">
@@ -64,7 +64,7 @@ export default function PlanCard({ name, price, list, popular }) {
             </div>
             <p>20% off/Car</p>
           </div>
-        </div>
+        </div> */}
         <button className="px-4 py-2 border border-black rounded-lg font-medium hover:bg-black hover:text-white">
           Subscribe
         </button>
