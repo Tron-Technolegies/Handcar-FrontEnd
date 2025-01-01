@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useGetWishListItems = () => {
   const [loading, setLoading] = useState(false);
@@ -9,7 +10,9 @@ const useGetWishListItems = () => {
   const getWishListItems = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("url");
+      const res = await axios.get(`${base_url}/wishlist_items`, {
+        withCredentials: true,
+      });
       const data = res.data;
       setItems(data.items);
     } catch (err) {

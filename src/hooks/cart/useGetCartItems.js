@@ -6,15 +6,17 @@ import { base_url } from "../../constants";
 const useGetCartItems = () => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
+  const [price, setPrice] = useState();
 
   const getCartItems = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/viewcartitems/`, {
+      const res = await axios.get(`${base_url}/display_cart`, {
         withCredentials: true,
       });
       const data = res.data;
-      setItems(data.items);
+      setItems(data.cart_items);
+      setPrice(data.total_price);
     } catch (err) {
       toast.error(
         err?.response?.data?.msg || err?.error || "something went wrong"
@@ -27,7 +29,7 @@ const useGetCartItems = () => {
     getCartItems();
   }, []);
 
-  return { loading, items };
+  return { loading, items, price };
 };
 
 export default useGetCartItems;

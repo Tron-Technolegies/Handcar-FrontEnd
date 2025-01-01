@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiTrash } from "react-icons/ci";
 
-const list = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-export default function CartItem() {
+export default function CartItem({ name, totalPrice, qty }) {
+  const [quantity, setQuantity] = useState(qty ? qty : "1");
+
+  useEffect(() => {
+    if (qty) {
+      setQuantity(qty);
+    }
+  }, [qty]);
   return (
     <div className="bg-[#F5F5F5] p-5 rounded-lg flex md:flex-row flex-col gap-10 justify-between items-center">
       <div className="flex gap-5 items-center">
@@ -12,10 +19,8 @@ export default function CartItem() {
           className="w-[100px] h-[100px] rounded-md"
         ></img>
         <div>
-          <h4 className="text-lg font-semibold max-w-[300px]">
-            Dash Cam 4K A800S Native True 4K Resolution (Front Only)
-          </h4>
-          <p className="text-[#7D7D7D] text-sm">Model Number : A800S</p>
+          <h4 className="text-lg font-semibold max-w-[300px]">{name}</h4>
+          {/* <p className="text-[#7D7D7D] text-sm">Model Number : A800S</p> */}
         </div>
       </div>
       <div className="flex gap-7 items-center">
@@ -26,13 +31,14 @@ export default function CartItem() {
             <option
               className="border-b py-1 border-gray-300"
               key={item}
-              value={item}
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
             >
               {item}
             </option>
           ))}
         </select>
-        <p className="min-w-fit text-[#17A600]">AED 370.00</p>
+        <p className="min-w-fit text-[#17A600]">AED {totalPrice}</p>
         <p>
           <CiTrash />
         </p>
