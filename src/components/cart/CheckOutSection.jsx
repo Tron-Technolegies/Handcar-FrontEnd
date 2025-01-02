@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function CheckOutSection({ price }) {
+  const total = price + 20;
   return (
     <div className="bg-[#F5F5F5] p-5 lg:px-[120px] px-5 rounded-lg flex items-center flex-col gap-5">
       <p>Do you have any Coupon code ?</p>
@@ -26,7 +27,7 @@ export default function CheckOutSection({ price }) {
         </div>
         <div className="flex justify-between items-center">
           <p className="text-[#979797]">Grand total</p>
-          <p className="text-[#17A600] text-lg">AED 360.00</p>
+          <p className="text-[#17A600] text-lg">AED {total}</p>
         </div>
       </div>
       <Link

@@ -4,7 +4,7 @@ import { CiTrash } from "react-icons/ci";
 const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function CartItem({ name, totalPrice, qty }) {
-  const [quantity, setQuantity] = useState(qty ? qty : "1");
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     if (qty) {
@@ -26,13 +26,14 @@ export default function CartItem({ name, totalPrice, qty }) {
       <div className="flex gap-7 items-center">
         <select
           className={`w-full py-1 px-3 rounded-lg bg-white border border-gray-300 text-gray-900 `}
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
         >
           {list?.map((item) => (
             <option
               className="border-b py-1 border-gray-300"
               key={item}
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              value={item}
             >
               {item}
             </option>
