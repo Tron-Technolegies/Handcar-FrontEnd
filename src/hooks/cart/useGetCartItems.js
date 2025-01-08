@@ -29,7 +29,11 @@ const useGetCartItems = () => {
     getCartItems();
   }, []);
 
-  return { loading, items, price };
+  const refetch = () => {
+    getCartItems();
+  };
+
+  return { loading, items, price, refetch };
 };
 
 export default useGetCartItems;

@@ -20,6 +20,8 @@ export default function CartPage() {
             name={x.product_name}
             qty={x.quantity}
             totalPrice={x.total_price}
+            image={x.product_image}
+            id={x.product_id}
           />
         ))}
       </div>
