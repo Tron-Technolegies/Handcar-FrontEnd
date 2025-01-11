@@ -1,91 +1,62 @@
 import React from "react";
-import { useRef } from "react";
-import "../handcarServices/HandCarServices.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import handcarservices_header from "../../../assets/handcarservices_header.png";
 import painting_accessories from "../../../assets/painting_accessories.png";
 import washing_accessories from "../../../assets/washing_accessories.png";
 import tyre_accessories from "../../../assets/tyre_accessories.png";
+import HandCarServicesSliderCard from "./HandCarServicesSliderCard";
 const HandCarServices = () => {
-  const scrollContainerRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 250;
-      const container = scrollContainerRef.current;
-
-      if (direction === "left") {
-        container.scrollBy({
-          left: -scrollAmount,
-          behavior: "smooth",
-        });
-      } else {
-        container.scrollBy({
-          left: scrollAmount,
-          behavior: "smooth",
-        });
-      }
-    }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    centerMode: true,
+    slidesToShow: 3, // Number of slides to show at a time
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
-    <div className="handcar-services-container">
-      <div className="handcar-services">
-        <div className="handcar-services-heading">
-          <h1>Hand Car Services</h1>
-          <p>
-            We Deliver Comprehensive Car Solutions! Explore Our Range of
-            Services
-          </p>
-        </div>
+    <div className="lg:px-[120px] px-10 py-10 flex flex-col gap-5">
+      <div className="flex flex-col gap-4 items-center">
+        <h4 className="text-3xl font-semibold">Handcar Car Services </h4>
+        <p className="font-semibold">
+          We Deliver Comprehensive Car Solutions! Explore Our Range of Services
+        </p>
       </div>
-
-      <div className="services-scroll-wrapper">
-        <div className="various-handcar-services">
-          <button
-            className="scroll-button left"
-            onClick={() => scroll("left")}
-            aria-label="Previous"
-          >
-            &#8249;
-          </button>
-
-          <div className="services-scroll-container" ref={scrollContainerRef}>
-            <div className="car-service">
-              <div className="service-image">
-                <img src={painting_accessories} alt="Car painting" />
-              </div>
-              <h3>Car Painting Services</h3>
-            </div>
-
-            <div className="car-service">
-              <div className="service-image">
-                <img src={washing_accessories} alt="Car washing" />
-              </div>
-              <h3>Car Washing Services</h3>
-            </div>
-
-            <div className="car-service">
-              <div className="service-image">
-                <img src={tyre_accessories} alt="Tyre services" />
-              </div>
-              <h3>Tyre Services</h3>
-            </div>
-
-            <div className="car-service">
-              <div className="service-image">
-                <img src={painting_accessories} alt="Interior detailing" />
-              </div>
-              <h3>Interior Detailing</h3>
-            </div>
-          </div>
-
-          <button
-            className="scroll-button right"
-            onClick={() => scroll("right")}
-            aria-label="Next"
-          >
-            &#8250;
-          </button>
-        </div>
+      <div className="red-gradient p-10 rounded-lg">
+        <Slider {...settings}>
+          <HandCarServicesSliderCard
+            image={painting_accessories}
+            content={"Car Painting Services"}
+          />
+          <HandCarServicesSliderCard
+            image={washing_accessories}
+            content={"Car Washing Services"}
+          />
+          <HandCarServicesSliderCard
+            image={tyre_accessories}
+            content={"Tyre Services"}
+          />
+          <HandCarServicesSliderCard
+            image={painting_accessories}
+            content={"Interior Detailing"}
+          />
+        </Slider>
       </div>
     </div>
   );

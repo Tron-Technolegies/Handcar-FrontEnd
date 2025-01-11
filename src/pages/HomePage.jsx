@@ -22,18 +22,18 @@ import ContactForm from "../components/homepage/contactForm/ContactForm";
 const HomePage = () => {
   return (
     <div>
-      <Pageredirection />
+      {/* <Pageredirection /> */}
       <PartsFinder />
       <HandCarFeatures />
-      <BestDeals />
-      <ExclusiveOffers />
+      {/* <BestDeals /> */}
+      {/* <ExclusiveOffers /> */}
 
       <GuaranteedFeatures />
-      <AccessoriesByCategories />
-      <CarAccessoriesList />
+      {/* <AccessoriesByCategories /> */}
+      {/* <CarAccessoriesList /> */}
 
       <BrandSpareParts />
-      <BrandAccessories />
+      {/* <BrandAccessories /> */}
       <HandCarServices />
       <SparePartsSlider />
       <AboutHandcar />

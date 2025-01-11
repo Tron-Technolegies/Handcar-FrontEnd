@@ -43,8 +43,10 @@ const Header = () => {
       </div>
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/subscription"}>Subscribe</NavLink>
-        <NavLink to={"/accessories"}>Accessories</NavLink>
+        {/* <NavLink to={"/subscription"}>Subscribe</NavLink>
+        <NavLink to={"/accessories"}>Accessories</NavLink> */}
+        <NavLink to={"/spareparts"}>Spare Parts</NavLink>
+        <NavLink to={"/servicepage"}>Services</NavLink>
         <a className="cursor-pointer" onClick={handleAboutClick}>
           About Us
         </a>
@@ -53,14 +55,14 @@ const Header = () => {
         </a>
       </div>
       <div className="flex xl:gap-5 gap-3 items-center">
-        <div className="flex xl:gap-5 gap-3 items-center">
+        {/* <div className="flex xl:gap-5 gap-3 items-center">
           <Link to={"/wishlist"}>
             <img src={heart_icons} alt="Favorites" />
           </Link>
           <Link to={"/cart"}>
             <img src={shopping_cart} alt="Cart" />
           </Link>
-        </div>
+        </div> */}
         <button
           className="px-4 py-2 rounded-lg bg-white border hidden lg:block border-black"
           onClick={() => setShowLogin(true)}

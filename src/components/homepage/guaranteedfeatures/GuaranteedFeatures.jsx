@@ -6,7 +6,7 @@ const GuaranteedFeatures = () => {
     <div className="guaranteed_features_container">
       <div className="guaranteed_features">
         <div className="guaranteed_features_content ">
-          <img src={handCarlogo} alt="" srcset="" />
+          <img src={handCarlogo} alt="" className="lg:block hidden" />
           <h1 className="text-xl font-semibold">Handcar Guaranteed</h1>
         </div>
 

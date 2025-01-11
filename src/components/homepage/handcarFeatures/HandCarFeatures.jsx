@@ -1,57 +1,22 @@
 import React from "react";
-import "./HandCarFeatures.css";
 import car_accessories from "../../../assets/car_accessories.png";
 import car_image from "../../../assets/car_image.png";
 import third_featureimg from "../../../assets/third_featureimg.png";
+import HandCarFeatureCard from "./HandCarFeatureCard";
 
 const HandCarFeatures = () => {
   return (
-    <div>
-      <div className="handcar_feature_container">
-        <div className="handcar_first_feature">
-          <div className="first_feature_content">
-            <div className="first_feature_and_button z-10">
-              <h1>
-                Explore Best Accessories <br /> from Top Brands
-              </h1>
-              <button className="handcar_feature_button">View Products</button>
-            </div>
-            <div className="first_feature_img">
-              <img src={car_accessories} className="" alt="Car Accessories" />
-            </div>
-          </div>
-        </div>
-        <div className="feature_right-column">
-          <div className="handcar_second_feature">
-            <div className="first_feature_content">
-              <div className="first_feature_and_button z-10">
-                <h1>
-                  Find best and cost effective <br /> services for your ride.
-                </h1>
-                <button className="handcar_feature_button">
-                  Find Services
-                </button>
-              </div>
-              <div className="second_feature_img">
-                <img src={car_image} alt="Car Accessories" />
-              </div>
-            </div>
-          </div>
-          <div className="handcar_third_feature">
-            <div className="first_feature_content">
-              <div className="first_feature_and_button z-10">
-                <h1>
-                  Find best and cost effective <br /> services for your ride.
-                </h1>
-                <button className="handcar_feature_button">Enquire Now</button>
-              </div>
-              <div className="second_feature_img">
-                <img src={third_featureimg} alt="Car Accessories" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="bg-white flex md:flex-row flex-col justify-center gap-10 lg:px-[120px] px-10 py-10">
+      <HandCarFeatureCard
+        content={"Find best and cost effective services for your ride."}
+        button={"Find Services"}
+        image={car_image}
+      />
+      <HandCarFeatureCard
+        content={"Find best in quality car spare parts"}
+        button={"Enquire Now"}
+        image={third_featureimg}
+      />
     </div>
   );
 };

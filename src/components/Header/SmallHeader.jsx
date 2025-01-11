@@ -12,7 +12,7 @@ export default function SmallHeader({ setSmallBar, setShowPopup }) {
         >
           Home
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to={"/subscription"}
           className={"border-b w-full py-2"}
           onClick={() => setSmallBar(false)}
@@ -25,7 +25,7 @@ export default function SmallHeader({ setSmallBar, setShowPopup }) {
           onClick={() => setSmallBar(false)}
         >
           Accessories
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={"/spareparts"}
           className={"border-b w-full py-2"}

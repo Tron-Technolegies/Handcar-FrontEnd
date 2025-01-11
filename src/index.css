@@ -40,7 +40,7 @@ button {
 }
 
 .red-gradient {
-  background: linear-gradient(286.65deg, #d50104 12.23%, #fe8f91 124.12%);
+  background: linear-gradient(286.65deg, #fe8f91 12.23%, #d50104 124.12%);
 }
 .green-gradient {
   background: linear-gradient(336.55deg, #25a51a 19.1%, #ffffff 260.53%);
