@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/footer/Footer";
@@ -11,6 +11,19 @@ import { UserContext } from "../UserContext";
 export default function HomeLayout() {
   const { showLogin, showSignup, showEnterOtp, showOtpLogin } =
     useContext(UserContext);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(position);
+        },
+        (err) => {
+          console.log(err.message);
+        }
+      );
+    }
+  }, []);
   return (
     <div className="mx-0">
       <div className="sticky top-0 z-50">

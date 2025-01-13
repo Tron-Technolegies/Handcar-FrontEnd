@@ -1,20 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import { base_url } from "../../constants";
 
-const useGetSingleService = ({ id }) => {
+const useGetAllServiceCategories = () => {
   const [loading, setLoading] = useState(false);
-  const [service, setService] = useState({});
+  const [categories, setCategories] = useState([]);
 
-  const getSingleService = async () => {
+  const getAllCategories = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `${base_url}/view_single_service_user/${id}/`
-      );
+      const res = await axios.get(`${base_url}/view_service_categories_user`);
       const data = res.data;
-      setService(data.service);
+      setCategories(data.service_categories);
     } catch (err) {
       toast.error(
         err?.response?.data?.msg || err?.error || "something went wrong"
@@ -23,11 +20,12 @@ const useGetSingleService = ({ id }) => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
-    getSingleService();
+    getAllCategories();
   }, []);
 
-  return { loading, service };
+  return { loading, categories };
 };
 
-export default useGetSingleService;
+export default useGetAllServiceCategories;
