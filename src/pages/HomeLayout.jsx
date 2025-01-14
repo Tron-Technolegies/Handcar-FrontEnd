@@ -20,6 +20,10 @@ export default function HomeLayout() {
         },
         (err) => {
           console.log(err.message);
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
         }
       );
     }

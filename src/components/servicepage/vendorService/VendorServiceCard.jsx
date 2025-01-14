@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-export default function PaintingCard({ setShowPopup, data }) {
+export default function VendorServiceCard({ setShowPopup, data }) {
   return (
     <div className="bg-[#FBFBFD] p-3 shadow-lg rounded-lg max-w-[350px] flex flex-col gap-3 gap-y-5 font-semibold">
       <img

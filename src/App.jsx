@@ -16,7 +16,7 @@ import AddressSelectPage from "./pages/AddressSelectPage";
 import ErrorPage from "./pages/ErrorPage";
 import ConfirmOrderPage from "./pages/ConfirmOrderPage";
 import WishListPage from "./pages/WishListPage";
-import PaintingServiceDetailPopup from "./components/servicepage/paintingService/PaintingServiceDetailPopup";
+import PaintingServiceDetailPopup from "./components/servicepage/vendorService/VendorServiceDetailPopup";
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
