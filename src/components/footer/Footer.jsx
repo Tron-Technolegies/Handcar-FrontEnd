@@ -1,46 +1,65 @@
 import React from "react";
-import "../footer/Footer.css";
-import handcar_logo from "../../assets/handcar_logo.svg";
-const Footer = () => {
-  return (
-    <div className="footer_container">
-      <div className="footer">
-        <div className="footer_logo">
-          <img src={handcar_logo} alt="" srcset="" />
-        </div>
+import { Link, useNavigate } from "react-router-dom";
+import { IoLocationOutline } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
 
-        <div className="footer_contents text-[#979797]">
-          <li>
-            <a href="">Spare parts</a>
-          </li>
-          <li>
-            <a href="">Accessories</a>
-          </li>
-          <li>
-            <a href="">Service</a>
-          </li>
-          <li>
-            <a href="">FAQs</a>
-          </li>
-          <li>
-            <a href="">Blogs</a>
-          </li>
-          <li>
-            <a href="">Terms&Conditions</a>
-          </li>
-          <li>
-            <a href="">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="">Contact Us</a>
-          </li>
+const Footer = () => {
+  const navigate = useNavigate();
+  function handleAboutClick() {
+    if (location.pathname === "/") {
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }
+
+  function handleContactClick() {
+    if (location.pathname === "/") {
+      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }
+  return (
+    <footer className="bg-black lg:px-[120px] py-10 px-10 flex sm:flex-row flex-col justify-between sm:items-center items-start gap-7">
+      <img src="/footer-logo.png" className="w-10" />
+      <div className="text-[#979797] flex flex-col gap-5">
+        <div className="flex sm:flex-row flex-col sm:items-center items-start gap-5">
+          <Link to={"/"}>Home</Link>
+          <Link to={"/spareparts"}>Spare Parts</Link>
+          <Link to={"/servicepage"}>Services</Link>
+          <a className="cursor-pointer" onClick={handleAboutClick}>
+            About Us
+          </a>
+          <a className="cursor-pointer" onClick={handleContactClick}>
+            Contact Us
+          </a>
         </div>
+        <div className="flex flex-col gap-3">
+          <p className="flex items-center gap-3">
+            <span>
+              <FaPhoneAlt />
+            </span>
+            +911234567890
+          </p>
+          <p className="flex items-center gap-3">
+            <span>
+              <IoLocationOutline />
+            </span>
+            Adresss adress adress adress
+          </p>
+        </div>
+        <p className="text-xs">© 2025 Handcar. All Rights Reserved</p>
       </div>
-      <div className="contact_num_and_address">
-        <li>+97123456789</li>
-        <li>Address goes here</li>
-      </div>
-    </div>
+    </footer>
   );
 };
 

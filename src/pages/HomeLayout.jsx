@@ -7,10 +7,20 @@ import SignUpPage from "../components/loginpage/SignUpPage";
 import OTPLogin from "../components/loginpage/OTPLogin";
 import EnterOtp from "../components/loginpage/EnterOtp";
 import { UserContext } from "../UserContext";
+import ForgotPassword from "../components/loginpage/ForgotPassword";
+import VerificationCode from "../components/loginpage/VerificationCode";
+import NewPassword from "../components/loginpage/NewPassword";
 
 export default function HomeLayout() {
-  const { showLogin, showSignup, showEnterOtp, showOtpLogin } =
-    useContext(UserContext);
+  const {
+    showLogin,
+    showSignup,
+    showEnterOtp,
+    showOtpLogin,
+    showForgotPassword,
+    showVerification,
+    showNewPassword,
+  } = useContext(UserContext);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -37,6 +47,9 @@ export default function HomeLayout() {
       {showSignup && <SignUpPage />}
       {showOtpLogin && <OTPLogin />}
       {showEnterOtp && <EnterOtp />}
+      {showForgotPassword && <ForgotPassword />}
+      {showVerification && <VerificationCode />}
+      {showNewPassword && <NewPassword />}
       <div className="overflow-hidden">
         <Outlet />
       </div>

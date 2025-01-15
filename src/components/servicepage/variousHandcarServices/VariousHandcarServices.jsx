@@ -1,9 +1,5 @@
 import React from "react";
 import "../variousHandcarServices/VariousHandcarServices.css";
-import car_wash_icon from "../../../assets/car_wash_icon.png";
-import car_beauty_icon from "../../../assets/car_beauty_icon.png";
-import car_service_icon from "../../../assets/car_service_icon.png";
-import { FaLongArrowAltRight } from "react-icons/fa";
 import ServiceElt from "./ServiceElt";
 import useGetAllServiceCategories from "../../../hooks/vendorservices/useGetAllServiceCategories";
 import Loading from "../../Loading";

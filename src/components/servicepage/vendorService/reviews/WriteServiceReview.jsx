@@ -75,7 +75,10 @@ export default function WriteServiceReview({ setShowPopup, service_id }) {
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
           <button
-            onClick={() => postReview({ id: service_id, rating, comment })}
+            onClick={async () => {
+              await postReview({ id: service_id, rating, comment });
+              setShowPopup(false);
+            }}
             className="px-4 py-2 bg-black rounded-lg text-white border-2 hover:bg-white hover:text-black shadow-md"
           >
             Submit Review

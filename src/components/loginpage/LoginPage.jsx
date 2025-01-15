@@ -8,8 +8,12 @@ import { UserContext } from "../../UserContext";
 import Loading from "../Loading";
 
 export default function LoginPage() {
-  const { setShowLogin, setShowSignup, setShowOtpLogin } =
-    useContext(UserContext);
+  const {
+    setShowLogin,
+    setShowSignup,
+    setShowOtpLogin,
+    setShowForgotPassword,
+  } = useContext(UserContext);
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const { loading, loginUser } = useLoginWithPassword();
@@ -64,7 +68,15 @@ export default function LoginPage() {
             value={password}
             onchange={(e) => setPassword(e.target.value)}
           />
-          <p className="text-end text-[#4F7FE7]">Forgot Password?</p>
+          <p
+            className="text-end text-[#4F7FE7] cursor-pointer"
+            onClick={() => {
+              setShowLogin(false);
+              setShowForgotPassword(true);
+            }}
+          >
+            Forgot Password?
+          </p>
         </div>
         <div className="w-full px-10 flex flex-col gap-3 items-center">
           <button
@@ -85,13 +97,13 @@ export default function LoginPage() {
             Login with OTP
           </button>
         </div>
-        <div className="w-full px-10 flex flex-col items-center">
+        {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
           <p className="text-[#4F7FE7] underline">
             Terms & Conditions{" "}
             <span className="text-black no-underline">and</span> Privacy Policy
           </p>
-        </div>
+        </div> */}
         <button
           onClick={() => setShowLogin(false)}
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"

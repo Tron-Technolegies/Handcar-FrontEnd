@@ -1,10 +1,9 @@
-import { motion } from "framer-motion";
 import React, { useContext, useState } from "react";
-import FormInput from "../FormInput";
 import { UserContext } from "../../UserContext";
+import { motion } from "framer-motion";
 
-export default function EnterOtp() {
-  const { setShowEnterOtp } = useContext(UserContext);
+export default function VerificationCode() {
+  const { setShowVerification, setShowNewPassword } = useContext(UserContext);
   const [otp, setOtp] = useState(["", "", "", ""]);
 
   const handleChange = (e, index) => {
@@ -26,12 +25,13 @@ export default function EnterOtp() {
       document.getElementById(`otp-input-${index - 1}`).focus();
     }
   };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={() => setShowEnterOtp(false)}
+      onClick={() => setShowVerification(false)}
       className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
     >
       <motion.div
@@ -43,7 +43,10 @@ export default function EnterOtp() {
       >
         <img src="/logo.png" className="w-[49px] h-[55px]"></img>
         <div className="p-5 flex flex-col gap-7 w-full">
-          <h4 className="text-xl font-semibold text-center">Enter OTP</h4>
+          <h4 className="text-xl font-semibold text-center">Verification</h4>
+          <p className="text-center">
+            Enter your 4 digits code that you received on your email.
+          </p>
           <div className="flex justify-center items-center gap-5">
             {otp.map((digit, index) => (
               <input
@@ -58,9 +61,19 @@ export default function EnterOtp() {
               />
             ))}
           </div>
-          <button className="px-5 py-3 bg-black rounded-lg w-full text-white font-semibold">
-            Login
+          <button
+            className="px-5 py-3 bg-black rounded-lg w-full text-white font-semibold"
+            onClick={() => {
+              setShowNewPassword(true);
+              setShowVerification(false);
+            }}
+          >
+            VERIFY
           </button>
+          <p className="text-center text-xs">
+            If you didn’t receive a code!{" "}
+            <span className="text-[#F2451C] cursor-pointer">Resend</span>
+          </p>
         </div>
         {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
@@ -70,7 +83,9 @@ export default function EnterOtp() {
           </p>
         </div> */}
         <button
-          onClick={() => setShowEnterOtp(false)}
+          onClick={() => {
+            setShowVerification(false);
+          }}
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
         >
           &times;

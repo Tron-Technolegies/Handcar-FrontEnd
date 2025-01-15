@@ -87,13 +87,13 @@ export default function SignUpPage() {
           </button>
           {loading && <Loading />}
         </div>
-        <div className="w-full px-10 flex flex-col items-center">
+        {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
           <p className="text-[#4F7FE7] underline">
             Terms & Conditions{" "}
             <span className="text-black no-underline">and</span> Privacy Policy
           </p>
-        </div>
+        </div> */}
         <button
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl"
           onClick={() => setShowSignup(false)}

@@ -24,8 +24,13 @@ const useAddServiceReview = () => {
       navigate(`/servicepage/${id}`);
       toast.success("Successfully added");
     } catch (err) {
+      console.log(err);
+
       toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+        err?.response?.data?.error ||
+          err?.error ||
+          err.message ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);
