@@ -1,14 +1,8 @@
 import React from "react";
-
-import useGetAllServices from "../../../hooks/vendorservices/useGetAllServices";
-import Loading from "../../Loading";
 import VendorServiceCard from "./VendorServiceCard";
 
-export default function VendorService() {
-  const { loading, services } = useGetAllServices();
-  return loading ? (
-    <Loading />
-  ) : (
+export default function VendorService({ services }) {
+  return (
     <div className="lg:px-[120px] py-10 px-10">
       <h4 className="text-xl font-semibold text-center">
         {services.length} services

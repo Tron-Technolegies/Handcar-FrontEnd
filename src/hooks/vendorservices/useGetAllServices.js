@@ -3,14 +3,19 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { base_url } from "../../constants";
 
-const useGetAllServices = () => {
+const useGetAllServices = ({ lat, lng }) => {
   const [loading, setLoading] = useState(false);
   const [services, setServices] = useState([]);
 
   const getAllServices = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/view_service_user`);
+      const res = await axios.get(`${base_url}/get_nearby_services`, {
+        params: {
+          lat: lat,
+          lng: lng,
+        },
+      });
       const data = res.data;
       setServices(data.services);
     } catch (err) {
@@ -25,7 +30,11 @@ const useGetAllServices = () => {
     getAllServices();
   }, []);
 
-  return { loading, services };
+  const refetch = () => {
+    getAllServices();
+  };
+
+  return { loading, services, refetch };
 };
 
 //this is a comment
