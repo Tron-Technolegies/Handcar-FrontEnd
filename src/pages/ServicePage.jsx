@@ -8,18 +8,36 @@ import useGetAllServices from "../hooks/vendorservices/useGetAllServices";
 import Loading from "../components/Loading";
 
 const ServicePage = () => {
-  const { location } = useContext(UserContext);
+  const { location, activeServiceCategory, setActiveServiceCategory } =
+    useContext(UserContext);
   const { loading, services, refetch } = useGetAllServices(location);
+  const [filteredServices, setFilteredServices] = useState([]);
 
   useEffect(() => {
+    setActiveServiceCategory("All");
     refetch();
   }, [location]);
+
+  useEffect(() => {
+    setFilteredServices(services);
+  }, [services]);
+
+  useEffect(() => {
+    if (activeServiceCategory === "All") {
+      setFilteredServices(services);
+    } else {
+      const filtered = services.filter(
+        (x) => x.service_category === activeServiceCategory
+      );
+      setFilteredServices(filtered);
+    }
+  }, [activeServiceCategory]);
   return (
     <div>
       <HandcarServicesDetails />
       <VariousHandcarServices />
       <MapLocation />
-      {loading ? <Loading /> : <PaintingService services={services} />}
+      {loading ? <Loading /> : <PaintingService services={filteredServices} />}
     </div>
   );
 };

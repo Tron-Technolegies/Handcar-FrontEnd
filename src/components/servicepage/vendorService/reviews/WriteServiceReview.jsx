@@ -4,8 +4,13 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { ImAttachment } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
 import useAddServiceReview from "../../../../hooks/vendorservices/useAddServiceReview";
+import Loading from "../../../Loading";
 
-export default function WriteServiceReview({ setShowPopup, service_id }) {
+export default function WriteServiceReview({
+  setShowPopup,
+  service_id,
+  refetch,
+}) {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const { loading, postReview } = useAddServiceReview();
@@ -78,11 +83,13 @@ export default function WriteServiceReview({ setShowPopup, service_id }) {
             onClick={async () => {
               await postReview({ id: service_id, rating, comment });
               setShowPopup(false);
+              refetch();
             }}
             className="px-4 py-2 bg-black rounded-lg text-white border-2 hover:bg-white hover:text-black shadow-md"
           >
             Submit Review
           </button>
+          {loading && <Loading />}
         </div>
       </motion.div>
     </motion.div>

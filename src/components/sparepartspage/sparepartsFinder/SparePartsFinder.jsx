@@ -22,7 +22,7 @@ const SparePartsFinder = () => {
       </div>
 
       <div className="spare_parts_finder_container_img">
-        <img src={topbrand_spare_parts} alt="" srcset="" />
+        <img src={topbrand_spare_parts} alt="" />
       </div>
     </div>
   );

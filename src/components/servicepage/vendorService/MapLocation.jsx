@@ -26,19 +26,30 @@ export default function MapLocation() {
       <h4 className="text-3xl font-semibold text-center">
         Find Services Near You
       </h4>
-      <div className="relative w-fit mx-auto">
-        <input
-          type="text"
-          className="bg-[#F5F5F7] h-10 rounded-md px-2 py-1 w-[300px] outline-none"
-          placeholder="Your Location"
-          value={place}
-          onChange={(e) => setPlace(e.target.value)}
-        />
+      <div className="flex flex-col items-center gap-3">
+        <div className="relative w-fit mx-auto">
+          <input
+            type="text"
+            className="bg-[#F5F5F7] h-10 rounded-md px-2 py-1 w-[300px] outline-none"
+            placeholder="Your Location"
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
+          />
+          <button
+            className="absolute bg-black text-white text-2xl h-10 rounded-md px-4 right-0"
+            onClick={() => handleClick()}
+          >
+            <CiSearch />
+          </button>
+        </div>
         <button
-          className="absolute bg-black text-white text-2xl h-10 rounded-md px-4 right-0"
-          onClick={() => handleClick()}
+          className=" bg-black text-white text-sm h-8 rounded-md px-2 "
+          onClick={() => {
+            setLocation({ lat: "", lng: "" });
+            setPlace("");
+          }}
         >
-          <CiSearch />
+          clear
         </button>
       </div>
       {/* <MapComponent /> */}

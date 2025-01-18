@@ -23,9 +23,9 @@ export default function SparePartsBrands() {
           <BrandCard key={index} img={x} />
         ))}
       </div>
-      <button className="px-4 py-2 border rounded-lg border-black">
+      {/* <button className="px-4 py-2 border rounded-lg border-black">
         See More Brands
-      </button>
+      </button> */}
     </div>
   );
 }
