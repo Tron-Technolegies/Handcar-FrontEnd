@@ -1,4 +1,5 @@
 import React from "react";
+import { handleEnquiry } from "../../../utils/WhatsApp";
 
 const SparePartsHeader = () => {
   return (
@@ -11,7 +12,12 @@ const SparePartsHeader = () => {
           Reliable Performance, Guaranteed: Discover top-tier spare parts
           engineered to elevate your driving experience.
         </p>
-        <button className="px-4 py-2 bg-[#D60205] rounded-lg text-white w-fit mb-5">
+        <button
+          className="px-4 py-2 bg-[#D60205] rounded-lg text-white w-fit mb-5"
+          onClick={() =>
+            handleEnquiry({ name: `I like to know more about spare parts` })
+          }
+        >
           Enquire Now
         </button>
       </div>

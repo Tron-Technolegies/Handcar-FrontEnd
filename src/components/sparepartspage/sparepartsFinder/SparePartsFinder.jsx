@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sparepartsFinder/SparePartsFinder.css";
 import topbrand_spare_parts from "../../../assets/topbrand_spare_parts.png";
 const SparePartsFinder = () => {
+  const [code, setCode] = useState("");
   return (
     <div className="spare_parts_finder_container">
       <div className="spare_parts_finder">

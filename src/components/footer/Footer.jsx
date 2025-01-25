@@ -48,13 +48,13 @@ const Footer = () => {
             <span>
               <FaPhoneAlt />
             </span>
-            +911234567890
+            +971544463803
           </p>
           <p className="flex items-center gap-3">
             <span>
               <IoLocationOutline />
             </span>
-            Adresss adress adress adress
+            Based on AbuDhabi, UAE
           </p>
         </div>
         <p className="text-xs">© 2025 Handcar. All Rights Reserved</p>

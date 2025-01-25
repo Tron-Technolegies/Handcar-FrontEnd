@@ -1,7 +1,7 @@
 .contact_form_container {
   min-height: 60vh;
   width: 100%;
-  background-image: url('../../../assets/contactfrom_bg_car.jpg');
+  background-image: url("../../../assets/contactfrom_bg_car.jpg");
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -75,15 +75,15 @@
 
 .name_and_ph_no input,
 .contact_form_email input,
-.contact_form_message input {
+.contact_form_message textarea {
   padding: 15px;
   width: 100%;
   border: none;
   border-radius: 5px;
 }
 
-.contact_form_message input {
-  padding: 40px;
+.contact_form_message textarea {
+  padding: 15px;
 }
 
 .contact_form_button button {

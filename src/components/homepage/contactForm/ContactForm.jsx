@@ -6,11 +6,25 @@ import contactfrom_bg_car from "../../../assets/contactfrom_bg_car.jpg";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
+import { toast } from "react-toastify";
+import { handleEnquiryFormClick } from "../../../utils/WhatsApp";
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
+
+  function handleClick() {
+    if (name === "" || email === "" || phoneNumber === "" || message === "") {
+      toast.warn("Please fill in all the fields");
+    } else {
+      handleEnquiryFormClick({ name, email, phone: phoneNumber, message });
+      setName("");
+      setEmail("");
+      setMessage("");
+      setPhoneNumber("");
+    }
+  }
   return (
     <div id="contact" className="contact_form_container">
       <div className="contact_section">
@@ -37,12 +51,12 @@ const ContactForm = () => {
             <div className="contact_details_logo">
               <FaPhone size={20} />
             </div>
-            <p>+971234567891234</p>
+            <p>+971544463803</p>
           </div>
         </div>
       </div>
 
-      <div className="contact_form">
+      <div className="contact_form text-black">
         <div className="name_and_ph_no">
           <input
             type="text"
@@ -66,14 +80,15 @@ const ContactForm = () => {
           />
         </div>
         <div className="contact_form_message">
-          <input
+          <textarea
             type="text"
             placeholder="Message"
             value={message}
+            rows={7}
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <div className="contact_form_button">
+        <div className="contact_form_button" onClick={handleClick}>
           <button>Send Message</button>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import "../brandSpareparts/BrandSpareParts.css";
 import topbrand_spare_parts from "../../../assets/topbrand_spare_parts.png";
-import WhatsApp from "../../../utils/WhatsApp"; // Correctly import WhatsApp component
+import { handleEnquiry } from "../../../utils/WhatsApp";
+// import WhatsApp from "../../../utils/WhatsApp"; // Correctly import WhatsApp component
 
 const BrandSpareParts = () => {
   return (
@@ -13,9 +14,16 @@ const BrandSpareParts = () => {
         <p className="md:text-xl text-lg font-semibold">
           Discover a World of Car Accessories Tailored for Every Style and Need.
         </p>
-        <div className="px-4 py-2 rounded-lg bg-[#D60205] w-fit text-white">
-          <WhatsApp />
-        </div>
+        <button
+          className="px-4 py-2 rounded-lg bg-[#D60205] w-fit text-white"
+          onClick={() =>
+            handleEnquiry({
+              name: `I would like to find the best spare parts from top brands`,
+            })
+          }
+        >
+          Discover
+        </button>
       </div>
       <div>
         <img
