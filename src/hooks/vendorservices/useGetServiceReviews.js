@@ -37,9 +37,10 @@ const useGetServiceReviews = ({ id }) => {
       const avgRatings = total / data.Ratings.length;
       setAvg(avgRatings);
     } catch (err) {
-      toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
-      );
+      // toast.error(
+      //   err?.response?.data?.msg || err?.error || "something went wrong"
+      // );
+      console.log(err);
     } finally {
       setLoading(false);
     }

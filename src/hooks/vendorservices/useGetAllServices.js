@@ -10,7 +10,7 @@ const useGetAllServices = ({ lat, lng }) => {
   const getAllServices = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/get_nearby_services`, {
+      const res = await axios.get(`${base_url}/view_service_user`, {
         params: {
           lat: lat,
           lng: lng,

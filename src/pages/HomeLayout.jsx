@@ -10,6 +10,7 @@ import { UserContext } from "../UserContext";
 import ForgotPassword from "../components/loginpage/ForgotPassword";
 import VerificationCode from "../components/loginpage/VerificationCode";
 import NewPassword from "../components/loginpage/NewPassword";
+import useGetUserDetails from "../hooks/auth/useGetUserDetails";
 
 export default function HomeLayout() {
   const {
@@ -21,6 +22,7 @@ export default function HomeLayout() {
     showVerification,
     showNewPassword,
   } = useContext(UserContext);
+  const { loading, user } = useGetUserDetails();
 
   useEffect(() => {
     if (navigator.geolocation) {

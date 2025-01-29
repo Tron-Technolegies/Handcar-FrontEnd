@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../../UserContext";
+import useLogout from "../../hooks/auth/useLogout";
 
 export default function SmallHeader({ setSmallBar, setShowPopup }) {
+  const { user } = useContext(UserContext);
+  const { logoutUser } = useLogout();
   return (
     <div className="lg:hidden w-full bg-white py-5">
       <div className="flex flex-col gap-5 items-start px-10">
+        {user && <p>Hello {user.first_name}</p>}
         <NavLink
           to={"/"}
           className={"border-b w-full py-2 "}
@@ -52,12 +57,21 @@ export default function SmallHeader({ setSmallBar, setShowPopup }) {
         >
           Contact Us
         </p>
-        <button
-          onClick={() => setShowPopup(true)}
-          className="rounded-lg px-3 py-2 bg-black text-white hover:py-[10px]"
-        >
-          Login/SignUp
-        </button>
+        {!user ? (
+          <button
+            onClick={() => setShowPopup(true)}
+            className="rounded-lg px-3 py-2 bg-black text-white hover:py-[10px]"
+          >
+            Login/SignUp
+          </button>
+        ) : (
+          <button
+            onClick={() => logoutUser()}
+            className="rounded-lg px-3 py-2 bg-black text-white hover:py-[10px]"
+          >
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { ImAttachment } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
 import useAddServiceReview from "../../../../hooks/vendorservices/useAddServiceReview";
 import Loading from "../../../Loading";
+import { UserContext } from "../../../../UserContext";
+import { toast } from "react-toastify";
 
 export default function WriteServiceReview({
   setShowPopup,
@@ -14,6 +16,19 @@ export default function WriteServiceReview({
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const { loading, postReview } = useAddServiceReview();
+  const { user } = useContext(UserContext);
+
+  async function submitReview() {
+    if (!user) {
+      toast.warn("Please login to continue");
+    } else if (rating === 0 || comment === "") {
+      toast.warn("please fill all fields");
+    } else {
+      await postReview({ id: service_id, rating, comment });
+      setShowPopup(false);
+      refetch();
+    }
+  }
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -80,11 +95,7 @@ export default function WriteServiceReview({
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
           <button
-            onClick={async () => {
-              await postReview({ id: service_id, rating, comment });
-              setShowPopup(false);
-              refetch();
-            }}
+            onClick={submitReview}
             className="px-4 py-2 bg-black rounded-lg text-white border-2 hover:bg-white hover:text-black shadow-md"
           >
             Submit Review

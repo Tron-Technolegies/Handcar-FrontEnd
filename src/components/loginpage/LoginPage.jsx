@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import useLoginWithPassword from "../../hooks/auth/useLoginWithPassword";
 import { UserContext } from "../../UserContext";
 import Loading from "../Loading";
+import useGetUserDetails from "../../hooks/auth/useGetUserDetails";
 
 export default function LoginPage() {
   const {
@@ -17,6 +18,7 @@ export default function LoginPage() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const { loading, loginUser } = useLoginWithPassword();
+  const { refetch } = useGetUserDetails();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -81,7 +83,10 @@ export default function LoginPage() {
         <div className="w-full px-10 flex flex-col gap-3 items-center">
           <button
             className="px-5 py-3 bg-[#DB1215] rounded-lg w-full text-white font-semibold"
-            onClick={() => loginUser({ phone, password })}
+            onClick={async () => {
+              await loginUser({ phone, password });
+              refetch();
+            }}
           >
             Login with Password
           </button>

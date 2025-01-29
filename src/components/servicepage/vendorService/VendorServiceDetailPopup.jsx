@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa6";
 import Slider from "react-slick";
@@ -14,9 +14,12 @@ import WriteServiceReview from "./reviews/WriteServiceReview";
 import SingleServiceReview from "./reviews/SingleServiceReview";
 import useGetServiceReviews from "../../../hooks/vendorservices/useGetServiceReviews";
 import ReviewSection from "./reviews/ReviewSection";
+import { UserContext } from "../../../UserContext";
+import { toast } from "react-toastify";
 
 export default function VendorServiceDetailPopup() {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
   const { loading, service } = useGetSingleService({ id });
   const { loading: logLoading, postLog } = usePostLog();
   const settings = {
@@ -31,17 +34,25 @@ export default function VendorServiceDetailPopup() {
   };
 
   async function handleWhatsapp({ action, service_id, phone }) {
-    await postLog({ action, service_id });
-    const phoneNumber = phone; // Replace with the actual phone number
-    const message = "Hello! I would like to use your service"; // Replace with your message
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
+    if (!user) {
+      toast.warn("Please Login to Continue");
+    } else {
+      await postLog({ action, service_id });
+      const phoneNumber = phone; // Replace with the actual phone number
+      const message = "Hello! I would like to use your service"; // Replace with your message
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappUrl, "_blank");
+    }
   }
 
   async function handleCall({ action, service_id, phone }) {
-    await postLog({ action, service_id });
-    window.location.href = `tel:${phone}`;
+    if (!user) {
+      toast.warn("Please Login to continue");
+    } else {
+      await postLog({ action, service_id });
+      window.location.href = `tel:${phone}`;
+    }
   }
 
   return loading ? (

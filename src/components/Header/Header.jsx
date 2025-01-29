@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import handcar_logo from "../../assets/handcar_logo.svg";
-import heart_icons from "../../assets/heart_icons.svg";
-import shopping_cart from "../../assets/shopping_cart.svg";
+import { IoIosLogOut } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import SmallHeader from "./SmallHeader";
 import { UserContext } from "../../UserContext";
+import useLogout from "../../hooks/auth/useLogout";
 
 const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
-  const { setShowLogin, setShowSignup } = useContext(UserContext);
+  const [showLogout, setShowLogout] = useState(false);
+  const { setShowLogin, setShowSignup, user } = useContext(UserContext);
+  const { loading, logoutUser } = useLogout();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -55,26 +57,44 @@ const Header = () => {
         </a>
       </div>
       <div className="flex xl:gap-5 gap-3 items-center">
-        {/* <div className="flex xl:gap-5 gap-3 items-center">
-          <Link to={"/wishlist"}>
-            <img src={heart_icons} alt="Favorites" />
-          </Link>
-          <Link to={"/cart"}>
-            <img src={shopping_cart} alt="Cart" />
-          </Link>
-        </div> */}
-        <button
-          className="px-4 py-2 rounded-lg bg-white border hidden lg:block border-black"
-          onClick={() => setShowLogin(true)}
-        >
-          Login
-        </button>
-        <button
-          className="px-4 py-2 rounded-lg bg-black hidden lg:block text-white border"
-          onClick={() => setShowSignup(true)}
-        >
-          Sign up
-        </button>
+        {user ? (
+          <div
+            className="lg:flex items-center gap-2 border p-2 rounded-md shadow-md cursor-pointer relative hidden"
+            onClick={() => setShowLogout(!showLogout)}
+          >
+            <p>Helloo, {user.first_name}</p>
+            <p className="w-8 h-8 rounded-full bg-red-500 text-white flex justify-center items-center">
+              {user.first_name.slice(0, 1).toUpperCase()}
+            </p>
+            {showLogout && (
+              <p
+                className="absolute bg-black p-2 -bottom-12 w-full left-0 text-white rounded-md flex gap-3 items-center justify-center cursor-pointer translate-y-1 ease-in-out duration-300"
+                onClick={() => logoutUser()}
+              >
+                Logout
+                <span>
+                  <IoIosLogOut />
+                </span>
+              </p>
+            )}
+          </div>
+        ) : (
+          <>
+            <button
+              className="px-4 py-2 rounded-lg bg-white border hidden lg:block border-black"
+              onClick={() => setShowLogin(true)}
+            >
+              Login
+            </button>
+            <button
+              className="px-4 py-2 rounded-lg bg-black hidden lg:block text-white border"
+              onClick={() => setShowSignup(true)}
+            >
+              Sign up
+            </button>
+          </>
+        )}
+
         <div
           className="lg:hidden text-xl"
           onClick={() => setShowSmallBar(!showSmallBar)}

@@ -14,6 +14,7 @@ const UserContextProvider = ({ children }) => {
   const [location, setLocation] = useState({ lat: "", lng: "" });
   const [filtered, setFiltered] = useState([]);
   const [activeServiceCategory, setActiveServiceCategory] = useState("All");
+  const [user, setUser] = useState(null);
   return (
     <UserContext.Provider
       value={{
@@ -39,6 +40,8 @@ const UserContextProvider = ({ children }) => {
         setFiltered,
         activeServiceCategory,
         setActiveServiceCategory,
+        setUser,
+        user,
       }}
     >
       {children}
