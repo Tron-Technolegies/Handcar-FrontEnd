@@ -14,7 +14,10 @@ const usePostLog = () => {
       const res = await axios.post(
         `${base_url}/log_service_interaction`,
         formData,
-        { headers: { "Content-Type": "multipart/form-data" } }
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+          withCredentials: true,
+        }
       );
       const data = res.data;
     } catch (err) {
