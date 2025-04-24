@@ -9,7 +9,7 @@ export default function HandCarFeatureCard({
   action,
 }) {
   return (
-    <div className="bg-[#F2F2F2] p-5 rounded-lg relative flex flex-col justify-between gap-5 md:w-[330px] w-full">
+    <div className="bg-[#F2F2F2] p-5 rounded-lg relative flex flex-col justify-between gap-5 md:w-[330px] w-full h-[200px]">
       <p>{content}</p>
       {type === "button" && (
         <button

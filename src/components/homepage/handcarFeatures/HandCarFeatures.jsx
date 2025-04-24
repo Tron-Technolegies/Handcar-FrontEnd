@@ -14,6 +14,13 @@ const HandCarFeatures = () => {
   return (
     <div className="bg-white flex md:flex-row flex-col justify-center gap-10 lg:px-[120px] px-10 py-10">
       <HandCarFeatureCard
+        content={"Explore Best car Accessories from Top Brands "}
+        button={"View Products"}
+        image={car_accessories}
+        type={"link"}
+        action={"/accessories"}
+      />
+      <HandCarFeatureCard
         content={"Find best and cost effective services for your ride."}
         button={"Find Services"}
         image={car_image}

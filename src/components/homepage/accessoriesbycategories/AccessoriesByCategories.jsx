@@ -5,6 +5,7 @@ import car_seat from "../../../assets/car_seat.png";
 import car_exterior from "../../../assets/car_exterior.png";
 import car_gadgets from "../../../assets/car_gadgets.png";
 import car_performance_accessories from "../../../assets/car_performance_accessories.png";
+import { Link } from "react-router-dom";
 
 const AccessoriesByCategories = () => {
   return (
@@ -25,10 +26,10 @@ const AccessoriesByCategories = () => {
               </h1>
             </div>
 
-            <div className="accessories_explore_btn">
+            <Link to={"/accessories"} className="accessories_explore_btn">
               <p>Explore</p>
               <FaLongArrowAltRight color="#DB1215" className="explore_icon" />
-            </div>
+            </Link>
           </div>
 
           <div className="accessories_img">
@@ -45,10 +46,10 @@ const AccessoriesByCategories = () => {
               </h1>
             </div>
 
-            <div className="accessories_explore_btn">
+            <Link to={"/accessories"} className="accessories_explore_btn">
               <p>Explore</p>
               <FaLongArrowAltRight color="#DB1215" className="explore_icon" />
-            </div>
+            </Link>
           </div>
 
           <div className="accessories_img">
@@ -67,10 +68,10 @@ const AccessoriesByCategories = () => {
               </h1>
             </div>
 
-            <div className="accessories_explore_btn">
+            <Link to={"/accessories"} className="accessories_explore_btn">
               <p>Explore</p>
               <FaLongArrowAltRight color="#DB1215" className="explore_icon" />
-            </div>
+            </Link>
           </div>
 
           <div className="accessories_img">
@@ -87,10 +88,10 @@ const AccessoriesByCategories = () => {
               </h1>
             </div>
 
-            <div className="accessories_explore_btn">
+            <Link to={"/accessories"} className="accessories_explore_btn">
               <p>Explore</p>
               <FaLongArrowAltRight color="#DB1215" className="explore_icon" />
-            </div>
+            </Link>
           </div>
 
           <div className="accessories_img">

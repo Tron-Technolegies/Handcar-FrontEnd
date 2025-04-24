@@ -27,9 +27,9 @@ const App = () => {
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <HomePage /> },
-        // { path: "subscription", element: <SubscriptionPage /> },
-        // { path: "accessories", element: <AccessoriesPage /> },
-        // { path: "accessories/:id", element: <AccessorySinglePage /> },
+        { path: "subscription", element: <SubscriptionPage /> },
+        { path: "accessories", element: <AccessoriesPage /> },
+        { path: "accessories/:id", element: <AccessorySinglePage /> },
         { path: "spareparts", element: <SparePartsPage /> },
         { path: "servicepage", element: <ServicePage /> },
         { path: "servicepage/:id", element: <PaintingServiceDetailPopup /> },

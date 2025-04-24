@@ -15,7 +15,10 @@ export default function ConfirmationMsg() {
         <p>Estimated Delivery:</p>
         <p className="text-[#17A600]">Nov 6, 2024 - Nov 8, 2024</p>
       </div>
-      <Link className="w-full text-center shadow-md px-4 py-2 rounded-lg bg-black text-white border hover:bg-white hover:text-black">
+      <Link
+        to={"/"}
+        className="w-full text-center shadow-md px-4 py-2 rounded-lg bg-black text-white border hover:bg-white hover:text-black"
+      >
         Continue Shoping
       </Link>
     </div>

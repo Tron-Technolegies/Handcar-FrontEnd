@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import handcar_logo from "../../assets/handcar_logo.svg";
 import { IoIosLogOut } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { CiShoppingCart, CiHeart } from "react-icons/ci";
 import SmallHeader from "./SmallHeader";
 import { UserContext } from "../../UserContext";
 import useLogout from "../../hooks/auth/useLogout";
@@ -45,8 +46,8 @@ const Header = () => {
       </div>
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
         <NavLink to={"/"}>Home</NavLink>
-        {/* <NavLink to={"/subscription"}>Subscribe</NavLink>
-        <NavLink to={"/accessories"}>Accessories</NavLink> */}
+        <NavLink to={"/subscription"}>Subscribe</NavLink>
+        <NavLink to={"/accessories"}>Accessories</NavLink>
         <NavLink to={"/spareparts"}>Spare Parts</NavLink>
         <NavLink to={"/servicepage"}>Services</NavLink>
         <a className="cursor-pointer" onClick={handleAboutClick}>
@@ -57,6 +58,14 @@ const Header = () => {
         </a>
       </div>
       <div className="flex xl:gap-5 gap-3 items-center">
+        <div className="flex gap-2 items-center text-2xl">
+          <Link to={"/cart"}>
+            <CiHeart />
+          </Link>
+          <Link to={"/wishlist"}>
+            <CiShoppingCart />
+          </Link>
+        </div>
         {user ? (
           <div
             className="lg:flex items-center gap-2 border p-2 rounded-md shadow-md cursor-pointer relative hidden"

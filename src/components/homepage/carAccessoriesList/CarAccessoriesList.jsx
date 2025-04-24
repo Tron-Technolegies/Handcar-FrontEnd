@@ -1,6 +1,7 @@
 import React from "react";
 import "../carAccessoriesList/CarAccessoriesList.css";
 import AccessoriesElt from "./AccessoriesElt";
+import { Link } from "react-router-dom";
 
 const CarAccessoriesList = () => {
   return (
@@ -9,9 +10,12 @@ const CarAccessoriesList = () => {
         <h1 className="md:text-3xl text-xl font-semibold">
           Discover Car Accessories From Top Brands
         </h1>
-        <button className="px-4 py-2 rounded-lg bg-[#DB1215] text-white w-fit">
+        <Link
+          to={"/accessories"}
+          className="px-4 py-2 rounded-lg bg-[#DB1215] text-white w-fit"
+        >
           View all Products
-        </button>
+        </Link>
       </div>
       <div className="listof_top_deal_products">
         <AccessoriesElt />
