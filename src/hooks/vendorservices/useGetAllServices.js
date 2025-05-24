@@ -15,6 +15,7 @@ const useGetAllServices = ({ lat, lng }) => {
           lat: lat,
           lng: lng,
         },
+        withCredentials: true,
       });
       const data = res.data;
       setServices(data.services);

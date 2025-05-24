@@ -18,6 +18,7 @@ const useGetServiceReviews = ({ id }) => {
     try {
       const res = await axios.get(`${base_url}/view_service_rating`, {
         params: { service_id: id },
+        withCredentials: true,
       });
       const data = res.data;
       setReviews(data.Ratings);

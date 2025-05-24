@@ -11,7 +11,11 @@ const useAddItemtoWishList = () => {
   const addItemtoWishList = async ({ id }) => {
     setLoading(true);
     try {
-      const res = await axios.post(`${base_url}/wishlist/add/${id}/`);
+      const res = await axios.post(
+        `${base_url}/wishlist/add/${id}/`,
+        {},
+        { withCredentials: true }
+      );
       const data = res.data;
       navigate("/wishlist");
     } catch (err) {

@@ -9,7 +9,9 @@ const useGetAllServiceCategories = () => {
   const getAllCategories = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/view_service_categories_user`);
+      const res = await axios.get(`${base_url}/view_service_categories_user`, {
+        withCredentials: true,
+      });
       const data = res.data;
       setCategories(data.service_categories);
     } catch (err) {

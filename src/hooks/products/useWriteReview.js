@@ -10,7 +10,11 @@ const useWriteReview = () => {
   const writeReview = async ({ review, image }) => {
     setLoading(true);
     try {
-      const res = await axios.post("url", { review, image });
+      const res = await axios.post(
+        "url",
+        { review, image },
+        { withCredentials: true }
+      );
       const data = res.data;
       toast.success("Review added successfully");
       navigate("/accessories/1");

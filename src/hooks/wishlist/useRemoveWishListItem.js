@@ -8,7 +8,7 @@ const useRemoveWishListItem = () => {
   const removeWishListItem = async ({ id }) => {
     setLoading(true);
     try {
-      const res = await axios.patch("url");
+      const res = await axios.patch("url", {}, { withCredentials: true });
       const data = res.data;
       toast.success("Item successfully removed");
     } catch (err) {

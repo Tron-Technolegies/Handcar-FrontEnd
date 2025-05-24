@@ -10,7 +10,9 @@ const useGetAllCoupons = () => {
   const getAllCoupons = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/view_coupons`);
+      const res = await axios.get(`${base_url}/view_coupons`, {
+        withCredentials: true,
+      });
       const data = res.data;
       setCoupons(data.coupon);
     } catch (err) {

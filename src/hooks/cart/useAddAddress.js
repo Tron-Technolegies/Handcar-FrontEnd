@@ -17,15 +17,19 @@ const useAddAddress = () => {
   }) => {
     setLoading(true);
     try {
-      const res = await axios.patch("url", {
-        name,
-        ad1,
-        ad2,
-        state,
-        zip,
-        country,
-        phone,
-      });
+      const res = await axios.patch(
+        "url",
+        {
+          name,
+          ad1,
+          ad2,
+          state,
+          zip,
+          country,
+          phone,
+        },
+        { withCredentials: true }
+      );
       const data = res.data;
       toast.success("Address added successfully");
     } catch (err) {

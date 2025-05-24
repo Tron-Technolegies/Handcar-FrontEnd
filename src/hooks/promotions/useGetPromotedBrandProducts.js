@@ -9,7 +9,7 @@ const useGetPromotedBrandProducts = () => {
   const getPromotedBrandProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("url");
+      const res = await axios.get("url", { withCredentials: true });
       const data = res.data;
       setProducts(data.products);
     } catch (err) {

@@ -15,6 +15,7 @@ const useGetLocationServices = ({ lat, long }) => {
           lat: lat,
           lng: long,
         },
+        withCredentials: true,
       });
       const data = res.data;
       setDatas(data.services);

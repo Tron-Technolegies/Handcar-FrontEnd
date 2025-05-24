@@ -13,12 +13,16 @@ const useSignup = () => {
   const signUp = async ({ name, email, phone, password }) => {
     setLoading(true);
     try {
-      const res = await axios.post(`${base_url}/signup`, {
-        name,
-        email,
-        phone,
-        password,
-      });
+      const res = await axios.post(
+        `${base_url}/signup`,
+        {
+          name,
+          email,
+          phone,
+          password,
+        },
+        { withCredentials: true }
+      );
       const data = res.data;
       toast.success("successfully registered");
       navigate("/");

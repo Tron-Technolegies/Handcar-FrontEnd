@@ -11,7 +11,8 @@ const useGetSingleService = ({ id }) => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `${base_url}/view_single_service_user/${id}/`
+        `${base_url}/view_single_service_user/${id}/`,
+        { withCredentials: true }
       );
       const data = res.data;
       setService(data.service);

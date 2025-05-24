@@ -10,7 +10,9 @@ const useGetCarWashPlans = () => {
   const getCarWashPlans = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/view_plans`);
+      const res = await axios.get(`${base_url}/view_plans`, {
+        withCredentials: true,
+      });
       const data = res.data;
       setPlans(data.plan);
     } catch (err) {
