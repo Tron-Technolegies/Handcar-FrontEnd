@@ -23,6 +23,7 @@ const useGetCarWashPlans = () => {
           err ||
           "something went wrong"
       );
+      console.log(err);
     } finally {
       setLoading(false);
     }
