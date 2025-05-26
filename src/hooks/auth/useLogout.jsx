@@ -19,7 +19,12 @@ const useLogout = () => {
       toast.success("successfully logged out");
       setUser(null);
     } catch (error) {
-      console.log(error);
+      toast.error(
+        error?.response?.data?.message ||
+          error?.response?.data?.error ||
+          error?.message ||
+          "something went wrong"
+      );
     } finally {
       setLoading(false);
     }

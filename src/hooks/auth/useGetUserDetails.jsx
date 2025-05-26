@@ -18,7 +18,11 @@ const useGetUserDetails = () => {
       setNewUser(data);
       setUser(data);
     } catch (error) {
-      console.log(error);
+      console.log(
+        error?.response?.data?.message ||
+          error?.response?.data?.error ||
+          error?.message
+      );
     } finally {
       setLoading(false);
     }

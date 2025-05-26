@@ -27,7 +27,8 @@ const useAddServiceReview = () => {
       console.log(err);
 
       toast.error(
-        err?.response?.data?.error ||
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
           err?.response?.data?.detail ||
           err.message ||
           "something went wrong"

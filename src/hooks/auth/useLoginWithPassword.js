@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { base_url } from "../../constants";
 import { UserContext } from "../../UserContext";
+import { toast } from "react-toastify";
 
 const useLoginWithPassword = () => {
   const [loading, setLoading] = useState(false);
@@ -11,6 +12,10 @@ const useLoginWithPassword = () => {
   const { setShowLogin } = useContext(UserContext);
 
   const loginUser = async ({ phone, password }) => {
+    if (phone === "" || password === "") {
+      toast.error("Please fill all the fields");
+      return;
+    }
     setLoading(true);
     const formdata = new FormData();
     formdata.append("username", phone);
@@ -27,10 +32,14 @@ const useLoginWithPassword = () => {
       const data = res.data;
       console.log(data);
       navigate("/");
+      toast.success("successfully logged in");
       setShowLogin(false);
     } catch (err) {
-      console.log(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+      toast.error(
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          err?.message ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);

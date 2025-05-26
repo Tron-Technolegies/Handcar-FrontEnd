@@ -16,8 +16,11 @@ const useGetWishListItems = () => {
       const data = res.data;
       setItems(data.items);
     } catch (err) {
-      toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+      console.error(
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          err?.error ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);

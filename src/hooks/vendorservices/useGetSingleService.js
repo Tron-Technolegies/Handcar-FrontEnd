@@ -17,8 +17,11 @@ const useGetSingleService = ({ id }) => {
       const data = res.data;
       setService(data.service);
     } catch (err) {
-      toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+      console.error(
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          err?.error ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);

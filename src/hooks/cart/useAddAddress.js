@@ -15,6 +15,18 @@ const useAddAddress = () => {
     phone,
     id,
   }) => {
+    if (
+      name === "" ||
+      ad1 === "" ||
+      ad2 === "" ||
+      state === "" ||
+      zip === "" ||
+      country === "" ||
+      phone === ""
+    ) {
+      toast.error("Please fill all the fields");
+      return;
+    }
     setLoading(true);
     try {
       const res = await axios.patch(
@@ -34,7 +46,10 @@ const useAddAddress = () => {
       toast.success("Address added successfully");
     } catch (err) {
       toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          err?.message ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);

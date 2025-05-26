@@ -59,10 +59,10 @@ const Header = () => {
       </div>
       <div className="flex xl:gap-5 gap-3 items-center">
         <div className="flex gap-2 items-center text-2xl">
-          <Link to={"/cart"}>
+          <Link to={"/wishlist"}>
             <CiHeart />
           </Link>
-          <Link to={"/wishlist"}>
+          <Link to={"/cart"}>
             <CiShoppingCart />
           </Link>
         </div>

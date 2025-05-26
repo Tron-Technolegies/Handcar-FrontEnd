@@ -11,6 +11,10 @@ const useSignup = () => {
   const { setShowSignup } = useContext(UserContext);
 
   const signUp = async ({ name, email, phone, password }) => {
+    if (name === "" || email === "" || phone === "" || password === "") {
+      toast.error("Please fill in all the fields");
+      return;
+    }
     setLoading(true);
     try {
       const res = await axios.post(
@@ -29,7 +33,10 @@ const useSignup = () => {
       setShowSignup(false);
     } catch (err) {
       toast.error(
-        err?.response?.data?.msg || err?.error || "something went wrong"
+        err?.response?.data?.message ||
+          err?.response?.data?.error ||
+          err?.message ||
+          "something went wrong"
       );
     } finally {
       setLoading(false);
