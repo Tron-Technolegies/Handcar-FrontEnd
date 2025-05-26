@@ -16,10 +16,11 @@ const useGetAllProducts = () => {
       const data = res.data;
       setProducts(data.product);
     } catch (err) {
-      console.error(
+      console.log(
         err?.response?.data?.message ||
           err?.response?.data?.error ||
           err?.message ||
+          err ||
           "something went wrong"
       );
     } finally {

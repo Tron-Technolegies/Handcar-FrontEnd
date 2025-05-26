@@ -16,10 +16,11 @@ const useGetCarWashPlans = () => {
       const data = res.data;
       setPlans(data.plan);
     } catch (err) {
-      console.error(
+      console.log(
         err?.response?.data?.message ||
           err?.response?.data?.error ||
           err?.message ||
+          err ||
           "something went wrong"
       );
     } finally {
