@@ -23,7 +23,7 @@ const useGetUserDetails = () => {
           error?.response?.data?.error ||
           error?.message
       );
-      console.log(err);
+      console.log(error);
     } finally {
       setLoading(false);
     }
