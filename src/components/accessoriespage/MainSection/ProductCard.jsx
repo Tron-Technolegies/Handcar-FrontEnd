@@ -7,7 +7,7 @@ import useAddItemtoCart from "../../../hooks/cart/useAddItemtoCart";
 import Loading from "../../Loading";
 import useAddItemtoWishList from "../../../hooks/wishlist/useAddItemtoWishList";
 
-export default function ProductCard({ name, brand, price, id }) {
+export default function ProductCard({ name, brand, price, id, image }) {
   const { loading, addItemToCart } = useAddItemtoCart();
   const { addItemtoWishList } = useAddItemtoWishList();
   return (
@@ -18,7 +18,10 @@ export default function ProductCard({ name, brand, price, id }) {
       >
         <CiHeart />
       </button>
-      <img src="/accessories/product.png" className="w-[212px] h-[141px]"></img>
+      <img
+        src={image ? image : "/accessories/product.png"}
+        className="w-[212px] h-[141px]"
+      ></img>
       <div className="flex justify-between w-full items-center">
         <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
           BestSeller

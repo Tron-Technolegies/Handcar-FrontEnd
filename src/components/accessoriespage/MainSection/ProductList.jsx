@@ -52,6 +52,7 @@ export default function ProductList({ setShowSmallFilter }) {
                   brand={x.brand}
                   price={x.price}
                   id={x.id}
+                  image={x.image}
                 />
               </div>
             ))}
