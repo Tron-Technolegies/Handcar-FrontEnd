@@ -44,43 +44,47 @@ export default function AddressPageMainSection() {
         <AddressForm refetch={refetch} />
       </div>
       <div className="xl:w-1/3 w-full">
-        <div className="flex flex-col gap-3 p-3 border rounded-xl shadow-md">
-          <p className="text-xl font-semibold">Items in Cart</p>
-          {cartItems?.length > 0 &&
-            cartItems?.map((item) => (
-              <ItemInCart
-                key={item.cart_item_id}
-                name={item.product_name}
-                image={item.product_image}
-                qty={item.quantity}
-                price={item.total_price}
-              />
-            ))}
+        {cartLoading ? (
+          <Loading />
+        ) : (
+          <div className="flex flex-col gap-3 p-3 border rounded-xl shadow-md">
+            <p className="text-xl font-semibold">Items in Cart</p>
+            {cartItems?.length > 0 &&
+              cartItems?.map((item) => (
+                <ItemInCart
+                  key={item.cart_item_id}
+                  name={item.product_name}
+                  image={item.product_image}
+                  qty={item.quantity}
+                  price={item.total_price}
+                />
+              ))}
 
-          <div className="h-[1px] bg-black"></div>
-          <div className="flex flex-col gap-3 text-lg">
-            <div className="flex justify-between">
-              <p className="text-[#979797]">Total</p>
-              <p>AED {totalPrice}</p>
+            <div className="h-[1px] bg-black"></div>
+            <div className="flex flex-col gap-3 text-lg">
+              <div className="flex justify-between">
+                <p className="text-[#979797]">Total</p>
+                <p>AED {totalPrice}</p>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-[#979797]">Delivery</p>
+                <p>AED 20.00</p>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-[#979797]">Grand total</p>
+                <p className="text-[#17A600] font-semibold">
+                  AED {totalPrice + 20}
+                </p>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <p className="text-[#979797]">Delivery</p>
-              <p>AED 20.00</p>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-[#979797]">Grand total</p>
-              <p className="text-[#17A600] font-semibold">
-                AED {totalPrice + 20}
-              </p>
-            </div>
+            <Link
+              to={"/confirm"}
+              className="px-4 py-2 text-center border hover:bg-white hover:text-black rounded-lg bg-black text-white"
+            >
+              Place Order
+            </Link>
           </div>
-          <Link
-            to={"/confirm"}
-            className="px-4 py-2 text-center border hover:bg-white hover:text-black rounded-lg bg-black text-white"
-          >
-            Place Order
-          </Link>
-        </div>
+        )}
       </div>
     </div>
   );
