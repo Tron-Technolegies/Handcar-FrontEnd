@@ -1,13 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { base_url } from "../../constants";
+import { CartContext } from "../../CartContext";
 
 const useGetCartItems = () => {
   const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState([]);
-  const [price, setPrice] = useState();
-
+  const { setCartItems, setTotalPrice } = useContext(CartContext);
   const getCartItems = async () => {
     setLoading(true);
     try {
@@ -15,8 +14,8 @@ const useGetCartItems = () => {
         withCredentials: true,
       });
       const data = res.data;
-      setItems(data.cart_items);
-      setPrice(data.total_price);
+      setCartItems(data.cart_items);
+      setTotalPrice(data.total_price);
     } catch (err) {
       console.error(
         err?.response?.data?.message ||
@@ -36,7 +35,7 @@ const useGetCartItems = () => {
     getCartItems();
   };
 
-  return { loading, items, price, refetch };
+  return { loading, refetch };
 };
 
 export default useGetCartItems;

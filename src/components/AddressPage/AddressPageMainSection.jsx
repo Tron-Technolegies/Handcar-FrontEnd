@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
 import ItemInCart from "./ItemInCart";
@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import useGetAllAddress from "../../hooks/cart/useGetAllAddress";
 import Loading from "../Loading";
 import useGetCartItems from "../../hooks/cart/useGetCartItems";
+import { CartContext } from "../../CartContext";
 
 export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
-  const { loading: cartLoading, items, price } = useGetCartItems();
+  const { loading: cartLoading } = useGetCartItems();
+  const { cartItems, totalPrice } = useContext(CartContext);
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
       <div className="xl:w-2/3 w-full">
@@ -44,8 +46,8 @@ export default function AddressPageMainSection() {
       <div className="xl:w-1/3 w-full">
         <div className="flex flex-col gap-3 p-3 border rounded-xl shadow-md">
           <p className="text-xl font-semibold">Items in Cart</p>
-          {items.length > 0 &&
-            items.map((item) => (
+          {cartItems.length > 0 &&
+            cartItems.map((item) => (
               <ItemInCart
                 key={item.cart_item_id}
                 name={item.product_name}
@@ -59,7 +61,7 @@ export default function AddressPageMainSection() {
           <div className="flex flex-col gap-3 text-lg">
             <div className="flex justify-between">
               <p className="text-[#979797]">Total</p>
-              <p>AED {price}</p>
+              <p>AED {totalPrice}</p>
             </div>
             <div className="flex justify-between">
               <p className="text-[#979797]">Delivery</p>
@@ -67,7 +69,9 @@ export default function AddressPageMainSection() {
             </div>
             <div className="flex justify-between">
               <p className="text-[#979797]">Grand total</p>
-              <p className="text-[#17A600] font-semibold">AED {price + 20}</p>
+              <p className="text-[#17A600] font-semibold">
+                AED {totalPrice + 20}
+              </p>
             </div>
           </div>
           <Link

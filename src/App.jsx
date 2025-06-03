@@ -17,6 +17,7 @@ import ErrorPage from "./pages/ErrorPage";
 import ConfirmOrderPage from "./pages/ConfirmOrderPage";
 import WishListPage from "./pages/WishListPage";
 import PaintingServiceDetailPopup from "./components/servicepage/vendorService/VendorServiceDetailPopup";
+import CartContextProvider from "./CartContext";
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
@@ -33,7 +34,14 @@ const App = () => {
         { path: "spareparts", element: <SparePartsPage /> },
         { path: "servicepage", element: <ServicePage /> },
         { path: "servicepage/:id", element: <PaintingServiceDetailPopup /> },
-        { path: "cart", element: <CartPage /> },
+        {
+          path: "cart",
+          element: (
+            <CartContextProvider>
+              <CartPage />
+            </CartContextProvider>
+          ),
+        },
         { path: "address", element: <AddressSelectPage /> },
         { path: "confirm", element: <ConfirmOrderPage /> },
         { path: "wishlist", element: <WishListPage /> },

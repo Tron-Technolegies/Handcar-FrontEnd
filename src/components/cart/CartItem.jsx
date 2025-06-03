@@ -14,8 +14,6 @@ export default function CartItem({
   id,
   image,
   refetch,
-  updateTrigger,
-  setUpdateTrigger,
 }) {
   const [quantity, setQuantity] = useState(1);
   const { loading, updateItemInCart } = useUpdateItemInCart();
@@ -28,11 +26,12 @@ export default function CartItem({
   }, [qty]);
 
   useEffect(() => {
-    async function handleUpdate() {
+    async function update() {
       await updateItemInCart({ id: id, no: quantity });
+      refetch();
     }
-    handleUpdate();
-  }, [updateTrigger]);
+    update();
+  }, [quantity]);
 
   const handleRemove = async () => {
     await removeCartItem({ id });
@@ -56,7 +55,6 @@ export default function CartItem({
           value={quantity}
           onChange={(e) => {
             setQuantity(parseInt(e.target.value));
-            setUpdateTrigger(!updateTrigger);
           }}
         >
           {list?.map((item) => (
