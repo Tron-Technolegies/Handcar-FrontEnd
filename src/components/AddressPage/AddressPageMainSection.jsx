@@ -46,8 +46,8 @@ export default function AddressPageMainSection() {
       <div className="xl:w-1/3 w-full">
         <div className="flex flex-col gap-3 p-3 border rounded-xl shadow-md">
           <p className="text-xl font-semibold">Items in Cart</p>
-          {cartItems.length > 0 &&
-            cartItems.map((item) => (
+          {cartItems?.length > 0 &&
+            cartItems?.map((item) => (
               <ItemInCart
                 key={item.cart_item_id}
                 name={item.product_name}
