@@ -15,6 +15,7 @@ const useGetCarWashPlans = () => {
       });
       const data = res.data;
       setPlans(data.plan);
+      console.log(data.plan);
     } catch (err) {
       console.log(
         err?.response?.data?.message ||

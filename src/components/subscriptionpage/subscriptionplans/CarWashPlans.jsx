@@ -17,7 +17,9 @@ export default function CarWashPlans() {
         (x) => x.duration === "6" && x.service_type === "Car Wash"
       );
       setWashPlans(filteredPlans);
+      console.log(filteredPlans);
     }
+    console.log(plans);
   }, [loading, plans]);
 
   const handlefunction1 = () => {

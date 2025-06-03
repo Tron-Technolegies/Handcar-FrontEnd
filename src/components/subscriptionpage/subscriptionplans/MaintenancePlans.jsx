@@ -15,7 +15,9 @@ export default function MaintenancePlans() {
         (x) => x.duration === "6" && x.service_type === "Maintenance"
       );
       setMaintenancePlans(filteredPlans);
+      console.log(filteredPlans);
     }
+    console.log(plans);
   }, [loading, plans]);
 
   const handlefunction1 = () => {
