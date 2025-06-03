@@ -23,16 +23,19 @@ const useAddItemtoCart = () => {
       navigate("/cart");
     } catch (err) {
       console.log(err);
-
-      toast.error(
-        err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          (err?.response?.data?.detail ===
-            "Authentication credentials were not provided." &&
-            "Please login to continue") ||
-          err?.message ||
-          "something went wrong"
-      );
+      if (
+        err?.response?.data?.detail ===
+        "Authentication credentials were not provided."
+      ) {
+        toast.error("Please login to continue");
+      } else {
+        toast.error(
+          err?.response?.data?.message ||
+            err?.response?.data?.error ||
+            err?.message ||
+            "something went wrong"
+        );
+      }
     } finally {
       setLoading(false);
     }
