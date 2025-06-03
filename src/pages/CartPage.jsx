@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CartNavigation from "../components/cart/CartNavigation";
 import CartItem from "../components/cart/CartItem";
 import CouponsSection from "../components/cart/CouponsSection";
