@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { CiTrash } from "react-icons/ci";
 import useUpdateItemInCart from "../../hooks/cart/useUpdateItemInCart";
 import Loading from "../Loading";
@@ -15,17 +15,16 @@ export default function CartItem({
   image,
   refetch,
 }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(qty || 1);
+  const isFirstRun = useRef(true);
   const { loading, updateItemInCart } = useUpdateItemInCart();
   const { loading: removeLoading, removeCartItem } = useRemoveCartItems();
 
   useEffect(() => {
-    if (qty) {
-      setQuantity(qty);
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
     }
-  }, [qty]);
-
-  useEffect(() => {
     async function update() {
       await updateItemInCart({ id: id, no: quantity });
       refetch();
