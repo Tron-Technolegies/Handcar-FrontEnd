@@ -30,7 +30,6 @@ export default function CartItem({
   useEffect(() => {
     async function handleUpdate() {
       await updateItemInCart({ id: id, no: quantity });
-      refetch();
     }
     handleUpdate();
   }, [updateTrigger]);
