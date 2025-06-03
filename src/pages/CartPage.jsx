@@ -21,7 +21,7 @@ export default function CartPage() {
             qty={x.quantity}
             totalPrice={x.total_price}
             image={x.product_image}
-            id={x.product_id}
+            id={x.cart_item_id}
           />
         ))}
       </div>
