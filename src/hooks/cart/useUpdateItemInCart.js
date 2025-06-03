@@ -8,14 +8,15 @@ const useUpdateItemInCart = () => {
 
   const updateItemInCart = async ({ id, no }) => {
     setLoading(true);
-    const formData = new FormData();
-    formData.append("cart_item_id", id);
-    formData.append("quantity", no);
+
     try {
-      const res = await axios.put(`${base_url}/update_cart/${id}/`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        withCredentials: true,
-      });
+      const res = await axios.put(
+        `${base_url}/update_cart/${id}/`,
+        { quantity: no },
+        {
+          withCredentials: true,
+        }
+      );
       const data = res.data;
     } catch (err) {
       toast.error(
