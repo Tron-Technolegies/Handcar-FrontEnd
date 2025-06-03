@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import React from "react";
 
 export default function PlanCard({ name, price, list, popular }) {
+  console.log(list);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }} // Start with opacity 0 and scale 50% of original size
@@ -26,7 +28,7 @@ export default function PlanCard({ name, price, list, popular }) {
           <span className="text-sm font-medium"> /month</span>
         </h4>
         <div className="flex flex-col gap-3">
-          {list.map((x, index) => (
+          {list?.map((x, index) => (
             <p key={index} className="flex gap-5 items-start">
               <img src="/subs/tick.png"></img>
               {x}
