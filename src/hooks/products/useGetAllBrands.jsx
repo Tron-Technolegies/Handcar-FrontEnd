@@ -26,7 +26,7 @@ const useGetAllBrands = () => {
     }
   };
   useEffect(() => {
-    getAllBrands;
+    getAllBrands();
   }, []);
 
   return { loading, brands };
