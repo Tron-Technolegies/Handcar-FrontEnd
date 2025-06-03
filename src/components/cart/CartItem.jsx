@@ -45,7 +45,7 @@ export default function CartItem({ name, totalPrice, qty, id, image }) {
           className={`w-full py-1 px-3 rounded-lg bg-white border border-gray-300 text-gray-900 `}
           value={quantity}
           onChange={(e) => {
-            setQuantity(e.target.value);
+            setQuantity(parseInt(e.target.value));
             setUpdateTrigger(!updateTrigger);
           }}
         >
