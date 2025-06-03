@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useAddAddress = () => {
   const [loading, setLoading] = useState(false);
@@ -29,14 +30,14 @@ const useAddAddress = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.patch(
-        "url",
+      const res = await axios.post(
+        `${base_url}/add_address`,
         {
           name,
-          ad1,
-          ad2,
+          street: ad1,
+          city: ad2,
           state,
-          zip,
+          zip_code: zip,
           country,
           phone,
         },

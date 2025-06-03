@@ -3,8 +3,13 @@ import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
 import ItemInCart from "./ItemInCart";
 import { Link } from "react-router-dom";
+import useGetAllAddress from "../../hooks/cart/useGetAllAddress";
+import Loading from "../Loading";
+import useGetCartItems from "../../hooks/cart/useGetCartItems";
 
 export default function AddressPageMainSection() {
+  const { loading, address, refetch } = useGetAllAddress();
+  const { loading: cartLoading, items, price } = useGetCartItems();
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
       <div className="xl:w-2/3 w-full">
@@ -12,24 +17,49 @@ export default function AddressPageMainSection() {
           <h4 className="text-2xl font-semibold mb-5">
             Select a shipping address
           </h4>
-          <div className="flex flex-col gap-5">
-            <AddressCard active />
-            <AddressCard />
-          </div>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="flex flex-col gap-5">
+              {address.length > 0 &&
+                address.map((item) => (
+                  <AddressCard
+                    key={item.id}
+                    name={item.name}
+                    ad1={item.street}
+                    ad2={item.city}
+                    state={item.state}
+                    zip={item.zip_code}
+                    country={item.country}
+                  />
+                ))}
+              {address.length < 1 && (
+                <p>No address added. please Add a new Address</p>
+              )}
+            </div>
+          )}
         </div>
-        <AddressForm />
+        <AddressForm refetch={refetch} />
       </div>
       <div className="xl:w-1/3 w-full">
         <div className="flex flex-col gap-3 p-3 border rounded-xl shadow-md">
           <p className="text-xl font-semibold">Items in Cart</p>
-          <ItemInCart />
-          <ItemInCart />
-          <ItemInCart />
+          {items.length > 0 &&
+            items.map((item) => (
+              <ItemInCart
+                key={item.cart_item_id}
+                name={item.product_name}
+                image={item.product_image}
+                qty={item.quantity}
+                price={item.total_price}
+              />
+            ))}
+
           <div className="h-[1px] bg-black"></div>
           <div className="flex flex-col gap-3 text-lg">
             <div className="flex justify-between">
               <p className="text-[#979797]">Total</p>
-              <p>AED 360.00</p>
+              <p>AED {price}</p>
             </div>
             <div className="flex justify-between">
               <p className="text-[#979797]">Delivery</p>
@@ -37,7 +67,7 @@ export default function AddressPageMainSection() {
             </div>
             <div className="flex justify-between">
               <p className="text-[#979797]">Grand total</p>
-              <p className="text-[#17A600] font-semibold">AED 360.00</p>
+              <p className="text-[#17A600] font-semibold">AED {price + 20}</p>
             </div>
           </div>
           <Link

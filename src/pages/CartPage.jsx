@@ -25,8 +25,11 @@ export default function CartPage() {
             refetch={refetch}
           />
         ))}
+        {items.length < 1 && (
+          <p className="text-2xl text-center ">No Items in Cart</p>
+        )}
       </div>
-      {items.length < 1 && <p>No Items in Cart</p>}
+
       <CouponsSection />
       <CheckOutSection price={price} />
     </div>

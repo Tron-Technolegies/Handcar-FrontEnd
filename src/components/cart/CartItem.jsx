@@ -27,7 +27,11 @@ export default function CartItem({
   }, [qty]);
 
   useEffect(() => {
-    updateItemInCart({ id: id, no: quantity });
+    async function handleUpdate() {
+      await updateItemInCart({ id: id, no: quantity });
+      refetch();
+    }
+    handleUpdate();
   }, [updateTrigger]);
 
   const handleRemove = async () => {

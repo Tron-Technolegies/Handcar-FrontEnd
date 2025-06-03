@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useGetAllAddress = () => {
   const [loading, setLoading] = useState(false);
@@ -9,9 +10,11 @@ const useGetAllAddress = () => {
   const getAllAddress = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("url");
+      const res = await axios.get(`${base_url}/view_addresses`, {
+        withCredentials: true,
+      });
       const data = res.data;
-      setAddress(data.address);
+      setAddress(data.addresses);
     } catch (err) {
       console.error(
         err?.response?.data?.message ||
@@ -26,7 +29,11 @@ const useGetAllAddress = () => {
   useEffect(() => {
     getAllAddress();
   }, []);
-  return { loading, address };
+
+  const refetch = () => {
+    getAllAddress();
+  };
+  return { loading, address, refetch };
 };
 
 export default useGetAllAddress;
