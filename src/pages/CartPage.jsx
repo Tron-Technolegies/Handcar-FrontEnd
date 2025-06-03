@@ -7,7 +7,7 @@ import useGetCartItems from "../hooks/cart/useGetCartItems";
 import Loading from "../components/Loading";
 
 export default function CartPage() {
-  const { loading, items, price } = useGetCartItems();
+  const { loading, items, price, refetch } = useGetCartItems();
   return loading ? (
     <Loading />
   ) : (
@@ -22,6 +22,7 @@ export default function CartPage() {
             totalPrice={x.total_price}
             image={x.product_image}
             id={x.cart_item_id}
+            refetch={refetch}
           />
         ))}
       </div>
