@@ -23,9 +23,13 @@ const useAddItemtoCart = () => {
       navigate("/cart");
     } catch (err) {
       console.log(err);
+
       toast.error(
         err?.response?.data?.message ||
           err?.response?.data?.error ||
+          (err?.response?.data?.detail ===
+            "Authentication credentials were not provided." &&
+            "Please login to continue") ||
           err?.message ||
           "something went wrong"
       );

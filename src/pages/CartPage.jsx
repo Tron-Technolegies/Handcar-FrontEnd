@@ -25,6 +25,7 @@ export default function CartPage() {
           />
         ))}
       </div>
+      {items.length < 1 && <p>No Items in Cart</p>}
       <CouponsSection />
       <CheckOutSection price={price} />
     </div>

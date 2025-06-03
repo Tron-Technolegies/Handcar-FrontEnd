@@ -10,6 +10,7 @@ const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export default function CartItem({ name, totalPrice, qty, id, image }) {
   const [quantity, setQuantity] = useState(1);
   const { loading, updateItemInCart } = useUpdateItemInCart();
+  const [updateTrigger, setUpdateTrigger] = useState(false);
   const { loading: removeLoading, removeCartItem } = useRemoveCartItems();
   const { refetch } = useGetCartItems();
 
@@ -21,7 +22,7 @@ export default function CartItem({ name, totalPrice, qty, id, image }) {
 
   useEffect(() => {
     updateItemInCart({ id: id, no: quantity });
-  }, [quantity]);
+  }, [updateTrigger]);
 
   const handleRemove = async () => {
     await removeCartItem({ id });
@@ -45,6 +46,7 @@ export default function CartItem({ name, totalPrice, qty, id, image }) {
           value={quantity}
           onChange={(e) => {
             setQuantity(e.target.value);
+            setQuantity(!updateTrigger);
           }}
         >
           {list?.map((item) => (
