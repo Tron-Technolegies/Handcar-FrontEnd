@@ -46,7 +46,7 @@ export default function CartItem({ name, totalPrice, qty, id, image }) {
           value={quantity}
           onChange={(e) => {
             setQuantity(e.target.value);
-            setQuantity(!updateTrigger);
+            setUpdateTrigger(!updateTrigger);
           }}
         >
           {list?.map((item) => (
