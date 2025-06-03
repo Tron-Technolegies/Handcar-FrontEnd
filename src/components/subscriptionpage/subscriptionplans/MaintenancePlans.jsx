@@ -86,8 +86,8 @@ export default function MaintenancePlans() {
             key={x.id}
             name={x.name}
             list={x.description
-              .match(/<li>(.*?)<\/li>/g)
-              .map((item) => item.replace(/<\/?li>/g, ""))}
+              ?.match(/<li>(.*?)<\/li>/g)
+              ?.map((item) => item.replace(/<\/?li>/g, ""))}
             price={x.price}
           />
         ))}

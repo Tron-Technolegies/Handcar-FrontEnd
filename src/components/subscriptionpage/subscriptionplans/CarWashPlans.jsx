@@ -84,8 +84,8 @@ export default function CarWashPlans() {
             name={x.name}
             price={x.price}
             list={x.description
-              .match(/<li>(.*?)<\/li>/g)
-              .map((item) => item.replace(/<\/?li>/g, ""))}
+              ?.match(/<li>(.*?)<\/li>/g)
+              ?.map((item) => item.replace(/<\/?li>/g, ""))}
           />
         ))}
       </div>
