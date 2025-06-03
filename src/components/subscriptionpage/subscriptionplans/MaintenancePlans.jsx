@@ -16,7 +16,7 @@ export default function MaintenancePlans() {
       );
       setMaintenancePlans(filteredPlans);
     }
-  }, [loading]);
+  }, [loading, plans]);
 
   const handlefunction1 = () => {
     setLong(6);
@@ -81,7 +81,7 @@ export default function MaintenancePlans() {
         </p>
       </div>
       <div className="flex justify-center gap-7 my-10">
-        {maintenancePlans.map((x) => (
+        {maintenancePlans?.map((x) => (
           <PlanCard
             key={x.id}
             name={x.name}

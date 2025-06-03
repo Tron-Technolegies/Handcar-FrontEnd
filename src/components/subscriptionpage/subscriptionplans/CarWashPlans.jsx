@@ -18,7 +18,7 @@ export default function CarWashPlans() {
       );
       setWashPlans(filteredPlans);
     }
-  }, [loading]);
+  }, [loading, plans]);
 
   const handlefunction1 = () => {
     setLong(6);
@@ -78,7 +78,7 @@ export default function CarWashPlans() {
         </p>
       </div>
       <div className="my-10 flex lg:flex-row flex-col items-center justify-center gap-7">
-        {washPlans.map((x) => (
+        {washPlans?.map((x) => (
           <PlanCard
             key={x.id}
             name={x.name}
