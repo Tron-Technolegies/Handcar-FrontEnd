@@ -14,10 +14,11 @@ export default function CartItem({
   id,
   image,
   refetch,
+  updateTrigger,
+  setUpdateTrigger,
 }) {
   const [quantity, setQuantity] = useState(1);
   const { loading, updateItemInCart } = useUpdateItemInCart();
-  const [updateTrigger, setUpdateTrigger] = useState(false);
   const { loading: removeLoading, removeCartItem } = useRemoveCartItems();
 
   useEffect(() => {

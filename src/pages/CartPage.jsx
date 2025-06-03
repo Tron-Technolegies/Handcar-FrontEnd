@@ -8,6 +8,7 @@ import Loading from "../components/Loading";
 
 export default function CartPage() {
   const { loading, items, price, refetch } = useGetCartItems();
+  const [updateTrigger, setUpdateTrigger] = useState(false);
   return loading ? (
     <Loading />
   ) : (
@@ -23,6 +24,8 @@ export default function CartPage() {
             image={x.product_image}
             id={x.cart_item_id}
             refetch={refetch}
+            updateTrigger={updateTrigger}
+            setUpdateTrigger={setUpdateTrigger}
           />
         ))}
         {items.length < 1 && (
