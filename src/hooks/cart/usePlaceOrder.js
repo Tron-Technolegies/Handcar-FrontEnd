@@ -14,7 +14,7 @@ const usePlaceOrder = ({
   const [loading, setLoading] = useState(false);
   const { setOrder } = useContext(CartContext);
 
-  const placeOrder = async () => {
+  const placeTheOrder = async () => {
     setLoading(true);
     try {
       const response = await axios.post(
@@ -24,7 +24,7 @@ const usePlaceOrder = ({
       );
     } catch (error) {}
   };
-  return { loading, placeOrder };
+  return { loading, placeTheOrder };
 };
 
 export default usePlaceOrder;

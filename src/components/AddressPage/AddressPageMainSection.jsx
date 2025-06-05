@@ -14,7 +14,7 @@ import { UserContext } from "../../UserContext";
 export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
   const { loading: cartLoading } = useGetCartItems();
-  const { loading: orderLoading, placeOrder } = usePlaceOrder();
+  const { loading: orderLoading, placeTheOrder } = usePlaceOrder();
   const { cartItems, totalPrice } = useContext(CartContext);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function AddressPageMainSection() {
       toast.warn("Please Select an Address");
       return;
     }
-    await placeOrder({
+    await placeTheOrder({
       userId: user.id,
       cartItems,
       username: user.first_name,
