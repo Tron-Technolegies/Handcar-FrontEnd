@@ -12,6 +12,7 @@ export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
   const { loading: cartLoading } = useGetCartItems();
   const { cartItems, totalPrice } = useContext(CartContext);
+
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
       <div className="xl:w-2/3 w-full">
@@ -33,6 +34,9 @@ export default function AddressPageMainSection() {
                     state={item.state}
                     zip={item.zip_code}
                     country={item.country}
+                    active={item.is_default}
+                    id={item.id}
+                    refetch={refetch}
                   />
                 ))}
               {address.length < 1 && (
