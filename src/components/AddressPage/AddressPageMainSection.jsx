@@ -2,17 +2,42 @@ import React, { useContext, useState } from "react";
 import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
 import ItemInCart from "./ItemInCart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useGetAllAddress from "../../hooks/cart/useGetAllAddress";
 import Loading from "../Loading";
 import useGetCartItems from "../../hooks/cart/useGetCartItems";
 import { CartContext } from "../../CartContext";
+import { toast } from "react-toastify";
+import usePlaceOrder from "../../hooks/cart/usePlaceOrder";
+import { UserContext } from "../../UserContext";
 
 export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
   const { loading: cartLoading } = useGetCartItems();
+  const { loading: orderLoading, placeOrder } = usePlaceOrder();
   const { cartItems, totalPrice } = useContext(CartContext);
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
+  async function placeOrder() {
+    if (address.length < 1) {
+      toast.warn("Please Add an Address");
+      return;
+    }
+    const defaultAddress = address.find((item) => item.is_default);
+    if (!defaultAddress) {
+      toast.warn("Please Select an Address");
+      return;
+    }
+    await placeOrder({
+      userId: user.id,
+      cartItems,
+      username: user.first_name,
+      contact: user.username,
+      address: defaultAddress,
+      totalPrice,
+    });
+  }
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
       <div className="xl:w-2/3 w-full">
@@ -81,12 +106,12 @@ export default function AddressPageMainSection() {
                 </p>
               </div>
             </div>
-            <Link
-              to={"/confirm"}
+            <button
+              onClick={placeOrder}
               className="px-4 py-2 text-center border hover:bg-white hover:text-black rounded-lg bg-black text-white"
             >
               Place Order
-            </Link>
+            </button>
           </div>
         )}
       </div>

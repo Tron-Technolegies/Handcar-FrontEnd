@@ -21,16 +21,20 @@ export default function AddressCard({
   const { loading: deleteLoading, deleteAdress } = useDeleteAddress();
   return (
     <div
-      onClick={async () => {
-        await setDefault({ id });
-        refetch();
-      }}
       className={`flex gap-3 items-start max-w-[340px] p-5 border border-black rounded-xl shadow-lg cursor-pointer ${
         !active && "bg-[#F8F8F8] border-0"
       }`}
     >
       {loading && <Loading />}
-      <p>{active ? <FaRegCircleDot /> : <FaRegCircle />}</p>
+      <p
+        className="text-xl"
+        onClick={async () => {
+          await setDefault({ id });
+          refetch();
+        }}
+      >
+        {active ? <FaRegCircleDot /> : <FaRegCircle />}
+      </p>
       <div className="flex flex-col gap-1 w-full">
         <p>{name}</p>
         <p>{ad1}</p>
