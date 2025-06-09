@@ -33,13 +33,13 @@ export default function AddressPageMainSection() {
 
     await placeTheOrder({
       cartItems,
-      username: user.first_name,
-      contact: user.username,
+      username: user?.first_name,
+      contact: user?.username,
       address: defaultAddress,
       totalPrice,
     });
     handlePlaceOrder({
-      data: { ...cartItems, ...order.order_id, ...totalPrice },
+      data: { ...cartItems, ...order?.order_id, ...totalPrice },
     });
   }
   return (
