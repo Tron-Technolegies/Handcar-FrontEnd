@@ -19,24 +19,7 @@ export default function OrderDetails({ order }) {
           <p>Mobile: {order?.order_details?.contact}</p>
         </div>
       </div>
-      <div className="flex flex-col gap-3 pb-2 border-b">
-        <p className="text-[#979797]">Billing Address</p>
-        <div className="font-medium">
-          <p>Ahmed Al-Farsi </p>
-          <p>123 Sheikh Zayed Road,</p>
-          <p>Downtown Dubai,</p>
-          <p>Dubai, United Arab Emirates</p>
-          <p>P.O. Box 12345,</p>
-          <p>Mobile: +971 50 123 4567</p>
-        </div>
-      </div>
-      <div className="flex flex-col gap-3 pb-2 border-b">
-        <p className="text-[#979797]">Contact Details</p>
-        <div className="font-medium">
-          <p>+971 50 123 4567</p>
-          <p>+971 67 848 567</p>
-        </div>
-      </div>
+
       <h4 className="text-lg font-semibold">Order Summary</h4>
       <div className="flex flex-col gap-3">
         <div className="flex justify-between">

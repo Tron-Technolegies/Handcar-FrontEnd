@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../CartContext";
 
 export default function CheckOutSection({ price }) {
-  const total = price + 20;
+  const { coupon } = useContext(CartContext);
+  const [code, setCode] = useState(coupon.coupon_code || "");
+  const [applied, setApplied] = useState(false);
+  const [total, setTotal] = useState(price + 20 || 0);
+  const applyCode = () => {
+    setApplied(true);
+  };
+
   return (
     <div className="bg-[#F5F5F5] p-5 lg:px-[120px] px-5 rounded-lg flex items-center flex-col gap-5">
       <p>Do you have any Coupon code ?</p>
@@ -10,9 +18,14 @@ export default function CheckOutSection({ price }) {
         <input
           type="text"
           className="grow rounded-lg p-2 px-4"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
           placeholder="your code here"
         ></input>
-        <button className="bg-[#505050] px-10 py-2 rounded-lg text-white hover:bg-black">
+        <button
+          onClick={applyCode}
+          className="bg-[#505050] px-10 py-2 rounded-lg text-white hover:bg-black"
+        >
           Apply
         </button>
       </div>
@@ -25,9 +38,17 @@ export default function CheckOutSection({ price }) {
           <p className="text-[#979797]">Delivery</p>
           <p>AED 20.00</p>
         </div>
+        {applied && (
+          <div className="flex justify-between items-center">
+            <p className="text-[#979797]">Discount</p>
+            <p>AED {price * (parseInt(coupon.discount_percentage) / 100)}</p>
+          </div>
+        )}
         <div className="flex justify-between items-center">
           <p className="text-[#979797]">Grand total</p>
-          <p className="text-[#17A600] text-lg">AED {total}</p>
+          <p className="text-[#17A600] text-lg">
+            AED {total - price * (parseInt(coupon.discount_percentage) / 100)}
+          </p>
         </div>
       </div>
       <Link

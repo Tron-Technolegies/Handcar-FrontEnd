@@ -6,6 +6,7 @@ const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [order, setOrder] = useState(null);
+  const [coupon, setCoupon] = useState(null);
 
   return (
     <CartContext.Provider
@@ -16,6 +17,8 @@ const CartContextProvider = ({ children }) => {
         setTotalPrice,
         order,
         setOrder,
+        coupon,
+        setCoupon,
       }}
     >
       {children}

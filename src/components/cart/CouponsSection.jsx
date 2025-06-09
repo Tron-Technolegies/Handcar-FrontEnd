@@ -38,12 +38,7 @@ export default function CouponsSection() {
       <h4 className="text-[#7D7D7D] text-sm">Available Coupons</h4>
       <Slider {...settings} className="my-10">
         {coupons.map((x) => (
-          <CouponItem
-            key={x.id}
-            code={x.coupon_code}
-            percent={x.discount_percentage}
-            name={x.name}
-          />
+          <CouponItem key={x.id} coupon={x} />
         ))}
       </Slider>
     </div>
