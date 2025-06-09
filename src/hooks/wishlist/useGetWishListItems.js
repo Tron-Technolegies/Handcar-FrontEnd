@@ -14,7 +14,7 @@ const useGetWishListItems = () => {
         withCredentials: true,
       });
       const data = res.data;
-      setItems(data.items);
+      setItems(data.wishlist_items);
     } catch (err) {
       console.error(
         err?.response?.data?.message ||

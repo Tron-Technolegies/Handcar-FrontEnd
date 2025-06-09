@@ -35,6 +35,8 @@ const usePlaceOrder = () => {
           error?.response?.data?.message ||
           "something went wrong"
       );
+    } finally {
+      setLoading(false);
     }
   };
   return { loading, placeTheOrder };

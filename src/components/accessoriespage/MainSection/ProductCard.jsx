@@ -9,15 +9,16 @@ import useAddItemtoWishList from "../../../hooks/wishlist/useAddItemtoWishList";
 
 export default function ProductCard({ name, brand, price, id, image }) {
   const { loading, addItemToCart } = useAddItemtoCart();
-  const { addItemtoWishList } = useAddItemtoWishList();
+  const { loading: wishLoading, addItemtoWishList } = useAddItemtoWishList();
   return (
     <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg w-[330px]">
       <button
         onClick={() => addItemtoWishList({ id: parseInt(id) })}
-        className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto"
+        className="p-2 rounded-full bg-[#F2F2F2] w-fit ms-auto cursor-pointer"
       >
         <CiHeart />
       </button>
+
       <img
         src={image ? image : "/accessories/product.png"}
         className="w-[212px] h-[141px]"

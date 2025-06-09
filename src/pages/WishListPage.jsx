@@ -8,7 +8,7 @@ export default function WishListPage() {
     <div className="">
       <WishlistNavigation />
       <WishlistContent />
-      <CarAccessoriesList />
+      {/* <CarAccessoriesList /> */}
     </div>
   );
 }

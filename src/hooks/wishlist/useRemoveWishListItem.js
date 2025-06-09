@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useRemoveWishListItem = () => {
   const [loading, setLoading] = useState(false);
@@ -8,7 +9,9 @@ const useRemoveWishListItem = () => {
   const removeWishListItem = async ({ id }) => {
     setLoading(true);
     try {
-      const res = await axios.patch("url", {}, { withCredentials: true });
+      const res = await axios.delete(`${base_url}/remove_wishlist/${id}/`, {
+        withCredentials: true,
+      });
       const data = res.data;
       toast.success("Item successfully removed");
     } catch (err) {

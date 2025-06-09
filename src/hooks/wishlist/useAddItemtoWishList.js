@@ -12,7 +12,7 @@ const useAddItemtoWishList = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${base_url}/wishlist/add/${id}/`,
+        `${base_url}/add_to_wishlist/${id}/`,
         {},
         { withCredentials: true }
       );
