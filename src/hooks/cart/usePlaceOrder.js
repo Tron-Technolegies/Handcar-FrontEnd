@@ -25,7 +25,7 @@ const usePlaceOrder = () => {
         { withCredentials: true }
       );
       const data = response.data;
-      setOrder({ ...data.order_.details, ...data.order_id });
+      setOrder(data);
       toast.success("Successfully Placed Order");
       navigate("/confirm");
     } catch (error) {
