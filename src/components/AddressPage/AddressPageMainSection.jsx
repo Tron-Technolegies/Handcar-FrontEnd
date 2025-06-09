@@ -10,12 +10,13 @@ import { CartContext } from "../../CartContext";
 import { toast } from "react-toastify";
 import usePlaceOrder from "../../hooks/cart/usePlaceOrder";
 import { UserContext } from "../../UserContext";
+import { handlePlaceOrder } from "../../utils/WhatsApp";
 
 export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
   const { loading: cartLoading } = useGetCartItems();
-  // const { loading: orderLoading, placeTheOrder } = usePlaceOrder();
-  const { cartItems, totalPrice } = useContext(CartContext);
+  const { loading: orderLoading, placeTheOrder } = usePlaceOrder();
+  const { cartItems, totalPrice, order } = useContext(CartContext);
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -29,15 +30,17 @@ export default function AddressPageMainSection() {
       toast.warn("Please Select an Address");
       return;
     }
-    navigate("/confirm");
-    // await placeTheOrder({
-    //   userId: user.id,
-    //   cartItems,
-    //   username: user.first_name,
-    //   contact: user.username,
-    //   address: defaultAddress,
-    //   totalPrice,
-    // });
+
+    await placeTheOrder({
+      cartItems,
+      username: user.first_name,
+      contact: user.username,
+      address: defaultAddress,
+      totalPrice,
+    });
+    handlePlaceOrder({
+      data: { ...cartItems, ...order.order_id, ...totalPrice },
+    });
   }
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
@@ -113,6 +116,7 @@ export default function AddressPageMainSection() {
             >
               Place Order
             </button>
+            {orderLoading && <Loading />}
           </div>
         )}
       </div>
