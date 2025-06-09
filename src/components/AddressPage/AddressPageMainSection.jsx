@@ -10,7 +10,6 @@ import { CartContext } from "../../CartContext";
 import { toast } from "react-toastify";
 import usePlaceOrder from "../../hooks/cart/usePlaceOrder";
 import { UserContext } from "../../UserContext";
-import { handlePlaceOrder } from "../../utils/WhatsApp";
 
 export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
@@ -37,9 +36,6 @@ export default function AddressPageMainSection() {
       contact: user?.username,
       address: defaultAddress,
       totalPrice,
-    });
-    handlePlaceOrder({
-      data: { ...cartItems, ...order?.order_id, ...totalPrice },
     });
   }
   return (

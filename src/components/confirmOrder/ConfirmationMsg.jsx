@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { handlePlaceOrder } from "../../utils/WhatsApp";
 
-export default function ConfirmationMsg() {
+export default function ConfirmationMsg({ order }) {
   return (
     <div className="md:w-3/5 w-full shadow-md p-5 h-fit rounded-lg flex flex-col gap-10 justify-center items-center">
       <div className="flex flex-col items-center gap-3">
         <img src="/cart/confirm.png"></img>
-        <h4 className="text-2xl font-semibold">Your Order is Confirmed!</h4>
+        <h4 className="text-2xl font-semibold">Your Order is Placed!</h4>
+        <p>Please make payment to Confirm Your order</p>
         {/* <p className="font-medium text-center">
           We will be sending the tracking information on your email address
         </p> */}
@@ -15,12 +17,20 @@ export default function ConfirmationMsg() {
         <p>Estimated Delivery:</p>
         <p className="text-[#17A600]">Nov 6, 2024 - Nov 8, 2024</p>
       </div> */}
-      <Link
-        to={"/"}
-        className="w-full text-center shadow-md px-4 py-2 rounded-lg bg-black text-white border hover:bg-white hover:text-black"
+      <button
+        onClick={() =>
+          handlePlaceOrder({
+            data: {
+              order_id: order?.order_id,
+              totalPrice: order?.total_price,
+              cartItems: order?.order_details?.items,
+            },
+          })
+        }
+        className="w-full text-center cursor-pointer shadow-md px-4 py-2 rounded-lg bg-black text-white border hover:bg-white hover:text-black"
       >
-        Continue Shoping
-      </Link>
+        Make Payment
+      </button>
     </div>
   );
 }

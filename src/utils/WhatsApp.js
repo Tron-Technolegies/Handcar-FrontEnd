@@ -22,7 +22,9 @@ export const handlePlaceOrder = ({ data }) => {
     data.order_id
   }.\n  ${data.cartItems.map(
     (item) =>
-      `${item.product_name}-${item.quantity}nos X AED${item.product_price} = ${item.total_price} \n`
+      `${item.name}-${item.quantity}nos X AED${item.price} = ${
+        parseInt(item.price) * item.quantity
+      } \n`
   )} \n Total Price (including Delivery): ${
     data.totalPrice + 20
   }. \n  I would like to proceed with the order.`;
