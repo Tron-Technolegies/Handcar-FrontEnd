@@ -22,7 +22,7 @@ export default function ConfirmationMsg({ order }) {
           handlePlaceOrder({
             data: {
               order_id: order?.order_id,
-              totalPrice: order?.total_price,
+              totalPrice: order?.order_details?.total_price,
               cartItems: order?.order_details?.items,
             },
           })

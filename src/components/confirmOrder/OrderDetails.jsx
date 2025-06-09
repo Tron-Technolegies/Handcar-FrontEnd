@@ -41,7 +41,7 @@ export default function OrderDetails({ order }) {
       <div className="flex flex-col gap-3">
         <div className="flex justify-between">
           <p className="text-[#979797]">Total</p>
-          <p>AED {order?.total_price}</p>
+          <p>AED {order?.order_details?.total_price}</p>
         </div>
         <div className="flex justify-between">
           <p className="text-[#979797]">Delivery</p>
@@ -50,7 +50,7 @@ export default function OrderDetails({ order }) {
         <div className="flex justify-between">
           <p className="text-[#979797]">Grand total</p>
           <p className="text-lg text-[#17A600] font-semibold">
-            AED {order?.total_price + 20}
+            AED {parseInt(order?.order_details?.total_price) + 20}
           </p>
         </div>
       </div>
