@@ -5,18 +5,18 @@ import { base_url } from "../../constants";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const usePlaceOrder = ({
-  username,
-  contact,
-  address,
-  cartItems,
-  totalPrice,
-}) => {
+const usePlaceOrder = () => {
   const [loading, setLoading] = useState(false);
   const { setOrder } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const placeTheOrder = async () => {
+  const placeTheOrder = async ({
+    username,
+    contact,
+    address,
+    cartItems,
+    totalPrice,
+  }) => {
     setLoading(true);
     try {
       const response = await axios.post(
