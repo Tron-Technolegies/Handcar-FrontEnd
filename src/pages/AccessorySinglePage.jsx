@@ -5,9 +5,11 @@ import SinglePageReview from "../components/accessoriespage/singlePage/SinglePag
 import SimilarProducts from "../components/accessoriespage/singlePage/SimilarProducts";
 import useGetSingleProduct from "../hooks/products/useGetSingleProduct";
 import Loading from "../components/Loading";
+import { useParams } from "react-router-dom";
 
 export default function AccessorySinglePage() {
-  const { loading, product } = useGetSingleProduct();
+  const { id } = useParams();
+  const { loading, product } = useGetSingleProduct({ id });
   return loading ? (
     <Loading />
   ) : (
