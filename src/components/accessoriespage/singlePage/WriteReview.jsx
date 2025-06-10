@@ -1,9 +1,32 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext, useState } from "react";
+import { FaRegStar, FaStar } from "react-icons/fa6";
 import { ImAttachment } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
+import { UserContext } from "../../../UserContext";
+import useWriteReview from "../../../hooks/products/useWriteReview";
+import Loading from "../../Loading";
+import { toast } from "react-toastify";
 
-export default function WriteReview({ setShowPopup }) {
+export default function WriteReview({ setShowPopup, id, refetch }) {
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
+  const { user } = useContext(UserContext);
+  const { loading, writeReview } = useWriteReview();
+
+  async function handleSubmit() {
+    if (!user) {
+      toast.warn("Please Login First");
+      return;
+    }
+    if (rating === 0 || comment === "") {
+      toast.warn("Please fill all fields");
+      return;
+    }
+    await writeReview({ id, comment, rating });
+    setShowPopup(false);
+    refetch();
+  }
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -27,21 +50,62 @@ export default function WriteReview({ setShowPopup }) {
             <IoClose />
           </p>
           <h4 className="text-xl font-bold">Write a review</h4>
+          <div>
+            <p>How would You Rate Our Service ?</p>
+            <div className="flex gap-5 justify-center my-5">
+              <button
+                className="hover:scale-150 duration-200 ease-in-out text-[#FFB800]"
+                onClick={() => setRating(1)}
+              >
+                {rating < 1 ? <FaRegStar /> : <FaStar />}
+              </button>
+              <button
+                className="hover:scale-150 duration-200 ease-in-out text-[#FFB800]"
+                onClick={() => setRating(2)}
+              >
+                {rating < 2 ? <FaRegStar /> : <FaStar />}
+              </button>
+              <button
+                className="hover:scale-150 duration-200 ease-in-out text-[#FFB800]"
+                onClick={() => setRating(3)}
+              >
+                {rating < 3 ? <FaRegStar /> : <FaStar />}
+              </button>
+              <button
+                className="hover:scale-150 duration-200 ease-in-out text-[#FFB800]"
+                onClick={() => setRating(4)}
+              >
+                {rating < 4 ? <FaRegStar /> : <FaStar />}
+              </button>
+              <button
+                className="hover:scale-150 duration-200 ease-in-out text-[#FFB800]"
+                onClick={() => setRating(5)}
+              >
+                {rating < 5 ? <FaRegStar /> : <FaStar />}
+              </button>
+            </div>
+          </div>
           <textarea
             className="bg-[#F6F6F6] rounded-md w-full p-3"
             rows={7}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
             placeholder="write your review here"
           ></textarea>
-          <label className="text-sm flex items-center gap-2 text-[#005DCB] cursor-pointer">
+          {/* <label className="text-sm flex items-center gap-2 text-[#005DCB] cursor-pointer">
             <span>
               <ImAttachment />
             </span>
             Add Images
             <input type="file" hidden></input>
-          </label>
-          <button className="px-4 py-2 bg-black rounded-lg text-white border-2 hover:bg-white hover:text-black shadow-md">
+          </label> */}
+          <button
+            onClick={handleSubmit}
+            className="px-4 py-2 bg-black rounded-lg text-white border-2 hover:bg-white hover:text-black shadow-md"
+          >
             Submit Review
           </button>
+          {loading && <Loading />}
         </div>
       </motion.div>
     </motion.div>

@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 export default function AccessorySinglePage() {
   const { id } = useParams();
   const { loading, product } = useGetSingleProduct({ id });
+
   return loading ? (
     <Loading />
   ) : (

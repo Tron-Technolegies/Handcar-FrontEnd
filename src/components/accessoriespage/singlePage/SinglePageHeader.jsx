@@ -14,7 +14,7 @@ export default function SinglePageHeader({ product }) {
   const [current, setCurrent] = useState(product.image);
   return (
     <div className="lg:px-[120px] py-10 px-5 flex md:flex-row flex-col md:items-start items-center gap-5 justify-between">
-      <div className="flex 2xl:flex-row flex-col-reverse gap-5">
+      <div className="flex 2xl:flex-row flex-col-reverse gap-5 w-full">
         {/* <div className="flex 2xl:flex-col flex-row gap-1">
           <img
             className={`w-[82px] h-[82px] rounded-lg ${
@@ -46,7 +46,7 @@ export default function SinglePageHeader({ product }) {
           className="max-w-[400px] object-cover rounded-lg"
         ></img>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full">
         <div>
           <h4 className="font-semibold text-lg">{product.name}</h4>
           <p className="text-[#8F8F8F]">{product.category_name}</p>

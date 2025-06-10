@@ -27,12 +27,12 @@ export default function ProductCard({ name, brand, price, id, image }) {
         <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
           BestSeller
         </p>
-        <div className="flex gap-2 items-center p-1 rounded-md bg-[#F2F2F2]">
+        {/* <div className="flex gap-2 items-center p-1 rounded-md bg-[#F2F2F2]">
           <p className="text-[#FFB800]">
             <FaStar />
           </p>
           <p>4.0</p>
-        </div>
+        </div> */}
       </div>
       <Link
         to={`/accessories/${id}`}
@@ -43,8 +43,10 @@ export default function ProductCard({ name, brand, price, id, image }) {
       <p className="font-medium me-auto">{brand}</p>
       <div className="flex gap-3 me-auto items-center">
         <p className="font-semibold">{price}</p>
-        <p className="font-medium text-[#959595] line-through">AED 199</p>
-        <p className="text-[#17A600] font-bold text-xs">9% OFF</p>
+        <p className="font-medium text-[#959595] line-through">
+          AED {(parseInt(price) / 0.9).toFixed(2)}
+        </p>
+        <p className="text-[#17A600] font-bold text-xs">10% OFF</p>
       </div>
       <button
         onClick={() => {
