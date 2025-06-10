@@ -1,15 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
 
 export default function CheckOutSection({ price }) {
   const { coupon } = useContext(CartContext);
-  const [code, setCode] = useState(coupon.coupon_code || "");
+  const [code, setCode] = useState(coupon?.coupon_code || "");
   const [applied, setApplied] = useState(false);
   const [total, setTotal] = useState(price + 20 || 0);
   const applyCode = () => {
     setApplied(true);
   };
+
+  useEffect(() => {
+    if (coupon) {
+      setCode(coupon.coupon_code);
+    }
+  }, [coupon]);
 
   return (
     <div className="bg-[#F5F5F5] p-5 lg:px-[120px] px-5 rounded-lg flex items-center flex-col gap-5">
@@ -41,13 +47,13 @@ export default function CheckOutSection({ price }) {
         {applied && (
           <div className="flex justify-between items-center">
             <p className="text-[#979797]">Discount</p>
-            <p>AED {price * (parseInt(coupon.discount_percentage) / 100)}</p>
+            <p>AED {price * (parseInt(coupon?.discount_percentage) / 100)}</p>
           </div>
         )}
         <div className="flex justify-between items-center">
           <p className="text-[#979797]">Grand total</p>
           <p className="text-[#17A600] text-lg">
-            AED {total - price * (parseInt(coupon.discount_percentage) / 100)}
+            AED {total - price * (parseInt(coupon?.discount_percentage) / 100)}
           </p>
         </div>
       </div>
