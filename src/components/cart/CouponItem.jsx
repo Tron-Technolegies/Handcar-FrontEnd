@@ -9,12 +9,12 @@ export default function CouponItem({ coupon }) {
     <div className="rounded-lg p-5 flex flex-col gap-5 border shadow-md mx-2">
       <div>
         <h4 className="text-xl font-semibold">
-          {coupon.discount_percentage} OFF
+          {coupon?.discount_percentage} OFF
         </h4>
-        <p className="font-medium">{coupon.name}</p>
+        <p className="font-medium">{coupon?.name}</p>
       </div>
       <div className="flex sm:flex-row flex-col gap-5 text-sm">
-        <p className="">Code: {coupon.coupon_code}</p>
+        <p className="">Code: {coupon?.coupon_code}</p>
         {/* <p className="flex items-center gap-2">
           <span>
             <MdContentCopy />
@@ -29,7 +29,7 @@ export default function CouponItem({ coupon }) {
             <FaArrowRightLong />
           </span>
           Apply
-          {coupon.id === cartCoupon.id ? "Applied" : "Apply"}
+          {coupon?.id === cartCoupon?.id ? "Applied" : "Apply"}
         </p>
       </div>
     </div>
