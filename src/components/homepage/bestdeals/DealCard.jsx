@@ -7,7 +7,7 @@ export default function DealCard({ name, price, image }) {
   return (
     <div className="flex flex-col gap-5 items-center p-3 bg-white rounded-lg shadow-lg border justify-between">
       <div className="">
-        <img src={image} className="object-cover w-36" alt="" srcset="" />
+        <img src={image} className="object-cover w-64 h-36" alt="" srcset="" />
       </div>
 
       <div className="flex justify-between w-full items-center">
@@ -30,7 +30,7 @@ export default function DealCard({ name, price, image }) {
         <div className="flex gap-3 w-full">
           <p className="font-semibold">AED {price}</p>
           <p className="text-[#959595] line-through">
-            AED {parseInt(price) / 0.6}
+            AED {(parseInt(price) / 0.4).toFixed(2)}
           </p>
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function SinglePageHeader({ product }) {
         </div> */}
         <img
           src={current}
-          className="w-[488px] h-[386px] object-cover rounded-lg"
+          className="max-w-[400px] object-cover rounded-lg"
         ></img>
       </div>
       <div className="flex flex-col gap-4">
@@ -52,11 +52,14 @@ export default function SinglePageHeader({ product }) {
           <p className="text-[#8F8F8F]">{product.category_name}</p>
         </div>
         <div className="font-semibold">
-          <h5 className="line-through">AED {parseInt(product.price) / 0.1}</h5>
+          <h5 className="line-through">
+            AED {(parseInt(product.price) / 0.9).toFixed(2)}
+          </h5>
           <p>AED {product.price}</p>
         </div>
         <p className="text-[#17A600]">
-          Saving: AED {parseInt(product.price) / 0.1 - parseInt(product.price)}
+          Saving: AED{" "}
+          {(parseInt(product.price) / 0.9 - parseInt(product.price)).toFixed(2)}
         </p>
         <p className="bg-[#FFE500] text-sm p-2 rounded-md text-black w-fit font-medium">
           Lowest price in 7 days
