@@ -30,10 +30,30 @@ export default function OrderDetails({ order }) {
           <p className="text-[#979797]">Delivery</p>
           <p>AED 20.00</p>
         </div>
+        {order?.order_details?.coupon && (
+          <div className="flex justify-between">
+            <p className="text-[#979797]">Discount</p>
+            <p>{`AED ${
+              order?.order_details?.total_price *
+              (parseInt(order?.order_details?.coupon?.discount_percentage) /
+                100)
+            }`}</p>
+          </div>
+        )}
         <div className="flex justify-between">
           <p className="text-[#979797]">Grand total</p>
           <p className="text-lg text-[#17A600] font-semibold">
-            AED {parseInt(order?.order_details?.total_price) + 20}
+            {order?.order_details?.coupon
+              ? `AED ${
+                  parseInt(order?.order_details?.total_price) +
+                  20 -
+                  order?.order_details?.total_price *
+                    (parseInt(
+                      order?.order_details?.coupon?.discount_percentage
+                    ) /
+                      100)
+                }`
+              : `AED ${parseInt(order?.order_details?.total_price) + 20}`}
           </p>
         </div>
       </div>

@@ -10,6 +10,7 @@ export default function WishlistItem({
   itemId,
   name,
   price,
+  refetch,
 }) {
   const { loading, addItemToCart } = useAddItemtoCart();
   const { loading: removeLoading, removeWishListItem } =
@@ -17,7 +18,8 @@ export default function WishlistItem({
 
   async function handleAddToCart() {
     await addItemToCart({ id: productId });
-    removeWishListItem({ id: itemId });
+    await removeWishListItem({ id: itemId });
+    refetch();
   }
   return (
     <div className="bg-[#F5F5F5] p-5 rounded-lg flex md:flex-row flex-col gap-10 justify-between items-center">
@@ -37,7 +39,10 @@ export default function WishlistItem({
           Move to Cart
         </button>
         <p
-          onClick={() => removeWishListItem({ id: itemId })}
+          onClick={async () => {
+            await removeWishListItem({ id: itemId });
+            refetch();
+          }}
           className="cursor-pointer"
         >
           <CiTrash />

@@ -4,7 +4,7 @@ import useGetWishListItems from "../../hooks/wishlist/useGetWishListItems";
 import Loading from "../Loading";
 
 export default function WishlistContent() {
-  const { loading, items } = useGetWishListItems();
+  const { loading, items, refetch } = useGetWishListItems();
   return loading ? (
     <Loading />
   ) : (
@@ -19,6 +19,7 @@ export default function WishlistContent() {
             image={item.product_image}
             productId={item.product_id || ""}
             itemId={item.id}
+            refetch={refetch}
           />
         ))}
       </div>

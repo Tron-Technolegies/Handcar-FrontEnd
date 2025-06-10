@@ -24,6 +24,7 @@ export default function ConfirmationMsg({ order }) {
               order_id: order?.order_id,
               totalPrice: order?.order_details?.total_price,
               cartItems: order?.order_details?.items,
+              coupon: order?.order_details?.coupon,
             },
           })
         }

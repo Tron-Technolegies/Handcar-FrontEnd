@@ -4,7 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { CartContext } from "../../CartContext";
 
 export default function CouponItem({ coupon }) {
-  const { coupon: cartCoupon, setCoupon } = useContext(CartContext);
+  const { coupon: cartCoupon, setCoupon, setApplied } = useContext(CartContext);
   return (
     <div className="rounded-lg p-5 flex flex-col gap-5 border shadow-md mx-2">
       <div>
@@ -23,12 +23,14 @@ export default function CouponItem({ coupon }) {
         </p> */}
         <p
           className="flex items-center gap-2"
-          onClick={() => setCoupon(coupon)}
+          onClick={() => {
+            setCoupon(coupon);
+            setApplied(true);
+          }}
         >
           <span>
             <FaArrowRightLong />
           </span>
-          Apply
           {coupon?.id === cartCoupon?.id ? "Applied" : "Apply"}
         </p>
       </div>

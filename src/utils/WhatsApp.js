@@ -25,9 +25,10 @@ export const handlePlaceOrder = ({ data }) => {
       `${item.name}-${item.quantity}nos X AED${item.price} = ${
         parseInt(item.price) * item.quantity
       } \n`
-  )} \n Total Price (including Delivery): ${
-    data.totalPrice + 20
-  }. \n  I would like to proceed with the order.`;
+  )} \n Total Price (including Delivery): ${data.totalPrice + 20}. \n ${
+    data.coupon &&
+    `i had also applied the coupon ${data.coupon.name} with code ${data.coupon.coupon_code} with ${data.coupon.discount_percentage}`
+  }  \n  I would like to proceed with the order.`;
   const encodedMessage = encodeURIComponent(messageContent);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 

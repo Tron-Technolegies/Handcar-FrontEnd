@@ -30,7 +30,11 @@ const useGetWishListItems = () => {
     getWishListItems();
   }, []);
 
-  return { loading, items };
+  const refetch = () => {
+    getWishListItems();
+  };
+
+  return { loading, items, refetch };
 };
 
 export default useGetWishListItems;

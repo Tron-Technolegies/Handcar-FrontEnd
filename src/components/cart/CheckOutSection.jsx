@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
 
 export default function CheckOutSection({ price }) {
-  const { coupon } = useContext(CartContext);
+  const { coupon, applied } = useContext(CartContext);
   const [code, setCode] = useState(coupon?.coupon_code || "");
-  const [applied, setApplied] = useState(false);
+
   const [total, setTotal] = useState(price + 20 || 0);
   const applyCode = () => {
     setApplied(true);
@@ -32,7 +32,7 @@ export default function CheckOutSection({ price }) {
           onClick={applyCode}
           className="bg-[#505050] px-10 py-2 rounded-lg text-white hover:bg-black"
         >
-          Apply
+          {applied ? "Applied" : "Apply"}
         </button>
       </div>
       <div className="flex flex-col gap-3 w-full my-5">
@@ -53,7 +53,11 @@ export default function CheckOutSection({ price }) {
         <div className="flex justify-between items-center">
           <p className="text-[#979797]">Grand total</p>
           <p className="text-[#17A600] text-lg">
-            AED {total - price * (parseInt(coupon?.discount_percentage) / 100)}
+            {applied
+              ? `AED ${
+                  total - price * (parseInt(coupon?.discount_percentage) / 100)
+                }`
+              : `AED ${total}`}
           </p>
         </div>
       </div>

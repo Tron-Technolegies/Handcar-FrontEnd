@@ -16,12 +16,13 @@ const usePlaceOrder = () => {
     address,
     cartItems,
     totalPrice,
+    coupon,
   }) => {
     setLoading(true);
     try {
       const response = await axios.post(
         `${base_url}/place_order`,
-        { username, contact, address, cartItems, totalPrice },
+        { username, contact, address, cartItems, totalPrice, coupon },
         { withCredentials: true }
       );
       const data = response.data;

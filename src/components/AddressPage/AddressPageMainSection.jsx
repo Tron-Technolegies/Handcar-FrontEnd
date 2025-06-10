@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import AddressCard from "./AddressCard";
 import AddressForm from "./AddressForm";
 import ItemInCart from "./ItemInCart";
-import { Link, useNavigate } from "react-router-dom";
 import useGetAllAddress from "../../hooks/cart/useGetAllAddress";
 import Loading from "../Loading";
 import useGetCartItems from "../../hooks/cart/useGetCartItems";
@@ -15,9 +14,16 @@ export default function AddressPageMainSection() {
   const { loading, address, refetch } = useGetAllAddress();
   const { loading: cartLoading } = useGetCartItems();
   const { loading: orderLoading, placeTheOrder } = usePlaceOrder();
-  const { cartItems, totalPrice, order } = useContext(CartContext);
+  const {
+    cartItems,
+    totalPrice,
+    order,
+    coupon,
+    applied,
+    setApplied,
+    setCoupon,
+  } = useContext(CartContext);
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
 
   async function placeOrder() {
     if (address.length < 1) {
@@ -36,7 +42,10 @@ export default function AddressPageMainSection() {
       contact: user?.username,
       address: defaultAddress,
       totalPrice,
+      coupon,
     });
+    setApplied(false);
+    setCoupon(null);
   }
   return (
     <div className="lg:px-[120px] pb-10 px-5 flex xl:flex-row flex-col gap-5">
@@ -99,10 +108,26 @@ export default function AddressPageMainSection() {
                 <p className="text-[#979797]">Delivery</p>
                 <p>AED 20.00</p>
               </div>
+              {applied && (
+                <div className="flex justify-between">
+                  <p className="text-[#979797]">Discount</p>
+                  <p>
+                    AED{" "}
+                    {totalPrice * (parseInt(coupon?.discount_percentage) / 100)}
+                  </p>
+                </div>
+              )}
               <div className="flex justify-between">
                 <p className="text-[#979797]">Grand total</p>
                 <p className="text-[#17A600] font-semibold">
-                  AED {totalPrice + 20}
+                  {applied
+                    ? `AED ${
+                        totalPrice +
+                        20 -
+                        totalPrice *
+                          (parseInt(coupon?.discount_percentage) / 100)
+                      }`
+                    : `AED ${totalPrice + 20}`}
                 </p>
               </div>
             </div>
