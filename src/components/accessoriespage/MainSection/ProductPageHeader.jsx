@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CategoryIconElt from "./CategoryIconElt";
 
-export default function ProductPageHeader() {
+export default function ProductPageHeader({ categories }) {
   const settings = {
     // dots: true,
     infinite: true,
@@ -33,42 +33,13 @@ export default function ProductPageHeader() {
   return (
     <div>
       <Slider {...settings} className="">
-        <CategoryIconElt
-          img={"/accessories/category-3.png"}
-          name={"Maintainance & care"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-2.png"}
-          name={"Interior Accessories"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-1.png"}
-          name={"Automotive Electronics"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-3.png"}
-          name={"Maintainance & care"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-2.png"}
-          name={"Interior Accessories"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-1.png"}
-          name={"Automotive Electronics"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-3.png"}
-          name={"Maintainance & care"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-2.png"}
-          name={"Interior Accessories"}
-        />
-        <CategoryIconElt
-          img={"/accessories/category-1.png"}
-          name={"Automotive Electronics"}
-        />
+        {categories?.map((item, index) => (
+          <CategoryIconElt
+            img={`/acessories/category-${index + 1}.png`}
+            key={item.id}
+            name={item.name}
+          />
+        ))}
       </Slider>
     </div>
   );

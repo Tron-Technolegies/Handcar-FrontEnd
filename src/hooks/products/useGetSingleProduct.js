@@ -1,17 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
-const useGetSingleProduct = () => {
+const useGetSingleProduct = ({ id }) => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState([]);
 
   const getSingleProduct = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("url", { withCredentials: true });
+      const res = await axios.get(`${base_url}/edit_product/${id}/`, {
+        withCredentials: true,
+      });
       const data = res.data;
-      setProduct(data.product);
+      setProduct(data);
     } catch (err) {
       console.error(
         err?.response?.data?.message ||

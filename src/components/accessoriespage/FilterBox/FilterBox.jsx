@@ -3,18 +3,14 @@ import React from "react";
 import FilterHeadingElt from "./FilterHeadingElt";
 import FilterCheckbox from "./FilterCheckbox";
 import StarElt from "./StarElt";
-import useGetAllBrands from "../../../hooks/products/useGetAllBrands";
-import useGetAllCategories from "../../../hooks/products/useGetAllCategories";
 
-export default function FilterBox() {
-  const { loading: brandLoading, brands } = useGetAllBrands();
-  const { loading: categoryLoading, categories } = useGetAllCategories();
+export default function FilterBox({ brands, categories }) {
   return (
     <div className="px-5 py-10 w-1/6 hidden lg:block">
       <FilterHeadingElt title={"Categories"} />
       <div className="flex flex-col gap-3">
-        {categories.length > 0 &&
-          categories.map((item) => (
+        {categories?.length > 0 &&
+          categories?.map((item) => (
             <FilterCheckbox name={item.name} key={item.id} />
           ))}
       </div>
@@ -34,8 +30,8 @@ export default function FilterBox() {
       </div> */}
       <FilterHeadingElt title={"Brand"} />
       <div className="flex flex-col gap-3">
-        {brands.length > 0 &&
-          brands.map((item) => (
+        {brands?.length > 0 &&
+          brands?.map((item) => (
             <FilterCheckbox key={item.id} name={item.name} />
           ))}
       </div>
