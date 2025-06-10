@@ -22,6 +22,8 @@ const usePromotedProducts = () => {
           err?.message ||
           "something went wrong"
       );
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
