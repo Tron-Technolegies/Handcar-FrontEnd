@@ -17,15 +17,16 @@ const specs = [
   { id: 6, name: "Colour Name", details: "A800S Front Cam Only" },
 ];
 
-export default function SinglePageOverview() {
+export default function SinglePageOverview({ product }) {
   return (
     <div className="lg:px-[120px] py-10 px-5">
       <div className="shadow-lg px-10 py-5 rounded-md border">
         <h4 className="text-xl font-semibold my-10">Overview</h4>
         <div className="flex gap-5 lg:flex-row flex-col items-start">
           <div className="lg:w-1/2 w-full">
-            <p className="font-medium mb-5">Highlights</p>
-            <div>
+            <p className="font-medium mb-5">Description</p>
+            <p>{product.description}</p>
+            {/* <div>
               {highlights.map((x, index) => (
                 <div key={index} className="flex gap-2 items-start">
                   <p className="mt-1">
@@ -34,9 +35,9 @@ export default function SinglePageOverview() {
                   <p>{x}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
-          <div className="lg:w-1/2 w-full">
+          {/* <div className="lg:w-1/2 w-full">
             <p className="font-medium mb-5">Specifications</p>
             <div className="flex flex-col gap-3">
               {specs.map((x) => (
@@ -51,7 +52,7 @@ export default function SinglePageOverview() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

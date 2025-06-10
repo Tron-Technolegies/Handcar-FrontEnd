@@ -14,8 +14,8 @@ export default function AccessorySinglePage() {
     <Loading />
   ) : (
     <div>
-      <SinglePageHeader />
-      <SinglePageOverview />
+      <SinglePageHeader product={product} />
+      <SinglePageOverview product={product} />
       <SinglePageReview />
       <SimilarProducts />
     </div>
