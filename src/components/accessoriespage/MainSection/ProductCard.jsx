@@ -19,10 +19,13 @@ export default function ProductCard({ name, brand, price, id, image }) {
         <CiHeart />
       </button>
 
-      <img
-        src={image ? image : "/accessories/product.png"}
-        className="w-[212px] h-[141px]"
-      ></img>
+      <Link to={`/accessories/${id}`}>
+        <img
+          src={image ? image : "/accessories/product.png"}
+          className="w-[212px] h-[141px]"
+        ></img>
+      </Link>
+
       <div className="flex justify-between w-full items-center">
         <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
           BestSeller
