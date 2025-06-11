@@ -8,10 +8,12 @@ import Divider from "@mui/material/Divider";
 import AccountSettingItem from "./AccountSettingItem";
 import { IoLogOutOutline } from "react-icons/io5";
 import useLogout from "../../hooks/auth/useLogout";
+import { useNavigate } from "react-router-dom";
 
 export default function MenuDropdown({ user }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { loading, logoutUser } = useLogout();
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -125,6 +127,7 @@ export default function MenuDropdown({ user }) {
               onClick={async () => {
                 await logoutUser();
                 handleClose();
+                navigate("/");
               }}
             >
               <IoLogOutOutline />
