@@ -53,7 +53,18 @@ export default function MyOrdersPage() {
                   >
                     {row.order_id}
                   </TableCell>
-                  <TableCell sx={{ textAlign: "center" }}></TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <div className="flex flex-col items-center gap-3">
+                      {row.items.map((item) => (
+                        <div key={item.id} className="flex flex-col gap-1">
+                          <p>{item.name}</p>
+                          <p>
+                            {item.quantity} x {item.price}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </TableCell>
                   <TableCell sx={{ textAlign: "center" }}>
                     {row.total_price}
                   </TableCell>
