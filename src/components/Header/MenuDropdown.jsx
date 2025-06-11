@@ -47,7 +47,7 @@ export default function MenuDropdown({ user }) {
             sx: {
               overflow: "visible",
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              backgroundColor: "#00000",
+              backgroundColor: "#000000",
               color: "#FFFFFF",
               border: "1px solid #42E8E03B",
               padding: "15px",
@@ -67,7 +67,7 @@ export default function MenuDropdown({ user }) {
                 right: 14,
                 width: 10,
                 height: 10,
-                bgcolor: "#00000",
+                bgcolor: "#000000",
                 transform: "translateY(-50%) rotate(45deg)",
                 zIndex: 0,
               },
