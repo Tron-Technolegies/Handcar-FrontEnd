@@ -29,7 +29,7 @@ export default function MenuDropdown({ user }) {
           aria-expanded={open ? "true" : undefined}
         >
           <Avatar sx={{ width: 32, height: 32 }}>
-            {user.name.slice(0, 1)}
+            {user?.first_name.slice(0, 1)}
           </Avatar>
         </IconButton>
       </Tooltip>
