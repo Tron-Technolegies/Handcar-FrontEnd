@@ -6,14 +6,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CiShoppingCart, CiHeart } from "react-icons/ci";
 import SmallHeader from "./SmallHeader";
 import { UserContext } from "../../UserContext";
-import useLogout from "../../hooks/auth/useLogout";
+
 import MenuDropdown from "./MenuDropdown";
 
 const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
   const { setShowLogin, setShowSignup, user } = useContext(UserContext);
-  const { loading, logoutUser } = useLogout();
+
   const navigate = useNavigate();
   const location = useLocation();
 

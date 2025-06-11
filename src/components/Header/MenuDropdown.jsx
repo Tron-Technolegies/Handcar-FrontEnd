@@ -7,9 +7,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import AccountSettingItem from "./AccountSettingItem";
 import { IoLogOutOutline } from "react-icons/io5";
+import useLogout from "../../hooks/auth/useLogout";
 
 export default function MenuDropdown({ user }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { loading, logoutUser } = useLogout();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -45,7 +47,7 @@ export default function MenuDropdown({ user }) {
             sx: {
               overflow: "visible",
               filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              backgroundColor: "#011532",
+              backgroundColor: "#00000",
               color: "#FFFFFF",
               border: "1px solid #42E8E03B",
               padding: "15px",
@@ -65,7 +67,7 @@ export default function MenuDropdown({ user }) {
                 right: 14,
                 width: 10,
                 height: 10,
-                bgcolor: "#011532",
+                bgcolor: "#00000",
                 transform: "translateY(-50%) rotate(45deg)",
                 zIndex: 0,
               },
@@ -76,22 +78,17 @@ export default function MenuDropdown({ user }) {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <div className="flex flex-col gap-5 w-full">
-          <p className=" text-[#76C6E0]">Account Settings</p>
+          <p className=" text-white">Account Settings</p>
           <div className="w-full">
             <AccountSettingItem
-              name={"Profile"}
+              name={"My Profile"}
               handleClose={handleClose}
               link={"/profile"}
             />
             <AccountSettingItem
-              name={"Notifications"}
+              name={"My Orders"}
               handleClose={handleClose}
-              click={() => setOpenNotification(true)}
-            />
-            <AccountSettingItem
-              name={"2FA"}
-              handleClose={handleClose}
-              link={"/2fa"}
+              link={"/orders"}
             />
           </div>
           <Divider
@@ -99,7 +96,7 @@ export default function MenuDropdown({ user }) {
               borderColor: "#07EAD338",
             }}
           />
-          <p className=" text-[#76C6E0]">More</p>
+          {/* <p className=" text-[#76C6E0]">More</p>
           <div>
             <AccountSettingItem
               name={"Help"}
@@ -121,12 +118,18 @@ export default function MenuDropdown({ user }) {
             sx={{
               borderColor: "#07EAD338",
             }}
-          />
-          <MenuItem onClick={handleClose}>
-            <div className="flex gap-2 items-center text-[#07EAD3]">
+          /> */}
+          <MenuItem>
+            <button
+              className="flex gap-2 items-center text-[#07EAD3]"
+              onClick={async () => {
+                await logoutUser();
+                handleClose();
+              }}
+            >
               <IoLogOutOutline />
               <p>Logout</p>
-            </div>
+            </button>
           </MenuItem>
         </div>
       </Menu>
