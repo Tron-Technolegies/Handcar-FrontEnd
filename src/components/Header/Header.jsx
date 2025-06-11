@@ -7,6 +7,7 @@ import { CiShoppingCart, CiHeart } from "react-icons/ci";
 import SmallHeader from "./SmallHeader";
 import { UserContext } from "../../UserContext";
 import useLogout from "../../hooks/auth/useLogout";
+import MenuDropdown from "./MenuDropdown";
 
 const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
@@ -67,29 +68,7 @@ const Header = () => {
           </Link>
         </div>
         {user ? (
-          <div
-            className="lg:flex items-center gap-2 border p-2 rounded-md shadow-md cursor-pointer relative hidden"
-            onClick={() => setShowLogout(!showLogout)}
-          >
-            <p>Helloo, {user.first_name}</p>
-            <p className="w-8 h-8 rounded-full bg-red-500 text-white flex justify-center items-center">
-              {user.first_name.slice(0, 1).toUpperCase()}
-            </p>
-            {showLogout && (
-              <div className="absolute bg-black p-2 -bottom-12 w-full left-0 text-white rounded-md flex gap-3 items-center justify-center cursor-pointer translate-y-1 ease-in-out duration-300">
-                <div className="flex flex-col gap-3">
-                  <Link to={"/profile"}>My Profile</Link>
-                  <Link to={"/orders"}>My Orders</Link>
-                  <p onClick={() => logoutUser()}>
-                    Logout
-                    <span>
-                      <IoIosLogOut />
-                    </span>
-                  </p>
-                </div>
-              </div>
-            )}
-          </div>
+          <MenuDropdown user={user} />
         ) : (
           <>
             <button
