@@ -41,7 +41,7 @@ export default function MyOrdersPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {brands.map((row, index) => (
+              {orders.map((row, index) => (
                 <TableRow
                   key={row.order_id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
