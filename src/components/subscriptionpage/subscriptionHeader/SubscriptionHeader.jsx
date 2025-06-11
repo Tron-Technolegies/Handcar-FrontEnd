@@ -2,6 +2,9 @@ import React from "react";
 import subscription_page_headerimg from "../../../assets/subscription_page_headerimage.svg";
 
 const SubscriptionHeader = () => {
+  function navigate() {
+    document.getElementById("wash").scrollIntoView({ behavior: "smooth" });
+  }
   return (
     <div className="flex flex-col gap-10 items-center lg:px-[120px] py-10">
       <div className="flex flex-col gap-5 items-center text-center max-w-[800px] lg:px-0 px-5">
@@ -13,7 +16,10 @@ const SubscriptionHeader = () => {
           packages. Enjoy hassle-free maintenance, exclusive discounts, and
           priority support—so you can drive with peace of mind all year round.
         </p>
-        <button className="px-4 py-2 rounded-lg bg-[#D60205] text-white">
+        <button
+          onClick={navigate}
+          className="px-4 py-2 rounded-lg bg-[#D60205] text-white"
+        >
           View all plans
         </button>
       </div>

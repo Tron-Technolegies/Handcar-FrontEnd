@@ -76,15 +76,18 @@ const Header = () => {
               {user.first_name.slice(0, 1).toUpperCase()}
             </p>
             {showLogout && (
-              <p
-                className="absolute bg-black p-2 -bottom-12 w-full left-0 text-white rounded-md flex gap-3 items-center justify-center cursor-pointer translate-y-1 ease-in-out duration-300"
-                onClick={() => logoutUser()}
-              >
-                Logout
-                <span>
-                  <IoIosLogOut />
-                </span>
-              </p>
+              <div className="absolute bg-black p-2 -bottom-12 w-full left-0 text-white rounded-md flex gap-3 items-center justify-center cursor-pointer translate-y-1 ease-in-out duration-300">
+                <div className="flex flex-col gap-3">
+                  <Link to={"/profile"}>My Profile</Link>
+                  <Link to={"/orders"}>My Orders</Link>
+                  <p onClick={() => logoutUser()}>
+                    Logout
+                    <span>
+                      <IoIosLogOut />
+                    </span>
+                  </p>
+                </div>
+              </div>
             )}
           </div>
         ) : (

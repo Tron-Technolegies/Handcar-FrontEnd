@@ -17,6 +17,8 @@ import ErrorPage from "./pages/ErrorPage";
 import ConfirmOrderPage from "./pages/ConfirmOrderPage";
 import WishListPage from "./pages/WishListPage";
 import PaintingServiceDetailPopup from "./components/servicepage/vendorService/VendorServiceDetailPopup";
+import MyOrdersPage from "./pages/MyOrdersPage";
+import ProfilePage from "./pages/ProfilePage";
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
@@ -37,6 +39,8 @@ const App = () => {
         { path: "address", element: <AddressSelectPage /> },
         { path: "confirm", element: <ConfirmOrderPage /> },
         { path: "wishlist", element: <WishListPage /> },
+        { path: "orders", element: <MyOrdersPage /> },
+        { path: "profile", element: <ProfilePage /> },
       ],
     },
   ]);

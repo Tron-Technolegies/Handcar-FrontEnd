@@ -34,3 +34,12 @@ export const handlePlaceOrder = ({ data }) => {
 
   window.open(whatsappUrl, "_blank");
 };
+
+export const handleSubscription = ({ data }) => {
+  const phoneNumber = "+971544463803";
+  const messageContent = `Hello I would like to subscribe for ${data.name} plan (${data.type}) for ${data.month} months at AED ${data.price}`;
+  const encodedMessage = encodeURIComponent(messageContent);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  window.open(whatsappUrl, "_blank");
+};

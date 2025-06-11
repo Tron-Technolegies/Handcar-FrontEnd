@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { handleSubscription } from "../../../utils/WhatsApp";
 
-export default function PlanCard({ name, price, list, popular }) {
+export default function PlanCard({ name, price, list, popular, month, type }) {
   console.log(list);
 
   return (
@@ -67,7 +68,12 @@ export default function PlanCard({ name, price, list, popular }) {
             <p>20% off/Car</p>
           </div>
         </div> */}
-        <button className="px-4 py-2 border border-black rounded-lg font-medium hover:bg-black hover:text-white">
+        <button
+          onClick={() =>
+            handleSubscription({ data: { name, price, month, type } })
+          }
+          className="px-4 py-2 border border-black rounded-lg font-medium hover:bg-black hover:text-white"
+        >
           Subscribe
         </button>
       </div>

@@ -87,6 +87,8 @@ export default function MaintenancePlans() {
           <PlanCard
             key={x.id}
             name={x.name}
+            month={long}
+            type={x.service_type}
             list={x.description
               ?.match(/<li>(.*?)<\/li>/g)
               ?.map((item) => item.replace(/<\/?li>/g, ""))}
