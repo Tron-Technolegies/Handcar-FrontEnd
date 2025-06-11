@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { base_url } from "../../constants";
 
 const useGetPromotedBrandProducts = () => {
   const [loading, setLoading] = useState(false);
@@ -9,9 +10,11 @@ const useGetPromotedBrandProducts = () => {
   const getPromotedBrandProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("url", { withCredentials: true });
+      const res = await axios.get(`${base_url}/promoted_brands_products'`, {
+        withCredentials: true,
+      });
       const data = res.data;
-      setProducts(data.products);
+      setProducts(data.promoted_brands_products);
     } catch (err) {
       console.error(
         err?.response?.data?.message ||

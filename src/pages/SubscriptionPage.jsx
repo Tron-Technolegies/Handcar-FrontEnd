@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import SubscriptionHeader from "../components/subscriptionpage/subscriptionHeader/SubscriptionHeader";
 
@@ -8,6 +8,9 @@ import CarAccessoriesList from "../components/homepage/carAccessoriesList/CarAcc
 import AccessoriesByCategories from "../components/homepage/accessoriesbycategories/AccessoriesByCategories";
 
 const SubscriptionPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <SubscriptionHeader />
