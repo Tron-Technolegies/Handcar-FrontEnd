@@ -1,5 +1,76 @@
 import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { FaRegEdit } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import useGetOrderHistory from "../hooks/auth/useGetOrderHistory";
+import Loading from "../components/Loading";
 
 export default function MyOrdersPage() {
-  return <div>MyOrdersPage</div>;
+  const { loading, refetch, orders } = useGetOrderHistory();
+  return (
+    <div className="lg:px-[120px] px-10 py-10 min-h-screen">
+      <p className="text-xl font-semibold my-10">My Orders</p>
+      {loading ? (
+        <Loading />
+      ) : orders.length > 0 ? (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow sx={{ backgroundColor: "#F9FAFB" }}>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Orders Id
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Items
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Price
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Status
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Order Date
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {brands.map((row, index) => (
+                <TableRow
+                  key={row.order_id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    sx={{ textAlign: "center" }}
+                  >
+                    {row.order_id}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}></TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {row.total_price}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {row.status}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {row.created_at}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <p>No orders Available</p>
+      )}
+    </div>
+  );
 }
