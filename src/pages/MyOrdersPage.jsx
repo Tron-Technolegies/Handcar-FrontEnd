@@ -30,6 +30,9 @@ export default function MyOrdersPage() {
                   Items
                 </TableCell>
                 <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
+                  Coupons
+                </TableCell>
+                <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
                   Price
                 </TableCell>
                 <TableCell sx={{ textAlign: "center", fontWeight: "bold" }}>
@@ -59,14 +62,36 @@ export default function MyOrdersPage() {
                         <div key={item.id} className="flex flex-col gap-1">
                           <p>{item.name}</p>
                           <p>
-                            {item.quantity} x {item.price}
+                            {item.quantity} x {item.price} ={" "}
+                            {parseInt(item.quantity) * parseInt(item.price)}
                           </p>
                         </div>
                       ))}
                     </div>
                   </TableCell>
                   <TableCell sx={{ textAlign: "center" }}>
-                    {row.total_price}
+                    {row.coupon ? (
+                      <div className="flex flex-col gap-1">
+                        <p>{row.coupon?.name}</p>
+                        <p>{row.coupon?.coupon_code}</p>
+                        <p>Discount: {row.coupon?.discount_percentage}%</p>
+                      </div>
+                    ) : (
+                      "N/A"
+                    )}
+                  </TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    {row.coupon ? (
+                      <div className="flex flex-col gap-1">
+                        <p className="line-through">{row.total_price}</p>
+                        <p>
+                          {parseInt(row.total_price) *
+                            (parseInt(row.coupon.discount_percentage) / 100)}
+                        </p>
+                      </div>
+                    ) : (
+                      row.total_price
+                    )}
                   </TableCell>
                   <TableCell sx={{ textAlign: "center" }}>
                     {row.status}
