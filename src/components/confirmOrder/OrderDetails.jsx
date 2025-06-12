@@ -9,13 +9,14 @@ export default function OrderDetails({ order }) {
         <p className="text-[#979797]">Delivery Address </p>
         <div className="font-medium">
           <p>{order?.order_details?.name}</p>
-          <p>{order?.order_details?.address?.street}</p>
+          {/* <p>{order?.order_details?.address?.street}</p>
           <p>{order?.order_details?.address?.city}</p>
           <p>{order?.order_details?.address?.state}</p>
           <p>
             {order?.order_details?.address?.zip_code}{" "}
             {order?.order_details?.address?.country}
-          </p>
+          </p> */}
+          <p className="max-w-[300px]">{order?.order_details?.address}</p>
           <p>Mobile: {order?.order_details?.contact}</p>
         </div>
       </div>

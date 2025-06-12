@@ -31,6 +31,7 @@ export default function AddressPageMainSection() {
       return;
     }
     const defaultAddress = address.find((item) => item.is_default);
+    const orderAddress = `${defaultAddress.street} ${defaultAddress.city} ${defaultAddress.state} ${defaultAddress.zip_code} ${defaultAddress.country}`;
     if (!defaultAddress) {
       toast.warn("Please Select an Address");
       return;
@@ -40,7 +41,7 @@ export default function AddressPageMainSection() {
       cartItems,
       username: user?.first_name,
       contact: user?.username,
-      address: defaultAddress,
+      address: orderAddress,
       totalPrice,
       coupon,
     });
