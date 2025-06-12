@@ -85,8 +85,9 @@ export default function MyOrdersPage() {
                       <div className="flex flex-col gap-1">
                         <p className="line-through">{row.total_price}</p>
                         <p>
-                          {parseInt(row.total_price) *
-                            (parseInt(row.coupon.discount_percentage) / 100)}
+                          {parseInt(row.total_price) -
+                            parseInt(row.total_price) *
+                              (parseInt(row.coupon.discount_percentage) / 100)}
                         </p>
                       </div>
                     ) : (
