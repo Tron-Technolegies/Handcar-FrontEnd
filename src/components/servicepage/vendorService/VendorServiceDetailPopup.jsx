@@ -36,23 +36,23 @@ export default function VendorServiceDetailPopup() {
   async function handleWhatsapp({ action, service_id, phone }) {
     if (!user) {
       toast.warn("Please Login to Continue");
-    } else {
-      await postLog({ action, service_id });
-      const phoneNumber = phone; // Replace with the actual phone number
-      const message = "Hello! I would like to use your service"; // Replace with your message
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-      window.open(whatsappUrl, "_blank");
+      return;
     }
+    await postLog({ action, service_id });
+    const phoneNumber = phone; // Replace with the actual phone number
+    const message = "Hello! I would like to use your service"; // Replace with your message
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   }
 
   async function handleCall({ action, service_id, phone }) {
     if (!user) {
       toast.warn("Please Login to continue");
-    } else {
-      await postLog({ action, service_id });
-      window.location.href = `tel:${phone}`;
+      return;
     }
+    await postLog({ action, service_id });
+    window.location.href = `tel:${phone}`;
   }
 
   return loading ? (

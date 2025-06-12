@@ -42,7 +42,7 @@ export default function AddressCard({
         <p>{state}</p>
         <p>{country}</p>
         <p>{zip}</p>
-        <p>Mobile: +971 50 123 4567</p>
+
         <button
           className="my-2 text-right text-red-500 self-end cursor-pointer w-fit"
           onClick={async () => {

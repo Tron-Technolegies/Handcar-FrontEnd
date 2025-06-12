@@ -16,7 +16,9 @@ export default function AccessorySinglePage() {
 
   useEffect(() => {
     if (products) {
-      const filtered = products.filter((item) => item.id !== id);
+      const filtered = products.filter(
+        (item) => item.id.toString() !== id.toString()
+      );
       setSimilar(filtered);
     }
   }, [products]);

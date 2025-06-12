@@ -11,7 +11,7 @@ export default function AddressForm({ refetch }) {
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
   const [country, setCountry] = useState("");
-  const [mobile, setMobile] = useState("");
+
   const { loading, addAddress } = useAddAddress();
   const { user } = useContext(UserContext);
   return (
@@ -61,7 +61,7 @@ export default function AddressForm({ refetch }) {
           />
         </div>
       </div>
-      <p>Phone Number</p>
+      {/* <p>Phone Number</p>
       <PhoneInput
         country={"ae"} // Set default country code (UAE in this case)
         value={mobile}
@@ -74,7 +74,7 @@ export default function AddressForm({ refetch }) {
           backgroundColor: "#E1E1E1",
           borderRadius: "8px",
         }}
-      />
+      /> */}
       <button
         onClick={async () => {
           await addAddress({
@@ -84,10 +84,16 @@ export default function AddressForm({ refetch }) {
             state,
             zip,
             country,
-            phone: mobile,
+            // phone: mobile,
             id: user.id,
           });
           refetch();
+          setName("");
+          setAd1("");
+          setAd2("");
+          setState("");
+          setZip("");
+          setCountry("");
         }}
         className="px-4 py-2 bg-black text-white rounded-lg hover:bg-white border-2 hover:text-black"
       >

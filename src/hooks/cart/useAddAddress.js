@@ -13,7 +13,7 @@ const useAddAddress = () => {
     state,
     zip,
     country,
-    phone,
+    // phone,
     id,
   }) => {
     if (
@@ -22,8 +22,7 @@ const useAddAddress = () => {
       ad2 === "" ||
       state === "" ||
       zip === "" ||
-      country === "" ||
-      phone === ""
+      country === ""
     ) {
       toast.error("Please fill all the fields");
       return;
@@ -39,7 +38,7 @@ const useAddAddress = () => {
           state,
           zip_code: zip,
           country,
-          phone,
+          // phone,
         },
         { withCredentials: true }
       );
