@@ -6,10 +6,12 @@ import CheckOutSection from "../components/cart/CheckOutSection";
 import useGetCartItems from "../hooks/cart/useGetCartItems";
 import Loading from "../components/Loading";
 import { CartContext } from "../CartContext";
+import useGetAllCoupons from "../hooks/cart/useGetAllCoupons";
 
 export default function CartPage() {
   const { loading, refetch } = useGetCartItems();
   const { cartItems, totalPrice } = useContext(CartContext);
+  const { loading: couponLoading, coupons } = useGetAllCoupons();
 
   return loading ? (
     <Loading />
@@ -33,8 +35,7 @@ export default function CartPage() {
           <p className="text-2xl text-center ">No Items in Cart</p>
         )}
       </div>
-
-      <CouponsSection />
+      {couponLoading ? <Loading /> : <CouponsSection coupons={coupons} />}
       <CheckOutSection price={totalPrice} />
     </div>
   );

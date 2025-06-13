@@ -3,11 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CouponItem from "./CouponItem";
-import useGetAllCoupons from "../../hooks/cart/useGetAllCoupons";
-import Loading from "../Loading";
 
-export default function CouponsSection() {
-  const { loading, coupons } = useGetAllCoupons();
+export default function CouponsSection({ coupons }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -31,13 +28,11 @@ export default function CouponsSection() {
       },
     ],
   };
-  return loading ? (
-    <Loading />
-  ) : (
+  return (
     <div>
       <h4 className="text-[#7D7D7D] text-sm">Available Coupons</h4>
       <Slider {...settings} className="my-10">
-        {coupons.map((x) => (
+        {coupons?.map((x) => (
           <CouponItem key={x.id} coupon={x} />
         ))}
       </Slider>

@@ -1,13 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
+import { toast } from "react-toastify";
 
-export default function CheckOutSection({ price }) {
-  const { coupon, applied } = useContext(CartContext);
+export default function CheckOutSection({ price, coupons }) {
+  const { coupon, applied, setApplied, setCoupon } = useContext(CartContext);
   const [code, setCode] = useState(coupon?.coupon_code || "");
 
   const [total, setTotal] = useState(price + 20 || 0);
   const applyCode = () => {
+    const isApplicable = coupons?.find((item) => item.coupon_code === code);
+    if (!isApplicable) {
+      toast.error("Invalid Coupon Code");
+      return;
+    }
+    if (isApplicable) {
+      setCoupon(isApplicable);
+    }
     setApplied(true);
   };
 
