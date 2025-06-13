@@ -98,8 +98,8 @@ export default function FilterBox({ brands, categories, refetch }) {
             refetch();
             setBrand([]);
             setCategory([]);
-            setMax_price(0);
-            setMin_price(0);
+            setMax_price("");
+            setMin_price("");
           }}
           className="px-4 py-1 bg-gray-400 text-black rounded-md"
         >
