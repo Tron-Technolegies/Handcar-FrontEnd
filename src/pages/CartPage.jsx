@@ -36,7 +36,7 @@ export default function CartPage() {
         )}
       </div>
       {couponLoading ? <Loading /> : <CouponsSection coupons={coupons} />}
-      <CheckOutSection price={totalPrice} />
+      <CheckOutSection price={totalPrice} coupons={coupons} />
     </div>
   );
 }
