@@ -91,7 +91,7 @@ export default function LoginPage() {
             Login with Password
           </button>
           {loading && <Loading />}
-          <p className="font-semibold">OR</p>
+          {/* <p className="font-semibold">OR</p>
           <button
             className="px-5 py-3 bg-[#E1E1E1] rounded-lg w-full font-semibold"
             onClick={() => {
@@ -100,7 +100,7 @@ export default function LoginPage() {
             }}
           >
             Login with OTP
-          </button>
+          </button> */}
         </div>
         {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
