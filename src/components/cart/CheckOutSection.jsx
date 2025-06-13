@@ -9,18 +9,15 @@ export default function CheckOutSection({ price, coupons }) {
 
   const [total, setTotal] = useState(price + 20 || 0);
   const applyCode = () => {
-    const isApplicable = coupons?.map((item) => item.coupon_code);
-    console.log(isApplicable);
-    if (!isApplicable.includes(code)) {
+    const newCoupon = coupons.find((item) => item.coupon_code === code);
+    console.log(newCoupon);
+    if (!newCoupon) {
       toast.error("Invalid Coupon Code");
       return;
-    } else {
-      const newCoupon = coupons.find((item) => item.coupon_code === code);
-      console.log(newCoupon);
-
-      setCoupon(newCoupon);
-      setApplied(true);
     }
+    // Proceed if coupon is valid
+    setCoupon(newCoupon);
+    setApplied(true);
   };
 
   useEffect(() => {
