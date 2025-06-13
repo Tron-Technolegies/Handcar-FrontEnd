@@ -8,14 +8,14 @@ const list = ["Default", "Low - High", "High - Low"];
 
 export default function ProductList({ setShowSmallFilter }) {
   const { loading, products } = useGetAllProducts({
-    search: "",
-    category_id: "",
-    brand_id: "",
-    min_price: "",
-    max_price: "",
-    min_rating: "",
-    new_arrivals: "",
-    sort_by: "price",
+    // search: "",
+    // category_id: "",
+    // brand_id: "",
+    // min_price: "",
+    // max_price: "",
+    // min_rating: "",
+    // new_arrivals: "",
+    // sort_by: "price",
   });
   return (
     <div className="my-10">
