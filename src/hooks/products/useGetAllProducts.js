@@ -10,11 +10,11 @@ const useGetAllProducts = () => {
   const getAllProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${base_url}/view_products`, {
+      const res = await axios.get(`${base_url}/filter_and_search_products`, {
         withCredentials: true,
       });
       const data = res.data;
-      setProducts(data.product);
+      setProducts(data.products);
     } catch (err) {
       console.log(
         err?.response?.data?.message ||
