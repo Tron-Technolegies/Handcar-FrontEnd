@@ -48,7 +48,7 @@ const useGetAllProducts = ({
   }, []);
 
   const refetch = () => {
-    refetch();
+    getAllProducts();
   };
 
   return { loading, products, refetch };
