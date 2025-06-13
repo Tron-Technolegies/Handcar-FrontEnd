@@ -52,7 +52,7 @@ export default function HomeLayout() {
       {showForgotPassword && <ForgotPassword />}
       {showVerification && <VerificationCode />}
       {showNewPassword && <NewPassword />}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden min-h-screen">
         <Outlet />
       </div>
       <Footer />

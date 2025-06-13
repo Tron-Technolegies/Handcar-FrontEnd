@@ -1,27 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import { CiFilter } from "react-icons/ci";
-import useGetAllProducts from "../../../hooks/products/useGetAllProducts";
+
 import Loading from "../../Loading";
 
 const list = ["Default", "Low - High", "High - Low"];
 
-export default function ProductList({ setShowSmallFilter }) {
-  const { loading, products } =
-    useGetAllProducts();
-    // search: "",
-    // category_id: "",
-    // brand_id: "",
-    // min_price: "",
-    // max_price: "",
-    // min_rating: "",
-    // new_arrivals: "",
-    // sort_by: "price",
+export default function ProductList({ setShowSmallFilter, loading, products }) {
   return (
     <div className="my-10">
       <div className="flex justify-between items-center">
         <p className="text-[#8F8F8F] md:text-xl text-sm font-bold">
-          531 Results
+          {products?.length} Results
         </p>
         <div className="flex md:gap-5 gap-1 items-center w-fit text-[#8F8F8F] md:text-base text-sm">
           <p className="w-auto">Sort&nbsp;By</p>
@@ -53,8 +43,8 @@ export default function ProductList({ setShowSmallFilter }) {
         <Loading />
       ) : (
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 place-items-center my-5">
-          {products.length > 0 &&
-            products.map((x) => (
+          {products?.length > 0 &&
+            products?.map((x) => (
               <div key={x.id}>
                 <ProductCard
                   name={x.name}
