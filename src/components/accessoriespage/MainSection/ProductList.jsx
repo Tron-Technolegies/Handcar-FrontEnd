@@ -19,7 +19,7 @@ export default function ProductList({ setShowSmallFilter, loading, products }) {
           <select
             className={`w-full py-1 px-3 rounded-lg text-[#8F8F8F] bg-transparent border border-gray-300 `}
             value={sort}
-            onChange={() => {
+            onChange={(e) => {
               setSort(e.target.value);
               setRefetchTrigger(!refetchTrigger);
             }}
