@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SinglePageHeader from "../components/accessoriespage/singlePage/SinglePageHeader";
 import SinglePageOverview from "../components/accessoriespage/singlePage/SinglePageOverview";
 import SinglePageReview from "../components/accessoriespage/singlePage/SinglePageReview";
@@ -7,11 +7,21 @@ import useGetSingleProduct from "../hooks/products/useGetSingleProduct";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
 import useGetAllProducts from "../hooks/products/useGetAllProducts";
+import { ProductContext } from "../ProductContext";
 
 export default function AccessorySinglePage() {
   const { id } = useParams();
+  const { search, category, brand, min_price, max_price, sort } =
+    useContext(ProductContext);
   const { loading, product } = useGetSingleProduct({ id });
-  const { loading: similarLoading, products } = useGetAllProducts();
+  const { loading: similarLoading, products } = useGetAllProducts({
+    search: search || "",
+    category: category.join(",") || "",
+    brand: brand.join(",") || "",
+    min_price: min_price,
+    max_price: max_price,
+    sort: sort || "",
+  });
   const [similar, setSimilar] = useState([]);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import FilterBox from "../components/accessoriespage/FilterBox/FilterBox";
 import ProductSection from "../components/accessoriespage/MainSection/ProductSection";
 import useGetAllBrands from "../hooks/products/useGetAllBrands";
@@ -10,22 +10,33 @@ import { ProductContext } from "../ProductContext";
 const AccessoriesPage = () => {
   const { brands, loading: brandLoading } = useGetAllBrands();
   const { categories, loading: categoryLoading } = useGetAllCategories();
-  const { search, category, brand, min_price, max_price, sort } =
-    useContext(ProductContext);
+  const {
+    search,
+    category,
+    brand,
+    min_price,
+    max_price,
+    sort,
+    refetchTrigger,
+  } = useContext(ProductContext);
   const { loading, products, refetch } = useGetAllProducts({
     search: search || "",
     category: category.join(",") || "",
     brand: brand.join(",") || "",
     min_price: min_price,
     max_price: max_price,
-    sort: "",
+    sort: sort || "",
   });
+
+  useEffect(() => {
+    refetch();
+  }, [refetchTrigger]);
   return (
     <div className="flex">
       {brandLoading || categoryLoading ? (
         <Loading />
       ) : (
-        <FilterBox brands={brands} categories={categories} refetch={refetch} />
+        <FilterBox brands={brands} categories={categories} />
       )}
       {categoryLoading || loading ? (
         <Loading />
@@ -35,7 +46,6 @@ const AccessoriesPage = () => {
           brands={brands}
           loading={loading}
           products={products}
-          refetch={refetch}
         />
       )}
     </div>

@@ -5,13 +5,15 @@ import FilterCheckbox from "./FilterCheckbox";
 import StarElt from "./StarElt";
 import { ProductContext } from "../../../ProductContext";
 
-export default function FilterBox({ brands, categories, refetch }) {
+export default function FilterBox({ brands, categories }) {
   const {
     category,
     brand,
     setCategory,
     setBrand,
     min_price,
+    refetchTrigger,
+    setRefetchTrigger,
     max_price,
     setMin_price,
     setMax_price,
@@ -88,18 +90,18 @@ export default function FilterBox({ brands, categories, refetch }) {
       </div> */}
       <div className="flex flex-col gap-2 my-5">
         <button
-          onClick={() => refetch()}
+          onClick={() => setRefetchTrigger(!refetchTrigger)}
           className="px-4 py-1 bg-black text-white rounded-md"
         >
           Apply
         </button>
         <button
           onClick={() => {
-            refetch();
             setBrand([]);
             setCategory([]);
             setMax_price("");
             setMin_price("");
+            setRefetchTrigger(!refetchTrigger);
           }}
           className="px-4 py-1 bg-gray-400 text-black rounded-md"
         >

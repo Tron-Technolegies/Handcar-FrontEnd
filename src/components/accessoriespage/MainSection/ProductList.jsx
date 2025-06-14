@@ -3,10 +3,11 @@ import ProductCard from "./ProductCard";
 import { CiFilter } from "react-icons/ci";
 
 import Loading from "../../Loading";
-
-const list = ["Default", "Low - High", "High - Low"];
+import { ProductContext } from "../../../ProductContext";
 
 export default function ProductList({ setShowSmallFilter, loading, products }) {
+  const { sort, setSort, refetchTrigger, setRefetchTrigger } =
+    useContext(ProductContext);
   return (
     <div className="my-10">
       <div className="flex justify-between items-center">
@@ -17,16 +18,21 @@ export default function ProductList({ setShowSmallFilter, loading, products }) {
           <p className="w-auto">Sort&nbsp;By</p>
           <select
             className={`w-full py-1 px-3 rounded-lg text-[#8F8F8F] bg-transparent border border-gray-300 `}
+            value={sort}
+            onChange={() => {
+              setSort(e.target.value);
+              setRefetchTrigger(!refetchTrigger);
+            }}
           >
-            {list?.map((item) => (
-              <option
-                className="border-b py-1 border-gray-300"
-                key={item}
-                value={item}
-              >
-                {item}
-              </option>
-            ))}
+            <option className="border-b py-1 border-gray-300" value={""}>
+              {"Default"}
+            </option>
+            <option className="border-b py-1 border-gray-300" value={"asc"}>
+              {"Low-High"}
+            </option>
+            <option className="border-b py-1 border-gray-300" value={"desc"}>
+              {"High-Low"}
+            </option>
           </select>
         </div>
       </div>
@@ -52,6 +58,7 @@ export default function ProductList({ setShowSmallFilter, loading, products }) {
                   price={x.price}
                   id={x.id}
                   image={x.image}
+                  discount={x.discount_percentage}
                 />
               </div>
             ))}

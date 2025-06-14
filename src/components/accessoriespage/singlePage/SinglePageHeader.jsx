@@ -52,18 +52,35 @@ export default function SinglePageHeader({ product }) {
           <p className="text-[#8F8F8F]">{product.category_name}</p>
         </div>
         <div className="font-semibold">
-          <h5 className="line-through">
-            AED {(parseInt(product.price) / 0.9).toFixed(2)}
-          </h5>
+          {product?.discount_percentage && (
+            <h5 className="line-through">
+              AED 
+              {(
+                parseInt(product.price) /
+                ((100 - parseInt(product.discount_percentage)) / 100)
+              ).toFixed(2)}
+            </h5>
+          )}
+
           <p>AED {product.price}</p>
         </div>
-        <p className="text-[#17A600]">
-          Saving: AED{" "}
-          {(parseInt(product.price) / 0.9 - parseInt(product.price)).toFixed(2)}
-        </p>
-        <p className="bg-[#FFE500] text-sm p-2 rounded-md text-black w-fit font-medium">
-          Lowest price in 7 days
-        </p>
+        {product.discount_percentage && (
+          <>
+            {" "}
+            <p className="text-[#17A600]">
+              Saving: AED{" "}
+              {(
+                parseInt(product.price) /
+                  ((100 - parseInt(product.discount_percentage)) / 100) -
+                parseInt(product.price)
+              ).toFixed(2)}
+            </p>
+            <p className="bg-[#FFE500] text-sm p-2 rounded-md text-black w-fit font-medium">
+              Lowest price in 7 days
+            </p>
+          </>
+        )}
+
         {/* <div className="font-bold">
           <p>Free Delivery by Sun, 17 March</p>
           <p className="text-[#17A600]">Order in 12 h 53 m</p>

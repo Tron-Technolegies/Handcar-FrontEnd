@@ -7,7 +7,14 @@ import useAddItemtoCart from "../../../hooks/cart/useAddItemtoCart";
 import Loading from "../../Loading";
 import useAddItemtoWishList from "../../../hooks/wishlist/useAddItemtoWishList";
 
-export default function ProductCard({ name, brand, price, id, image }) {
+export default function ProductCard({
+  name,
+  brand,
+  price,
+  id,
+  image,
+  discount,
+}) {
   const { loading, addItemToCart } = useAddItemtoCart();
   const { loading: wishLoading, addItemtoWishList } = useAddItemtoWishList();
   return (
@@ -46,10 +53,19 @@ export default function ProductCard({ name, brand, price, id, image }) {
       <p className="font-medium me-auto">{brand}</p>
       <div className="flex gap-3 me-auto items-center">
         <p className="font-semibold">{price}</p>
-        <p className="font-medium text-[#959595] line-through">
-          AED {(parseInt(price) / 0.9).toFixed(2)}
-        </p>
-        <p className="text-[#17A600] font-bold text-xs">10% OFF</p>
+        {discount && (
+          <>
+            <p className="font-medium text-[#959595] line-through">
+              AED{" "}
+              {(parseInt(price) / ((100 - parseInt(discount)) / 100)).toFixed(
+                2
+              )}
+            </p>
+            <p className="text-[#17A600] font-bold text-xs">
+              {parseInt(discount).toFixed(0)}% OFF
+            </p>
+          </>
+        )}
       </div>
       <button
         onClick={() => {

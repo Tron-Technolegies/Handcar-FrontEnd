@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../../ProductContext";
 
 export default function SearchBox({ refetch }) {
-  const { search, setSearch } = useContext(ProductContext);
+  const { search, setSearch, refetchTrigger, setRefetchTrigger } =
+    useContext(ProductContext);
 
   return (
     <div className="flex gap-3 justify-end mb-10">
@@ -14,15 +15,15 @@ export default function SearchBox({ refetch }) {
         onChange={(e) => setSearch(e.target.value)}
       ></input>
       <button
-        onClick={() => refetch()}
+        onClick={() => setRefetchTrigger(!refetchTrigger)}
         className="px-4 py-2 rounded-lg bg-black text-white"
       >
         Search
       </button>
       <button
         onClick={() => {
-          refetch();
           setSearch("");
+          setRefetchTrigger(!refetchTrigger);
         }}
         className="px-4 py-2 rounded-lg bg-black text-white"
       >

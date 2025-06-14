@@ -5,16 +5,13 @@ import FilterCheckbox from "./FilterCheckbox";
 import StarElt from "./StarElt";
 import { ProductContext } from "../../../ProductContext";
 
-function SmallScreenFilter({
-  setShowSmallFilter,
-  categories,
-  brands,
-  refetch,
-}) {
+function SmallScreenFilter({ setShowSmallFilter, categories, brands }) {
   const {
     category,
     brand,
     setCategory,
+    refetchTrigger,
+    setRefetchTrigger,
     setBrand,
     min_price,
     max_price,
@@ -97,18 +94,18 @@ function SmallScreenFilter({
       </div> */}
       <div className="flex flex-col gap-2 my-5">
         <button
-          onClick={() => refetch()}
+          onClick={() => setRefetchTrigger(!refetchTrigger)}
           className="px-4 py-1 bg-black text-white rounded-md"
         >
           Apply
         </button>
         <button
           onClick={() => {
-            refetch();
             setBrand([]);
             setCategory([]);
             setMax_price("");
             setMin_price("");
+            setRefetchTrigger(!refetchTrigger);
           }}
           className="px-4 py-1 bg-gray-400 text-black rounded-md"
         >

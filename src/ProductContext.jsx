@@ -9,6 +9,7 @@ export default function ProductContextProvider({ children }) {
   const [min_price, setMin_price] = useState("");
   const [max_price, setMax_price] = useState("");
   const [sort, setSort] = useState("");
+  const [refetchTrigger, setRefetchTrigger] = useState(false);
 
   return (
     <ProductContext.Provider
@@ -25,6 +26,8 @@ export default function ProductContextProvider({ children }) {
         setMax_price,
         sort,
         setSort,
+        refetchTrigger,
+        setRefetchTrigger,
       }}
     >
       {children}
