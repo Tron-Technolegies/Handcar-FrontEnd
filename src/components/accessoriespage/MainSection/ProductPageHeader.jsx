@@ -35,7 +35,10 @@ export default function ProductPageHeader({ categories }) {
       <Slider {...settings} className="">
         {categories?.map((item, index) => (
           <CategoryIconElt
-            img={`/accessories/category-${index + 1}.png`}
+            img={
+              `/accessories/category-${index + 1}.png` ||
+              "/accessories/category-4.png"
+            }
             key={item.id}
             name={item.name}
           />
