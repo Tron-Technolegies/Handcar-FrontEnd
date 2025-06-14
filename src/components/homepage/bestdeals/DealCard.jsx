@@ -2,10 +2,14 @@ import React from "react";
 import top_deal_product_img from "../../../assets/top_deal_product_img.png";
 import star_icon from "../../../assets/star_icon.png";
 import open_star_icon from "../../../assets/open_star_icon.png";
+import { Link } from "react-router-dom";
 
-export default function DealCard({ name, price, image }) {
+export default function DealCard({ name, price, image, id }) {
   return (
-    <div className="flex flex-col gap-5 items-center p-3 bg-white rounded-lg shadow-lg border justify-between">
+    <Link
+      to={`/accessories/${id}`}
+      className="flex flex-col gap-5 items-center p-3 bg-white rounded-lg shadow-lg border justify-between"
+    >
       <div className="">
         <img src={image} className="object-cover w-64 h-36" alt="" srcset="" />
       </div>
@@ -34,6 +38,6 @@ export default function DealCard({ name, price, image }) {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

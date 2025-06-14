@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -13,6 +13,9 @@ import Loading from "../components/Loading";
 
 export default function MyOrdersPage() {
   const { loading, refetch, orders } = useGetOrderHistory();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="lg:px-[120px] px-10 py-10 min-h-screen">
       <p className="text-xl font-semibold my-10">My Orders</p>

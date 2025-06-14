@@ -22,6 +22,7 @@ const BestDeals = () => {
           {products.map((item) => (
             <DealCard
               key={item.id}
+              id={item.id}
               name={item.name}
               image={item.image}
               price={item.price}

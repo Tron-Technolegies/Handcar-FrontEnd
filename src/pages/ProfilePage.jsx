@@ -20,6 +20,9 @@ export default function ProfilePage() {
       setLName(user.last_name);
     }
   }, [user]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="lg:px-[120px] px-10 py-10 min-h-screen">
       <p className="text-xl font-semibold">My Profile</p>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ConfirmationNavigation from "../components/confirmOrder/ConfirmationNavigation";
 import ConfirmationMsg from "../components/confirmOrder/ConfirmationMsg";
 import OrderDetails from "../components/confirmOrder/OrderDetails";
@@ -6,6 +6,9 @@ import { CartContext } from "../CartContext";
 
 export default function ConfirmOrderPage() {
   const { order } = useContext(CartContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="lg:px-[120px] py-10 px-5">
       <ConfirmationNavigation />

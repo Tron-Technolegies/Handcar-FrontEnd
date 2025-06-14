@@ -31,6 +31,10 @@ const AccessoriesPage = () => {
   useEffect(() => {
     refetch();
   }, [refetchTrigger]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex">
       {brandLoading || categoryLoading ? (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartNavigation from "../components/cart/CartNavigation";
 import CartItem from "../components/cart/CartItem";
 import CouponsSection from "../components/cart/CouponsSection";
@@ -12,6 +12,10 @@ export default function CartPage() {
   const { loading, refetch } = useGetCartItems();
   const { cartItems, totalPrice } = useContext(CartContext);
   const { loading: couponLoading, coupons } = useGetAllCoupons();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return loading ? (
     <Loading />
