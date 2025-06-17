@@ -15,7 +15,7 @@ export default function VendorServiceCard({ setShowPopup, data }) {
           <span className="text-[#FFB800]">
             <FaStar />
           </span>
-          <span className="text-sm">4.0</span>
+          <span className="text-sm">{data.average_rating}</span>
         </p>
       </div>
       <p>{data.service_category}</p>
