@@ -13,7 +13,7 @@ export default function AccessorySinglePage() {
   const { id } = useParams();
   const { search, category, brand, min_price, max_price, sort } =
     useContext(ProductContext);
-  const { loading, product } = useGetSingleProduct({ id });
+  const { loading, product, refetch } = useGetSingleProduct({ id });
   const { loading: similarLoading, products } = useGetAllProducts({
     search: search || "",
     category: category.join(",") || "",
@@ -32,6 +32,10 @@ export default function AccessorySinglePage() {
       setSimilar(filtered);
     }
   }, [products]);
+
+  useEffect(() => {
+    refetch();
+  }, [id]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

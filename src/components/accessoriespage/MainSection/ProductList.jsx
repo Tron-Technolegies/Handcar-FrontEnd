@@ -59,6 +59,7 @@ export default function ProductList({ setShowSmallFilter, loading, products }) {
                   id={x.id}
                   image={x.image}
                   discount={x.discount_percentage}
+                  rating={x.average_rating}
                 />
               </div>
             ))}

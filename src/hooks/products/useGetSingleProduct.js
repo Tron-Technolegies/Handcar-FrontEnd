@@ -29,7 +29,11 @@ const useGetSingleProduct = ({ id }) => {
   useEffect(() => {
     getSingleProduct();
   }, []);
-  return { loading, product };
+
+  const refetch = () => {
+    getSingleProduct();
+  };
+  return { loading, product, refetch };
 };
 
 export default useGetSingleProduct;

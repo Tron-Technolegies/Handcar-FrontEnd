@@ -14,6 +14,7 @@ export default function ProductCard({
   id,
   image,
   discount,
+  rating,
 }) {
   const { loading, addItemToCart } = useAddItemtoCart();
   const { loading: wishLoading, addItemtoWishList } = useAddItemtoWishList();
@@ -34,15 +35,17 @@ export default function ProductCard({
       </Link>
 
       <div className="flex justify-between w-full items-center">
-        <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
+        {/* <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
           BestSeller
-        </p>
-        {/* <div className="flex gap-2 items-center p-1 rounded-md bg-[#F2F2F2]">
-          <p className="text-[#FFB800]">
-            <FaStar />
-          </p>
-          <p>4.0</p>
-        </div> */}
+        </p> */}
+        {rating > 0 && (
+          <div className="flex gap-2 items-center p-1 rounded-md bg-[#F2F2F2]">
+            <p className="text-[#FFB800]">
+              <FaStar />
+            </p>
+            <p>{rating}</p>
+          </div>
+        )}
       </div>
       <Link
         to={`/accessories/${id}`}
