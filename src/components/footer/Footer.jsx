@@ -43,6 +43,7 @@ const Footer = () => {
             Contact Us
           </a>
         </div>
+        <Link to={"/privacy"}>Privacy Policy</Link>
         <div className="flex flex-col gap-3">
           <p className="flex items-center gap-3">
             <span>

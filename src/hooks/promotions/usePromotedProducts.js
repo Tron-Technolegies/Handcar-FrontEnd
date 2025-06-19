@@ -16,7 +16,7 @@ const usePromotedProducts = () => {
       const data = res.data;
       setProducts(data.promoted_products);
     } catch (err) {
-      toast.error(
+      console.log(
         err?.response?.data?.message ||
           err?.response?.data?.error ||
           err?.message ||

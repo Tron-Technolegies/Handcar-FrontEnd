@@ -19,6 +19,7 @@ import WishListPage from "./pages/WishListPage";
 import PaintingServiceDetailPopup from "./components/servicepage/vendorService/VendorServiceDetailPopup";
 import MyOrdersPage from "./pages/MyOrdersPage";
 import ProfilePage from "./pages/ProfilePage";
+import PrivacyPage from "./pages/PrivacyPage";
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         { path: "profile", element: <ProfilePage /> },
       ],
     },
+    { path: "/privacy", element: <PrivacyPage /> },
   ]);
   return <RouterProvider router={router} />;
 };
