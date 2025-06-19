@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function PrivacyPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-white xl:px-[120px] xl:py-10 px-10 py-5 min-h-screen flex flex-col items-center">
       <div className="flex gap-3 items-center">
