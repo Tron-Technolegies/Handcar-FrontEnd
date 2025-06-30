@@ -23,6 +23,8 @@ const useForgotPassword = () => {
           err?.message ||
           "something went wrong"
       );
+    } finally {
+      setLoading(false);
     }
   };
 

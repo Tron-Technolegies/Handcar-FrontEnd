@@ -33,6 +33,8 @@ const useUpdatePassword = () => {
           err?.message ||
           "something went wrong"
       );
+    } finally {
+      setLoading(false);
     }
   };
   return { loading, updatePassword };
