@@ -15,6 +15,7 @@ const UserContextProvider = ({ children }) => {
   const [filtered, setFiltered] = useState([]);
   const [activeServiceCategory, setActiveServiceCategory] = useState("All");
   const [user, setUser] = useState(null);
+  const [forgotpasswordEmail, setForgotPasswordEmail] = useState("");
   return (
     <UserContext.Provider
       value={{
@@ -42,6 +43,8 @@ const UserContextProvider = ({ children }) => {
         setActiveServiceCategory,
         setUser,
         user,
+        forgotpasswordEmail,
+        setForgotPasswordEmail,
       }}
     >
       {children}

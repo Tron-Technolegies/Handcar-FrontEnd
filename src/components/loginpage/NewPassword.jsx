@@ -2,11 +2,14 @@ import { motion } from "framer-motion";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import FormInput from "../FormInput";
+import useUpdatePassword from "../../hooks/auth/useUpdatePassword";
+import Loading from "../Loading";
 
 export default function NewPassword() {
-  const { setShowNewPassword } = useContext(UserContext);
+  const { setShowNewPassword, forgotpasswordEmail } = useContext(UserContext);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { loading, updatePassword } = useUpdatePassword();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -47,13 +50,19 @@ export default function NewPassword() {
         <div className="w-full px-10 flex flex-col gap-3 items-center">
           <button
             className="px-5 py-3 bg-[#DB1215] rounded-lg w-full text-white font-semibold"
-            onClick={() => {
+            onClick={async () => {
+              await updatePassword({
+                email: forgotpasswordEmail,
+                new_password: password,
+                confirm_password: confirmPassword,
+              });
               setShowNewPassword(false);
             }}
           >
             UPDATE
           </button>
         </div>
+        {loading && <Loading />}
         {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
           <p className="text-[#4F7FE7] underline">

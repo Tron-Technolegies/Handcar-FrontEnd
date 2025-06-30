@@ -2,11 +2,14 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import { motion } from "framer-motion";
 import FormInput from "../FormInput";
+import useForgotPassword from "../../hooks/auth/useForgotPassword";
+import Loading from "../Loading";
 
 export default function ForgotPassword() {
-  const { setShowForgotPassword, setShowVerification } =
+  const { setShowForgotPassword, setShowVerification, setForgotPasswordEmail } =
     useContext(UserContext);
   const [email, setEmail] = useState("");
+  const { loading, forgotPassword } = useForgotPassword();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,7 +42,9 @@ export default function ForgotPassword() {
         <div className="w-full px-10 flex flex-col gap-3 items-center">
           <button
             className="px-5 py-3 bg-[#DB1215] rounded-lg w-full text-white font-semibold"
-            onClick={() => {
+            onClick={async () => {
+              setForgotPasswordEmail(email);
+              await forgotPassword({ email });
               setShowVerification(true);
               setShowForgotPassword(false);
             }}
@@ -47,6 +52,7 @@ export default function ForgotPassword() {
             CONTINUE
           </button>
         </div>
+        {loading && <Loading />}
         {/* <div className="w-full px-10 flex flex-col items-center">
           <p>By clicking through, I agree with the</p>
           <p className="text-[#4F7FE7] underline">

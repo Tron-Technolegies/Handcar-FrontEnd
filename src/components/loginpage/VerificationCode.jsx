@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../UserContext";
 import { motion } from "framer-motion";
+import useVerifyOTP from "../../hooks/auth/useVerifyOTP";
+import Loading from "../Loading";
 
 export default function VerificationCode() {
-  const { setShowVerification, setShowNewPassword } = useContext(UserContext);
+  const { setShowVerification, setShowNewPassword, forgotpasswordEmail } =
+    useContext(UserContext);
   const [otp, setOtp] = useState(["", "", "", ""]);
+  const { loading, verifyCode } = useVerifyOTP();
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -63,13 +67,15 @@ export default function VerificationCode() {
           </div>
           <button
             className="px-5 py-3 bg-black rounded-lg w-full text-white font-semibold"
-            onClick={() => {
+            onClick={async () => {
+              await verifyCode({ email: forgotpasswordEmail, otp });
               setShowNewPassword(true);
               setShowVerification(false);
             }}
           >
             VERIFY
           </button>
+          {loading && <Loading />}
           <p className="text-center text-xs">
             If you didn’t receive a code!{" "}
             <span className="text-[#F2451C] cursor-pointer">Resend</span>
