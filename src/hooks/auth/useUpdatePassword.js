@@ -9,7 +9,7 @@ const useUpdatePassword = () => {
   const { setForgotPasswordEmail } = useContext(UserContext);
   const updatePassword = async ({ new_password, confirm_password, email }) => {
     setLoading(true);
-    if (new_password === confirm_password) {
+    if (new_password !== confirm_password) {
       toast.error("Passwords doesnt match");
       return;
     }
