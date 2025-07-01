@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { base_url } from "../../constants";
 
@@ -7,54 +7,60 @@ const useAddAddress = () => {
   const [loading, setLoading] = useState(false);
 
   const addAddress = async ({
-    name,
-    ad1,
-    ad2,
-    state,
-    zip,
-    country,
+    street,
+    building_name,
+    floor_apartment_no,
+    landmark,
+    area_district,
+    city,
+    country = "United Arab Emirates",
+    address_type = "Home",
+    is_default = false,
     // phone,
-    id,
   }) => {
     if (
-      name === "" ||
-      ad1 === "" ||
-      ad2 === "" ||
-      state === "" ||
-      zip === "" ||
-      country === ""
+      !street ||
+      !building_name ||
+      !floor_apartment_no ||
+      !area_district ||
+      !city
     ) {
-      toast.error("Please fill all the fields");
+      toast.error("Please fill all the required fields");
       return;
     }
+
     setLoading(true);
     try {
       const res = await axios.post(
         `${base_url}/add_address`,
         {
-          name,
-          street: ad1,
-          city: ad2,
-          state,
-          zip_code: zip,
+          street,
+          building_name,
+          floor_apartment_no,
+          landmark,
+          area_district,
+          city,
           country,
+          address_type,
+          is_default,
           // phone,
         },
         { withCredentials: true }
       );
-      const data = res.data;
+
       toast.success("Address added successfully");
     } catch (err) {
       toast.error(
         err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          err?.message ||
-          "something went wrong"
+        err?.response?.data?.error ||
+        err?.message ||
+        "Something went wrong"
       );
     } finally {
       setLoading(false);
     }
   };
+
   return { loading, addAddress };
 };
 
