@@ -7,25 +7,29 @@ const useAddAddress = () => {
   const [loading, setLoading] = useState(false);
 
   const addAddress = async ({
+    user,
+    name,
+    phone_number,
     street,
     building_name,
     floor_apartment_no,
     landmark,
     area_district,
     city,
-    country = "United Arab Emirates",
-    address_type = "Home",
-    is_default = false,
-    // phone,
+    country,
+    address_type,
   }) => {
+    // Basic validation
     if (
+      !name ||
+      !phone_number ||
       !street ||
       !building_name ||
       !floor_apartment_no ||
       !area_district ||
       !city
     ) {
-      toast.error("Please fill all the required fields");
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -34,6 +38,8 @@ const useAddAddress = () => {
       const res = await axios.post(
         `${base_url}/add_address`,
         {
+          name,
+          phone_number,
           street,
           building_name,
           floor_apartment_no,
@@ -42,8 +48,6 @@ const useAddAddress = () => {
           city,
           country,
           address_type,
-          is_default,
-          // phone,
         },
         { withCredentials: true }
       );
@@ -52,9 +56,8 @@ const useAddAddress = () => {
     } catch (err) {
       toast.error(
         err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        err?.message ||
-        "Something went wrong"
+          err?.response?.data?.error ||
+          "Something went wrong"
       );
     } finally {
       setLoading(false);
