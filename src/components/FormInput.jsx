@@ -4,7 +4,7 @@ export default function FormInput({
   type = "text",
   placeholder,
   value,
-  onChange,
+  onchange,
   title,
 }) {
   return (
@@ -16,7 +16,7 @@ export default function FormInput({
           className="w-full py-1 px-3 rounded-lg bg-[#E1E1E1] border border-gray-300 text-gray-900 h-11"
           placeholder={placeholder}
           value={value}
-          onChange={onChange} 
+          onChange={onchange} 
           required
         />
       </div>
