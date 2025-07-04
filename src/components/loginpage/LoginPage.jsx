@@ -65,7 +65,7 @@ export default function LoginPage() {
             }}
           />
           <FormInput
-            placeholder={"Password"}
+            placeholder={"password"}
             type={"password"}
             value={password}
             onchange={(e) => setPassword(e.target.value)}

@@ -6,12 +6,15 @@ const useGetSubscriptionStatus = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("/api/subscription/view/")
-      .then(res => {
+    axios
+      .get("/get_subscription_status", {
+        withCredentials: true, 
+      })
+      .then((res) => {
         setData(res.data);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Subscription error", err);
         setLoading(false);
       });
