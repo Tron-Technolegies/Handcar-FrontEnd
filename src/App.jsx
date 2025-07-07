@@ -20,6 +20,7 @@ import PaintingServiceDetailPopup from "./components/servicepage/vendorService/V
 import MyOrdersPage from "./pages/MyOrdersPage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivacyPage from "./pages/PrivacyPage";
+import MyPlanPage from "./pages/MyPlanPage"
 // import AccessoriesShipping from "./components/accessoriespage/accessoriesShipping/AccessoriesShipping";
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
         { path: "wishlist", element: <WishListPage /> },
         { path: "orders", element: <MyOrdersPage /> },
         { path: "profile", element: <ProfilePage /> },
+        { path: "myplan", element: <MyPlanPage /> },
       ],
     },
     { path: "/privacy", element: <PrivacyPage /> },

@@ -6,13 +6,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { CiShoppingCart, CiHeart } from "react-icons/ci";
 import SmallHeader from "./SmallHeader";
 import { UserContext } from "../../UserContext";
-
 import MenuDropdown from "./MenuDropdown";
+import useGetSubscriptionStatus from "../../hooks/plans/useGetSubscriptionStatus";
 
 const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
   const { setShowLogin, setShowSignup, user } = useContext(UserContext);
+
+  const { data } = useGetSubscriptionStatus(); 
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,39 +35,40 @@ const Header = () => {
     } else {
       navigate("/");
       setTimeout(() => {
-        document
-          .getElementById("contact")
-          .scrollIntoView({ behavior: "smooth" });
+        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
   }
+
   return (
     <nav className="lg:px-[120px] py-5 px-10 bg-white flex justify-between items-center">
       <div>
         <img src={handcar_logo} alt="logo" className="w-[44px] h-[55px]" />
       </div>
+
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/subscription"}>Subscribe</NavLink>
-        <NavLink to={"/accessories"}>Accessories</NavLink>
-        <NavLink to={"/spareparts"}>Spare Parts</NavLink>
-        <NavLink to={"/servicepage"}>Services</NavLink>
-        <a className="cursor-pointer" onClick={handleAboutClick}>
-          About Us
-        </a>
-        <a className="cursor-pointer" onClick={handleContactClick}>
-          Contact Us
-        </a>
+
+        
+        {user && data?.subscribed ? (
+          <NavLink to="/myplan">My Plan</NavLink>
+        ) : (
+          <NavLink to="/subscription">Subscribe</NavLink>
+        )}
+
+        <NavLink to="/accessories">Accessories</NavLink>
+        <NavLink to="/spareparts">Spare Parts</NavLink>
+        <NavLink to="/servicepage">Services</NavLink>
+        <a className="cursor-pointer" onClick={handleAboutClick}>About Us</a>
+        <a className="cursor-pointer" onClick={handleContactClick}>Contact Us</a>
       </div>
+
       <div className="flex xl:gap-5 gap-3 items-center">
         <div className="flex gap-2 items-center text-2xl">
-          <Link to={"/wishlist"}>
-            <CiHeart />
-          </Link>
-          <Link to={"/cart"}>
-            <CiShoppingCart />
-          </Link>
+          <Link to="/wishlist"><CiHeart /></Link>
+          <Link to="/cart"><CiShoppingCart /></Link>
         </div>
+
         {user ? (
           <MenuDropdown user={user} />
         ) : (
@@ -86,13 +88,11 @@ const Header = () => {
           </>
         )}
 
-        <div
-          className="lg:hidden text-xl"
-          onClick={() => setShowSmallBar(!showSmallBar)}
-        >
+        <div className="lg:hidden text-xl" onClick={() => setShowSmallBar(!showSmallBar)}>
           <RxHamburgerMenu />
         </div>
       </div>
+
       {showSmallBar && (
         <div className="absolute w-full top-20 left-0 z-20 animate-slideInTop">
           <SmallHeader
