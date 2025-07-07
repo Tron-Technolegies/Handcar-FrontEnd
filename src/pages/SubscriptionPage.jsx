@@ -4,7 +4,6 @@ import CarWashPlans from "../components/subscriptionpage/subscriptionplans/CarWa
 import MaintenancePlans from "../components/subscriptionpage/subscriptionplans/MaintenancePlans";
 import CarAccessoriesList from "../components/homepage/carAccessoriesList/CarAccessoriesList";
 import AccessoriesByCategories from "../components/homepage/accessoriesbycategories/AccessoriesByCategories";
-
 import useGetSubscriptionStatus from "../hooks/plans/useGetSubscriptionStatus";
 
 const SubscriptionPage = () => {
@@ -14,9 +13,7 @@ const SubscriptionPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (loading) {
-    return <div className="text-center mt-10">Loading...</div>;
-  }
+  if (loading) return <div className="text-center mt-10">Loading...</div>;
 
   const isSubscribed = data?.subscribed;
 

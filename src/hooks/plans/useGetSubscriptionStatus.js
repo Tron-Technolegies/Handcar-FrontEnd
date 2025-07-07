@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { base_url } from "../../constants"; 
 
 const useGetSubscriptionStatus = () => {
   const [data, setData] = useState({ subscribed: false });
@@ -7,14 +8,14 @@ const useGetSubscriptionStatus = () => {
 
   useEffect(() => {
     axios
-      .get("/get_subscription_status", {
+      .get(`${base_url}/get_subscription_status`, {
         withCredentials: true,
       })
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => {
-        // Not logged in (401) or not a subscriber (404)
+        // Not logged in (401) or not a subscriber (handled gracefully)
         if (
           err.response?.status === 401 ||
           err.response?.status === 404 ||
