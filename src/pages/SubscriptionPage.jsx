@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import SubscriptionHeader from "../components/subscriptionpage/subscriptionHeader/SubscriptionHeader";
 import CarWashPlans from "../components/subscriptionpage/subscriptionplans/CarWashPlans";
 import MaintenancePlans from "../components/subscriptionpage/subscriptionplans/MaintenancePlans";
@@ -8,6 +9,9 @@ import useGetSubscriptionStatus from "../hooks/plans/useGetSubscriptionStatus";
 
 const SubscriptionPage = () => {
   const { data, loading } = useGetSubscriptionStatus();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const isUpgrade = searchParams.get("upgrade") === "true";
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,7 +25,7 @@ const SubscriptionPage = () => {
     <div>
       <SubscriptionHeader />
 
-      {isSubscribed ? (
+      {isSubscribed && !isUpgrade ? (
         <div className="text-center mt-10">
           <h2 className="text-2xl font-bold mb-2">Your Current Plan</h2>
           <p className="text-lg">
@@ -47,9 +51,25 @@ const SubscriptionPage = () => {
           ) : (
             <p className="text-gray-500">No vendors assigned yet.</p>
           )}
+
+          {/* 👇 Upgrade Button */}
+          <button
+            className="mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            onClick={() => {
+              window.location.href = "/subscription?upgrade=true";
+            }}
+          >
+            Upgrade Plan
+          </button>
         </div>
       ) : (
         <>
+          {/* Optional Upgrade Title */}
+          {isUpgrade && (
+            <h2 className="text-2xl font-bold text-center mt-10 text-blue-700">
+              Upgrade Your Plan
+            </h2>
+          )}
           <CarWashPlans />
           <MaintenancePlans />
           <CarAccessoriesList />

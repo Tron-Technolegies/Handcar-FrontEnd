@@ -53,7 +53,11 @@ export default function AddressForm({ refetch }) {
       <h4 className="text-2xl font-semibold">Add New Address</h4>
 
       <p>Full Name</p>
-      <FormInput value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your full name" />
+      <FormInput
+        value={name}
+        onchange={(e) => setName(e.target.value)}
+        placeholder="Enter your full name"
+      />
 
       <p>Phone Number</p>
       <PhoneInput
@@ -71,19 +75,39 @@ export default function AddressForm({ refetch }) {
       />
 
       <p>Street</p>
-      <FormInput value={street} onChange={(e) => setStreet(e.target.value)} placeholder="e.g. Al Wasl Road" />
+      <FormInput
+        value={street}
+        onchange={(e) => setStreet(e.target.value)}
+        placeholder="e.g. Al Wasl Road"
+      />
 
       <p>Building Name</p>
-      <FormInput value={buildingName} onChange={(e) => setBuildingName(e.target.value)} placeholder="e.g. Marina Tower" />
+      <FormInput
+        value={buildingName}
+        onchange={(e) => setBuildingName(e.target.value)}
+        placeholder="e.g. Marina Tower"
+      />
 
       <p>Floor & Apartment No.</p>
-      <FormInput value={floorApartment} onChange={(e) => setFloorApartment(e.target.value)} placeholder="e.g. 7A, Apt 705" />
+      <FormInput
+        value={floorApartment}
+        onchange={(e) => setFloorApartment(e.target.value)}
+        placeholder="e.g. 7A, Apt 705"
+      />
 
       <p>Landmark (Optional)</p>
-      <FormInput value={landmark} onChange={(e) => setLandmark(e.target.value)} placeholder="Near Dubai Mall" />
+      <FormInput
+        value={landmark}
+        onchange={(e) => setLandmark(e.target.value)}
+        placeholder="Near Dubai Mall"
+      />
 
       <p>Area / District</p>
-      <FormInput value={areaDistrict} onChange={(e) => setAreaDistrict(e.target.value)} placeholder="e.g. Business Bay" />
+      <FormInput
+        value={areaDistrict}
+        onchange={(e) => setAreaDistrict(e.target.value)}
+        placeholder="e.g. Business Bay"
+      />
 
       <p>City</p>
       <select
@@ -91,7 +115,9 @@ export default function AddressForm({ refetch }) {
         onChange={(e) => setCity(e.target.value)}
         className="p-4 rounded-lg border border-gray-300 bg-gray-100"
       >
-        <option value="" disabled>Select city</option>
+        <option value="" disabled>
+          Select city
+        </option>
         <option value="Dubai">Dubai</option>
         <option value="Abu Dhabi">Abu Dhabi</option>
         <option value="Sharjah">Sharjah</option>
