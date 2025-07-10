@@ -55,10 +55,11 @@ export default function ProductList({ setShowSmallFilter, loading, products }) {
                 <ProductCard
                   name={x.name}
                   brand={x.brand}
-                  price={x.price}
+                  original_price={x.original_price}
+                  discounted_price={x.discounted_price}
+                  discount_percentage={x.discount_percentage}
                   id={x.id}
                   image={x.image}
-                  discount={x.discount_percentage}
                   rating={x.average_rating}
                 />
               </div>
