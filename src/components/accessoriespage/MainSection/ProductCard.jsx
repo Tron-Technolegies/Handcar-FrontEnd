@@ -10,14 +10,16 @@ import useAddItemtoWishList from "../../../hooks/wishlist/useAddItemtoWishList";
 export default function ProductCard({
   name,
   brand,
-  price,
+  original_price,
+  discounted_price,
+  discount_percentage,
   id,
   image,
-  discount,
   rating,
 }) {
   const { loading, addItemToCart } = useAddItemtoCart();
   const { loading: wishLoading, addItemtoWishList } = useAddItemtoWishList();
+
   return (
     <div className="bg-white p-5 flex flex-col gap-3 rounded-lg items-center border shadow-lg w-[330px]">
       <button
@@ -31,13 +33,10 @@ export default function ProductCard({
         <img
           src={image ? image : "/accessories/product.png"}
           className="w-[212px] h-[141px]"
-        ></img>
+        />
       </Link>
 
       <div className="flex justify-between w-full items-center">
-        {/* <p className="bg-[#FFE500] p-1 px-3 text-sm font-semibold text-[#322D00] rounded-md">
-          BestSeller
-        </p> */}
         {rating > 0 && (
           <div className="flex gap-2 items-center p-1 rounded-md bg-[#F2F2F2]">
             <p className="text-[#FFB800]">
@@ -47,33 +46,30 @@ export default function ProductCard({
           </div>
         )}
       </div>
-      <Link
-        to={`/accessories/${id}`}
-        className="font-medium text-start me-auto"
-      >
+
+      <Link to={`/accessories/${id}`} className="font-medium text-start me-auto">
         {name}
       </Link>
       <p className="font-medium me-auto">{brand}</p>
+
       <div className="flex gap-3 me-auto items-center">
-        <p className="font-semibold">{price}</p>
-        {discount && (
+        {discount_percentage > 0 ? (
           <>
+            <p className="font-semibold text-black">AED {discounted_price}</p>
             <p className="font-medium text-[#959595] line-through">
-              AED{" "}
-              {(parseInt(price) / ((100 - parseInt(discount)) / 100)).toFixed(
-                2
-              )}
+              AED {original_price}
             </p>
             <p className="text-[#17A600] font-bold text-xs">
-              {parseInt(discount).toFixed(0)}% OFF
+              {discount_percentage}% OFF
             </p>
           </>
+        ) : (
+          <p className="font-semibold text-black">AED {original_price}</p>
         )}
       </div>
+
       <button
-        onClick={() => {
-          addItemToCart({ id });
-        }}
+        onClick={() => addItemToCart({ id })}
         className="flex items-center gap-3 border rounded-lg hover:bg-black hover:text-white border-[#BBBBBB] p-2 w-full justify-center"
       >
         <span>Add to cart</span>
@@ -81,6 +77,7 @@ export default function ProductCard({
           <BsCartPlus />
         </span>
       </button>
+
       {loading && <Loading />}
     </div>
   );

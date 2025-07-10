@@ -6,6 +6,7 @@ import { base_url } from "../../constants";
 const usePromotedProducts = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [maxDiscount, setMaxDiscount] = useState(0); 
 
   const getPromotedProducts = async () => {
     setLoading(true);
@@ -14,7 +15,10 @@ const usePromotedProducts = () => {
         withCredentials: true,
       });
       const data = res.data;
+
+    
       setProducts(data.promoted_products);
+      setMaxDiscount(data.max_discount || 0);
     } catch (err) {
       console.log(
         err?.response?.data?.message ||
@@ -26,11 +30,12 @@ const usePromotedProducts = () => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     getPromotedProducts();
   }, []);
 
-  return { loading, products };
+  return { loading, products, maxDiscount };
 };
 
 export default usePromotedProducts;
