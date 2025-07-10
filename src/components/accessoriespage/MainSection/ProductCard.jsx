@@ -51,7 +51,6 @@ export default function ProductCard({
         {name}
       </Link>
       <p className="font-medium me-auto">{brand}</p>
-
       <div className="flex gap-3 me-auto items-center">
         {discount_percentage > 0 ? (
           <>
