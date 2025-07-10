@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import useGetSubscriptionStatus from "../hooks/plans/useGetSubscriptionStatus";
+import { useNavigate } from "react-router-dom";
 
 const MyPlanPage = () => {
   const { data, loading } = useGetSubscriptionStatus();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,6 +52,16 @@ const MyPlanPage = () => {
         ) : (
           <p className="text-gray-500">No vendors assigned yet.</p>
         )}
+
+        {/* 🔵 Upgrade Plan Button */}
+        <div className="text-center mt-6">
+          <button
+            onClick={() => navigate("/subscription?upgrade=true")}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium"
+          >
+            Upgrade Plan
+          </button>
+        </div>
       </div>
     </div>
   );
