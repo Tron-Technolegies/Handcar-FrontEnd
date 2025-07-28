@@ -6,6 +6,8 @@ import useGetAllCategories from "../hooks/products/useGetAllCategories";
 import Loading from "../components/Loading";
 import useGetAllProducts from "../hooks/products/useGetAllProducts";
 import { ProductContext } from "../ProductContext";
+import { Helmet } from "react-helmet";
+import AccessoriesContentSection from "../components/accessoriespage/ContentSection/AccessoriesContentSection";
 
 const AccessoriesPage = () => {
   const { brands, loading: brandLoading } = useGetAllBrands();
@@ -35,8 +37,20 @@ const AccessoriesPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
+    <div>
+      <h1 className="md:text-4xl text-2xl font-semibold m-8 text-center">Explore the Best Car Accessories in Abu Dhabi, UAE</h1>
     <div className="flex">
+      
+      <Helmet>
+        <title>Best Car Accessories in Abu Dhabi, UAE | HandCar</title>
+        <meta
+          name="description"
+          content="Find top car accessories in Abu Dhabi. From interior to exterior, get quality upgrades at HandCar – your trusted car accessories shop in Abu Dhabi."
+        />
+      </Helmet>
+      
       {brandLoading || categoryLoading ? (
         <Loading />
       ) : (
@@ -45,6 +59,7 @@ const AccessoriesPage = () => {
       {categoryLoading || loading ? (
         <Loading />
       ) : (
+        
         <ProductSection
           categories={categories}
           brands={brands}
@@ -52,6 +67,9 @@ const AccessoriesPage = () => {
           products={products}
         />
       )}
+    
+    </div>
+    <AccessoriesContentSection />
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
 import Pageredirection from "../components/homepage/redirection/Pageredirection";
 import PartsFinder from "../components/homepage/partsfinder/PartsFinder";
 import HandCarFeatures from "../components/homepage/handcarFeatures/HandCarFeatures";
@@ -15,31 +17,47 @@ import AboutHandcar from "../components/homepage/aboutHandcar/AboutHandcar";
 import Testimonials from "../components/homepage/testimonials/Testimonials";
 import FAQ from "../components/homepage/faq/FAQ";
 import ContactForm from "../components/homepage/contactForm/ContactForm";
-
-// import LoginPage from "../components/loginpage/LoginPage";
-// import OtpVerification from "../components/loginpage/OtpVerification";
+import WhyChooseUs from "../components/homepage/whychooseus/WhyChooseUs";
+import PrimeServices from "../components/homepage/serviceoffering/ServiceOffering";
+import ServiceOffering from "../components/homepage/serviceoffering/ServiceOffering";
+import ServiceOffering2 from "../components/homepage/serviceoffering/ServiceOffering2";
 
 const HomePage = () => {
   return (
     <div>
-      <Pageredirection />
+      {/* Meta Info */}
+      <Helmet>
+        <title>HandCar | Expert Car Service & Repair  in Abu Dhabi, UAE </title>
+        <meta
+          name="description"
+          content="Need car service in Abu Dhabi? HandCar makes it easy. Trusted by UAE drivers for fast, reliable car repair in Abu Dhabi. Book now!"
+        />
+      </Helmet>
+
+      {/* Component Structure */}
+      {/* <Pageredirection /> */}
       <PartsFinder />
       <HandCarFeatures />
       <BestDeals />
       {/* <ExclusiveOffers /> */}
-
+      <HandCarServices />
       <GuaranteedFeatures />
-      <AccessoriesByCategories />
-      <CarAccessoriesList />
-
+      
+      <WhyChooseUs />
       <BrandSpareParts />
       {/* <BrandAccessories /> */}
-      <HandCarServices />
+        <AboutHandcar />
+      <AccessoriesByCategories />
       <SparePartsSlider />
-      <AboutHandcar />
+      <CarAccessoriesList />
+      
+      <ServiceOffering />
+      
+      <FAQ />
       {/* <WhatsApp/> */}
       <Testimonials />
-      <FAQ />
+      <ServiceOffering2 />
+      
       <ContactForm />
       {/* <LoginPage/> */}
       {/* <OtpVerification/> */}

@@ -9,12 +9,10 @@ const SubscriptionHeader = () => {
     <div className="flex flex-col gap-10 items-center lg:px-[120px] py-10">
       <div className="flex flex-col gap-5 items-center text-center max-w-[800px] lg:px-0 px-5">
         <h1 className="md:text-4xl text-2xl font-semibold">
-          Ultimate Car Care Subscription
+          Car Service Subscription Plans in Abu Dhabi, UAE
         </h1>
         <p className="text-sm font-medium">
-          Keep your vehicle in top shape with our all-inclusive service
-          packages. Enjoy hassle-free maintenance, exclusive discounts, and
-          priority support—so you can drive with peace of mind all year round.
+         With HandCar’s subscription plans in Abu Dhabi, car maintenance is simple. Reliable service, fast support, and great value each month.
         </p>
         <button
           onClick={navigate}
