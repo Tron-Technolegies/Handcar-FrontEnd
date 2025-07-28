@@ -6,6 +6,11 @@ import MapLocation from "../components/servicepage/vendorService/MapLocation";
 import { UserContext } from "../UserContext";
 import useGetAllServices from "../hooks/vendorservices/useGetAllServices";
 import Loading from "../components/Loading";
+import { Helmet } from "react-helmet"; // ⬅️ Add Helmet
+import WhyChooseUs from "../components/servicepage/WhyChooseUsinService/WhyChooseUs";
+import FAQ from "../components/homepage/faq/FAQ";
+import { FaQ } from "react-icons/fa6";
+import FAQinservice from "../components/servicepage/FAQ/faq";
 
 const ServicePage = () => {
   const { location, activeServiceCategory, setActiveServiceCategory } =
@@ -36,12 +41,23 @@ const ServicePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div>
+      <Helmet>
+        <title>Car Services Abu Dhabi | Repair, Maintenance & Painting | HandCar</title>
+        <meta
+          name="description"
+          content="Looking for the best car service in Abu Dhabi? HandCar offers expert maintenance, fast car repair, and honest pricing. Trusted by drivers across the UAE."
+        />
+      </Helmet>
+
       <HandcarServicesDetails />
       <VariousHandcarServices />
       <MapLocation />
       {loading ? <Loading /> : <PaintingService services={filteredServices} />}
+      <WhyChooseUs />
+      <FAQinservice />
     </div>
   );
 };

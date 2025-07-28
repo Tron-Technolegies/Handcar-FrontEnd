@@ -4,7 +4,7 @@ import topbrand_spare_parts from "../../../assets/topbrand_spare_parts.png";
 import { handleEnquiry } from "../../../utils/WhatsApp";
 // import WhatsApp from "../../../utils/WhatsApp"; // Correctly import WhatsApp component
 
-const BrandSpareParts = () => {
+const   BrandSpareParts = () => {
   return (
     <div className="flex lg:flex-row flex-col justify-between items-center bg-[#F5F5F7] lg:px-[120px] px-10 py-10">
       <div className="flex flex-col md:gap-10 gap-5 lg:max-w-[500px]">

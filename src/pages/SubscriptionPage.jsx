@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet"; 
+
 import SubscriptionHeader from "../components/subscriptionpage/subscriptionHeader/SubscriptionHeader";
 import CarWashPlans from "../components/subscriptionpage/subscriptionplans/CarWashPlans";
 import MaintenancePlans from "../components/subscriptionpage/subscriptionplans/MaintenancePlans";
 import CarAccessoriesList from "../components/homepage/carAccessoriesList/CarAccessoriesList";
 import AccessoriesByCategories from "../components/homepage/accessoriesbycategories/AccessoriesByCategories";
 import useGetSubscriptionStatus from "../hooks/plans/useGetSubscriptionStatus";
+import SubscriptionContentSection from "../components/subscriptionpage/ContentSection/SubscriptionContentSection";
 
 const SubscriptionPage = () => {
   const { data, loading } = useGetSubscriptionStatus();
@@ -23,6 +26,19 @@ const SubscriptionPage = () => {
 
   return (
     <div>
+   
+      <Helmet>
+        <title>Car Service Plans Abu Dhabi, UAE | HandCar Subscription</title>
+        <meta
+          name="description"
+          content="Discover car service plans in Abu Dhabi with HandCar. Choose a car subscription that offers regular maintenance, support."
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://handcar.ae/subscription" />
+      </Helmet>
+
+
+
       <SubscriptionHeader />
 
       {isSubscribed && !isUpgrade ? (
@@ -52,7 +68,6 @@ const SubscriptionPage = () => {
             <p className="text-gray-500">No vendors assigned yet.</p>
           )}
 
-          {/* 👇 Upgrade Button */}
           <button
             className="mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
             onClick={() => {
@@ -64,7 +79,6 @@ const SubscriptionPage = () => {
         </div>
       ) : (
         <>
-          {/* Optional Upgrade Title */}
           {isUpgrade && (
             <h2 className="text-2xl font-bold text-center mt-10 text-blue-700">
               Upgrade Your Plan
@@ -74,6 +88,7 @@ const SubscriptionPage = () => {
           <MaintenancePlans />
           <CarAccessoriesList />
           <AccessoriesByCategories />
+          <SubscriptionContentSection />
         </>
       )}
     </div>

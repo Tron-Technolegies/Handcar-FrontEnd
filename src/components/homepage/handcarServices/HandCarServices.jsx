@@ -1,63 +1,64 @@
 import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import handcarservices_header from "../../../assets/handcarservices_header.png";
-import painting_accessories from "../../../assets/painting_accessories.png";
-import washing_accessories from "../../../assets/washing_accessories.png";
-import tyre_accessories from "../../../assets/tyre_accessories.png";
-import HandCarServicesSliderCard from "./HandCarServicesSliderCard";
+import carwash from "../../../assets/car-wash.png";
+import painting from "../../../assets/painting-service.png";
+import spareparts from "../../../assets/spare-parts.png";
+import fitting from "../../../assets/fitting-service.png";
+import generalcheckup from "../../../assets/general-checkup.png";
+
+
+const services = [
+  {
+    icon: painting,
+    title: "Car Painting Services",
+    features: ["Scratch Removal", "Panel Repainting", "Paint Protection"],
+  },
+  {
+    icon: carwash,
+    title: "Car Washing Services",
+    features: ["Interior Cleaning", "Exterior Wash", "Waterless Wash"],
+  },
+  {
+    icon: fitting,
+    title: "Fitting Services",
+    features: ["Tyre Change", "Wheel Alignment", "Tyre Balancing"],
+  },
+  {
+    icon: generalcheckup,
+    title: "General Checkup Services",
+    features: ["Dashboard Polish", "Seat Cleaning", "Odor Removal"],
+  },
+  {
+    icon: spareparts,
+    title: "Spare Parts Services",
+    features: ["Tire Change", "Wheel Alignment", "Tyre Balancing"],
+  },
+];
+
 const HandCarServices = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    centerMode: true,
-    slidesToShow: 3, // Number of slides to show at a time
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
   return (
-    <div className="lg:px-[120px] px-10 py-10 flex flex-col gap-5">
-      <div className="flex flex-col gap-4 items-center">
-        <h4 className="text-3xl font-semibold">Handcar Car Services </h4>
-        <p className="font-semibold">
+    <div className="lg:px-[120px] px-10 py-14 flex flex-col gap-10 text-center">
+      <div className="flex flex-col gap-3 items-center">
+        <h4 className="text-3xl font-semibold mb-12">Our Car Services Include</h4>
+        {/* <p className="font-medium text-gray-700 max-w-2xl">
           We Deliver Comprehensive Car Solutions! Explore Our Range of Services
-        </p>
+        </p> */}
       </div>
-      <div className="red-gradient p-10 rounded-lg">
-        <Slider {...settings}>
-          <HandCarServicesSliderCard
-            image={painting_accessories}
-            content={"Car Painting Services"}
-          />
-          <HandCarServicesSliderCard
-            image={washing_accessories}
-            content={"Car Washing Services"}
-          />
-          <HandCarServicesSliderCard
-            image={tyre_accessories}
-            content={"Tyre Services"}
-          />
-          <HandCarServicesSliderCard
-            image={painting_accessories}
-            content={"Interior Detailing"}
-          />
-        </Slider>
-      </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6  ">
+          {services.map((service, index) => (
+            <div key={index} className="flex flex-col items-center text-center bg-slate-50 p-6 shadow-md rounded-lg hover:scale-105 transition-all">
+              <img src={service.icon} alt={service.title} className="h-14 mb-4" />
+              <h5 className="text-red-600 font-semibold text-base mb-2">
+                {service.title}
+              </h5>
+              <ul className="text-sm text-gray-600 space-y-1">
+                {service.features.map((feature, i) => (
+                  <li key={i}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
     </div>
   );
 };

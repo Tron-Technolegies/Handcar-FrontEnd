@@ -4,10 +4,10 @@ import spare_parts_brand from "../../../assets/spare_parts_brand.png";
 
 const SparePartsSlider = () => {
   return (
-    <div className="spare_parts_slider">
+    <div className="spare_parts_slider mb-20">
       <div className="spare_parts_slider_heading">
         <h1 className="md:text-3xl text-xl font-semibold">
-          Curated Original Spare Parts
+          Trusted Brands We Use
         </h1>
       </div>
       <div className="spare_parts_slider_img_container">

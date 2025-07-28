@@ -7,6 +7,7 @@ import Loading from "../../Loading";
 
 const CarAccessoriesList = () => {
   const { loading, products } = useGetPromotedBrandProducts();
+
   return (
     <div className="lg:px-[120px] py-10 px-10">
       <div className="flex lg:flex-row flex-col justify-between gap-3 lg:items-center my-5">
@@ -20,6 +21,7 @@ const CarAccessoriesList = () => {
           View all Products
         </Link>
       </div>
+
       <div className="listof_top_deal_products">
         {loading ? (
           <Loading />
@@ -27,10 +29,12 @@ const CarAccessoriesList = () => {
           products.map((item) => (
             <AccessoriesElt
               key={item.id}
-              name={item.name}
-              price={item.price}
-              image={item.image}
               id={item.id}
+              name={item.name}
+              image={item.image}
+              price={item.discounted_price}
+              originalPrice={item.original_price}
+              discountPercentage={item.discount_percentage}
             />
           ))
         )}
