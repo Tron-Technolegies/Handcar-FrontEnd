@@ -9,7 +9,7 @@ const ServiceOffering2 = () => {
         {/* First Row */}
         <div className="flex flex-col md:flex-row items-center gap-10 mb-4">
           <div className="w-10/12 mr-9 md:w-1/2">
-            <img src={"/public/WhatsApp Image 2025-07-25 at 14.05.26_dd192db8.png"} className="w-full h-auto  object-contain" alt="Handcar Service" />
+            <img src={"/WhatsApp Image 2025-07-25 at 14.05.26_dd192db8.png"} className="w-full h-auto  object-contain" alt="Handcar Service" />
           </div>
           <div className="w-full md:w-1/2">
             <h3 className="text-3xl font-semibold mb-4">
@@ -31,7 +31,7 @@ const ServiceOffering2 = () => {
               Over time, a lack of regular minor service will impact the health of your car, and will ultimately cost you. The minor service consists of key steps like changing the engine oil and rotating your tires, which keep your engine healthy and fuel efficient. The closer you can stick to your minor service helps you avoid any surprise costs in the middle of Dhabi.            </p>
           </div>
           <div className="w-full md:w-1/2 order-1 md:order-2">
-            <img src={"/public/WhatsApp Image 2025-07-25 at 14.05.26_1c055c2f.png"} className="w-full h-auto object-contain ml-28" alt="Minor Service" />
+            <img src={"/WhatsApp Image 2025-07-25 at 14.05.26_1c055c2f.png"} className="w-full h-auto object-contain ml-28" alt="Minor Service" />
           </div>
         </div>
       </div>

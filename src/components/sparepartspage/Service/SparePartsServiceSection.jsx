@@ -28,7 +28,7 @@ const SparePartsServiceSection = () => {
             <div className="bg-gradient-to-br from-blue-50 to-red-600 p-8 rounded-xl shadow-lg ml-10 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/spare-parts-img.jpeg" className="h-96 rounded-lg w-full" alt="Car Spare Parts" />
+                  <img src="/spare-parts-img.jpeg" className="h-96 rounded-lg w-full" alt="Car Spare Parts" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">Quality Parts</h4>
                 <p className="text-gray-600 text-sm">OEM & Aftermarket Options</p>
@@ -43,7 +43,7 @@ const SparePartsServiceSection = () => {
             <div className="bg-gradient-to-br from-red-50 to-red-600 p-8 rounded-xl shadow-lg mr-10 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/part-lookup.jpeg" className="h-96 rounded-lg w-full" alt="Part Lookup Tool" />
+                  <img src="/part-lookup.jpeg" className="h-96 rounded-lg w-full" alt="Part Lookup Tool" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">Smart Lookup</h4>
                 <p className="text-gray-600 text-sm">Find the right part easily</p>

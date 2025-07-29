@@ -65,7 +65,7 @@ const AccessoriesContentSection = () => {
             <div className="bg-gradient-to-br from-red-50 to-red-600 p-8 rounded-xl shadow-lg ml-32 w-fit ">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/Car-accessories.jpg" className="h-80 rounded-lg w-72" alt="Car Accessories" />
+                  <img src="/Car-accessories.jpg" className="h-80 rounded-lg w-72" alt="Car Accessories" />
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ const AccessoriesContentSection = () => {
             <div className="bg-gradient-to-br from-red-50 to-red-600 p-8 rounded-xl shadow-lg mr-10 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/new-car-accessories.jpg" className="h-96 rounded-lg w-full" alt="New Car Accessories" />
+                  <img src="/new-car-accessories.jpg" className="h-96 rounded-lg w-full" alt="New Car Accessories" />
                 </div>
                 
                 
@@ -127,7 +127,7 @@ const AccessoriesContentSection = () => {
             <div className="bg-gradient-to-br from-red-50 to-red-600 p-8 rounded-xl shadow-lg ml-10 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/car-service.jpeg" className="h-96 rounded-lg w-full" alt="Car Service" />
+                  <img src="/car-service.jpeg" className="h-96 rounded-lg w-full" alt="Car Service" />
                 </div>
                 
               </div>
