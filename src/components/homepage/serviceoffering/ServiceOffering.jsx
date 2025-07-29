@@ -9,7 +9,7 @@ const ServiceOffering = () => {
         <div className="flex flex-col md:flex-row items-center gap-8 mb-16 ">
           <div className="w-full md:w-1/2">
             <img
-              src={"/public/WhatsApp Image 2025-07-14 at 15.19.42_2f1a34a7.png"}
+              src={"/WhatsApp Image 2025-07-14 at 15.19.42_2f1a34a7.png"}
               className="w-10/12 h-auto object-contain"
               alt="Car Repair"
             />
@@ -87,7 +87,7 @@ const ServiceOffering = () => {
           </div>
           <div className="w-full md:w-1/2 ">
             <img
-              src={"/public/WhatsApp Image 2025-07-25 at 12.36.46_83943dde.png"}
+              src={"/WhatsApp Image 2025-07-25 at 12.36.46_83943dde.png"}
               className="w-full ml-20 h-auto object-contain"
               alt="Car Maintenance"
             />

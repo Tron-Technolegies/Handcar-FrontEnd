@@ -33,7 +33,7 @@ const PartsFinder = () => {
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-sm lg:max-w-96 mr-90">
               <img 
-                src="public\hero-img.png"
+                src="/hero-img.png"
                 alt="Luxury Car"
                 className="w-full h-auto object-contain drop-shadow-2xl"
               />

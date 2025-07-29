@@ -7,19 +7,19 @@ const steps = [
     id: 1,
     title: "Find the Right Spare Part for Your Vehicle",
     description: "Take your time to search through our catalogue and narrow down your choices for the part you need for your car.No guessing. Just fits your car!",
-    icon: "/public/search.png",
+    icon: "/search.png",
   },
   {
     id: 2,
     title: "Place Your Order Quickly",
     description: "All it takes is a quick message to us using WhatsApp with your spare part order. Easy, quick and no fuss.",
-    icon: "/public/online-booking.png", 
+    icon: "/online-booking.png", 
   },
   {
     id: 3,
     title: "Get Your Genuine Spare Part Delivered Quickly",
     description: "We ensure your original product gets delivered quickly and safely to your door.",
-    icon: "/public/order.png", 
+    icon: "/order.png", 
   },
 ];
 

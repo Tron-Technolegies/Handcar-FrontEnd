@@ -60,7 +60,7 @@ const WhyChooseUs = () => {
             <div className="bg-gradient-to-br from-blue-50 to-red-600 p-8 rounded-xl shadow-lg ml-24 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/ask.jpg" className="h-96 rounded-lg w-full" alt="" />
+                  <img src="/ask.jpg" className="h-96 rounded-lg w-full" alt="" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">Ask Questions</h4>
              
@@ -75,7 +75,7 @@ const WhyChooseUs = () => {
             <div className="bg-gradient-to-br from-blue-50 to-red-600 p-8 rounded-xl shadow-lg mr-24 max-w-md">
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
-                  <img src="/public/rightgarage.jpg" className="rounded-lg w-full" alt="" />
+                  <img src="/rightgarage.jpg" className="rounded-lg w-full" alt="garage" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">Right Garage</h4>
                 
