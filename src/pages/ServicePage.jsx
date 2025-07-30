@@ -13,8 +13,7 @@ import { FaQ } from "react-icons/fa6";
 import FAQinservice from "../components/servicepage/FAQ/faq";
 
 const ServicePage = () => {
-  const { location, activeServiceCategory, setActiveServiceCategory } =
-    useContext(UserContext);
+  const { location, activeServiceCategory, setActiveServiceCategory } = useContext(UserContext);
   const { loading, services, refetch } = useGetAllServices(location);
   const [filteredServices, setFilteredServices] = useState([]);
 
@@ -31,9 +30,7 @@ const ServicePage = () => {
     if (activeServiceCategory === "All") {
       setFilteredServices(services);
     } else {
-      const filtered = services.filter(
-        (x) => x.service_category === activeServiceCategory
-      );
+      const filtered = services.filter((x) => x.service_category === activeServiceCategory);
       setFilteredServices(filtered);
     }
   }, [activeServiceCategory]);

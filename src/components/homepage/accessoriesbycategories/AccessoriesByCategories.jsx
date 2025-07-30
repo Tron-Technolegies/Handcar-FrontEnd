@@ -11,7 +11,7 @@ const AccessoriesByCategories = () => {
   return (
     <div className="accessories_by_categories_container">
       <div className="accessories_by_category_heading">
-        <h1 className="md:text-4xl text-2xl font-semibold">
+        <h1 className="md:text-3xl text-xl font-semibold mb-14 pt-4">
           Find Accessories by Categories
         </h1>
       </div>
@@ -95,10 +95,7 @@ const AccessoriesByCategories = () => {
           </div>
 
           <div className="accessories_img">
-            <img
-              src={car_performance_accessories}
-              alt="Performance Accessories"
-            />
+            <img src={car_performance_accessories} alt="Performance Accessories" />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 export default function WhyChooseCard({ bg, img, stat, content }) {
   return (
     <div
-      className={`relative p-5 ${bg} rounded-lg flex flex-col justify-center gap-5 text-white w-[250px] h-[150px]`}
+      className={`relative p-5 ${bg} rounded-lg flex flex-col justify-center gap-5 text-white w-full h-[200px]`}
     >
       <p className="font-bold text-3xl">{stat}</p>
       <p>{content}</p>
