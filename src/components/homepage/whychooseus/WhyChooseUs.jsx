@@ -4,7 +4,7 @@ const WhyChooseUs = () => {
   return (
     <section className="py-8 px-5 md:px-20 mb-10">
       <div className="text-center mb-8 max-w-4xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-5">Why Choose Us</h2>
+        <h3 className="text-2xl md:text-3xl font-semibold mb-5">Why Choose Us</h3>
         <p className="text-sm md:text-base text-gray-700 leading-relaxed text-justify mt-4">
           HandCar offers reliable <a href="https://handcar.ae/">car service in Abu Dhabi</a>,
           quality care and genuine parts, fully trained mechanics, together with modern and fully

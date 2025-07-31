@@ -94,7 +94,7 @@ const FAQ = () => {
   return (
     <div className="faq_container">
       <div className="faq_heading">
-        <h1 className="md:text-3xl text-xl font-semibold">Common Car Service Questions</h1>
+        <h3 className="md:text-3xl text-xl font-semibold">Frequently Asked Questions</h3>
       </div>
       <div className="faq_list">
         {faqData.map((item, index) => (

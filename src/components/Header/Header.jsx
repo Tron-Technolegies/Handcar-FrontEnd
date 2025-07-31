@@ -13,7 +13,7 @@ const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
   const { setShowLogin, setShowSignup, user } = useContext(UserContext);
 
-  const { data } = useGetSubscriptionStatus(); 
+  const { data } = useGetSubscriptionStatus();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -49,7 +49,6 @@ const Header = () => {
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
         <NavLink to={"/"}>Home</NavLink>
 
-        
         {user && data?.subscribed ? (
           <NavLink to="/myplan">My Plan</NavLink>
         ) : (
@@ -59,14 +58,22 @@ const Header = () => {
         <NavLink to="/accessories">Accessories</NavLink>
         <NavLink to="/spareparts">Spare Parts</NavLink>
         <NavLink to="/servicepage">Services</NavLink>
-        <a className="cursor-pointer" onClick={handleAboutClick}>About Us</a>
-        <a className="cursor-pointer" onClick={handleContactClick}>Contact Us</a>
+        <a className="cursor-pointer" onClick={handleAboutClick}>
+          About Us
+        </a>
+        <a className="cursor-pointer" onClick={handleContactClick}>
+          Contact Us
+        </a>
       </div>
 
       <div className="flex xl:gap-5 gap-3 items-center">
         <div className="flex gap-2 items-center text-2xl">
-          <Link to="/wishlist"><CiHeart /></Link>
-          <Link to="/cart"><CiShoppingCart /></Link>
+          <Link to="/wishlist">
+            <CiHeart />
+          </Link>
+          <Link to="/cart">
+            <CiShoppingCart />
+          </Link>
         </div>
 
         {user ? (
@@ -95,10 +102,7 @@ const Header = () => {
 
       {showSmallBar && (
         <div className="absolute w-full top-20 left-0 z-20 animate-slideInTop">
-          <SmallHeader
-            setSmallBar={setShowSmallBar}
-            setShowPopup={setShowLogin}
-          />
+          <SmallHeader setSmallBar={setShowSmallBar} setShowPopup={setShowLogin} />
         </div>
       )}
     </nav>

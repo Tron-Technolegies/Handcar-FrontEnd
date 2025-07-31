@@ -9,15 +9,12 @@ const SparePartsHeader = () => {
           Shop the Best Quality Car Spare Parts in Abu Dhabi, UAE
         </h1>
         <p className="font-medium">
-top-quality car spare parts in Abu Dhabi at the best prices.
-Fast service and perfect fit for all major car brands with HandCar.
-
+          top-quality car spare parts in Abu Dhabi at the best prices. Fast service and perfect fit
+          for all major car brands with HandCar.
         </p>
         <button
           className="px-4 py-2 bg-[#D60205] rounded-lg text-white w-fit mb-5"
-          onClick={() =>
-            handleEnquiry({ name: `I like to know more about spare parts` })
-          }
+          onClick={() => handleEnquiry({ name: `I like to know more about spare parts` })}
         >
           Enquire Now
         </button>
@@ -25,7 +22,7 @@ Fast service and perfect fit for all major car brands with HandCar.
 
       <img
         src={"/spareparts/header.png"}
-        className="xl:max-w-[782px] xl:max-h-[561px] lg:max-w-[500px] lg:max-h-[359px] max-w-[350px] max-h-[251px] rounded-md"
+        className="xl:max-w-[582px] xl:max-h-[561px] lg:max-w-[500px] lg:max-h-[359px] max-w-[350px] max-h-[251px] rounded-md mr-16"
         alt=""
         srcset=""
       />

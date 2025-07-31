@@ -38,20 +38,18 @@ export default function MaintenancePlans() {
     <Loading />
   ) : (
     <div className="lg:px-[120px] px-10 py-10">
-      <img
+      {/* <img
         src="/subs/img-1.png"
         className="w-full h-[330px] rounded-lg object-cover"
-      ></img>
+      ></img> */}
       <div className="max-w-[750px] flex flex-col gap-5 items-center mx-auto my-10">
         <h1 className="md:text-4xl text-2xl text-center font-semibold text-black">
-          Plans for{" "}
-          <span className="underline underline-offset-8">Maintainance</span>{" "}
-          Services
+          Plans for <span className="underline underline-offset-8">Maintainance</span> Services
         </h1>
         <p className="text-black text-sm text-center">
-          Explore our subscription plans for additional services and keep your
-          car looking its best year-round. Enjoy exclusive benefits and regular
-          maintenance with our comprehensive packages.
+          Explore our subscription plans for additional services and keep your car looking its best
+          year-round. Enjoy exclusive benefits and regular maintenance with our comprehensive
+          packages.
         </p>
         <div className="bg-[#EEEEEE] px-2 py-2 rounded-s-full rounded-e-full flex items-center gap-5">
           <motion.button
@@ -78,8 +76,7 @@ export default function MaintenancePlans() {
           </motion.button>
         </div>
         <p>
-          <span className="text-[#1D9112]">Save 10% off </span>on 6 months
-          subscription
+          <span className="text-[#1D9112]">Save 10% off </span>on 6 months subscription
         </p>
       </div>
       <div className="flex justify-center gap-7 my-10">
