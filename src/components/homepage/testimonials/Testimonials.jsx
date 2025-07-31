@@ -60,10 +60,8 @@ const Testimonials = () => {
     ],
   };
   return (
-    <div className="lg:px-[120px] px-10 py-10 flex flex-col gap-5 bg-[#F5F5F7]">
-      <h1 className="md:text-3xl text-xl font-semibold text-center my-5">
-        What our Customers Say
-      </h1>
+    <div className="lg:px-[120px] px-10 pt-10 pb-20 flex flex-col gap-5 bg-[#F5F5F7] ">
+      <h1 className="md:text-3xl text-xl font-semibold text-center my-5">What our Customers Say</h1>
       <Slider {...settings}>
         {testimonials.map((x, index) => (
           <TestimonialCard
