@@ -96,9 +96,8 @@ const PartsFinder = () => {
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
               <p className="text-white text-sm lg:text-base leading-relaxed opacity-90 max-w-[550px]">
-                We provide professional car service in Abu Dhabi and expert car maintenance in Abu
-                Dhabi, using original parts and trained technicians to ensure your vehicle receives
-                the highest level of care.
+                Subscribe now for complete car servicing and expert maintenance in Abu Dhabi. Get
+                genuine parts, skilled technicians, and priority attention every time.
               </p>
             </div>
             <button className="bg-white hover:bg-red-100 text-red-600 mt-5 px-6 lg:px-8 py-2 lg:py-2.5 rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl whitespace-nowrap">

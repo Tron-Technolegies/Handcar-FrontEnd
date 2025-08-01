@@ -6,7 +6,7 @@ const AboutHandcar = () => {
   return (
     <div
       id="about"
-      className="flex lg:flex-row flex-col justify-between items-center lg:ps-[120px] ps-10 pe-10 lg:pe-0 py-10 mt-8"
+      className="flex lg:flex-row flex-col justify-between items-center lg:ps-[120px] ps-10 pe-10 lg:pe-0 py-20"
     >
       <div className="xl:max-w-[610px] max-w-[500px] flex flex-col gap-5">
         <h3 className="md:text-3xl text-xl font-semibold">About us</h3>

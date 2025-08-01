@@ -6,14 +6,11 @@ import Loading from "../../Loading";
 import { ProductContext } from "../../../ProductContext";
 
 export default function ProductList({ setShowSmallFilter, loading, products }) {
-  const { sort, setSort, refetchTrigger, setRefetchTrigger } =
-    useContext(ProductContext);
+  const { sort, setSort, refetchTrigger, setRefetchTrigger } = useContext(ProductContext);
   return (
     <div className="my-10">
       <div className="flex justify-between items-center">
-        <p className="text-[#8F8F8F] md:text-xl text-sm font-bold">
-          {products?.length} Results
-        </p>
+        <p className="text-[#8F8F8F] md:text-xl text-sm font-bold">{products?.length} Results</p>
         <div className="flex md:gap-5 gap-1 items-center w-fit text-[#8F8F8F] md:text-base text-sm">
           <p className="w-auto">Sort&nbsp;By</p>
           <select

@@ -12,8 +12,9 @@ const SubscriptionHeader = () => {
           Car Service Subscription Plans in Abu Dhabi, UAE
         </h1>
         <p className="text-sm font-medium">
-          With HandCar’s subscription plans in Abu Dhabi, car maintenance is simple. Reliable
-          service, fast support, and great value each month.
+          Our subscription plans make car care simple. From regular maintenance to premium car
+          washes, we keep your vehicle in top condition all year round. Select the plan that meets
+          your needs and experience service you can trust across the UAE.
         </p>
         <button onClick={navigate} className="px-4 py-2 rounded-lg bg-[#D60205] text-white">
           View all plans

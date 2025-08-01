@@ -24,34 +24,26 @@ export default function CarWashPlans() {
 
   const handlefunction1 = () => {
     setLong(6);
-    const filteredPlans = plans.filter(
-      (x) => x.duration === "6" && x.service_type === "Car Wash"
-    );
+    const filteredPlans = plans.filter((x) => x.duration === "6" && x.service_type === "Car Wash");
     setWashPlans(filteredPlans);
   };
   const handlefunction2 = () => {
     setLong(12);
-    const filteredPlans = plans.filter(
-      (x) => x.duration === "12" && x.service_type === "Car Wash"
-    );
+    const filteredPlans = plans.filter((x) => x.duration === "12" && x.service_type === "Car Wash");
     setWashPlans(filteredPlans);
   };
   return loading ? (
     <Loading />
   ) : (
-    <div
-      className="xl:px-[120px] px-10 py-10 bg-gradient-to-b from-[#D50104] to-40%"
-      id="wash"
-    >
+    <div className="xl:px-[120px] px-10 py-10 bg-gradient-to-b from-[#D50104] to-40%" id="wash">
       <div className="max-w-[750px] flex flex-col gap-5 items-center mx-auto">
         <h1 className="md:text-4xl text-2xl text-center font-semibold text-white">
-          A Plan for Every{" "}
-          <span className="underline underline-offset-8">Car Washing</span> Need
+          A Plan for Every <span className="underline underline-offset-8">Car Washing</span> Need
         </h1>
         <p className="text-white text-sm text-center">
-          Whether it's a quick rinse or a detailed clean, we offer customized
-          services to meet every car washing need. Experience the difference
-          with our specialized care and attention to detail.
+          Keep your car clean and fresh all year with our wash plans. From quick rinses to full
+          detailing, we have a plan for every need. Select your plan and enjoy expert care wherever
+          you are in the UAE
         </p>
         <div className="bg-[#FFD9D9] px-2 py-2 rounded-s-full rounded-e-full flex items-center gap-5">
           <motion.button
@@ -78,8 +70,7 @@ export default function CarWashPlans() {
           </motion.button>
         </div>
         <p>
-          <span className="text-[#DA1E21]">Save 10% off </span>on 6 months
-          subscription
+          <span className="text-[#DA1E21]">Save 10% off </span>on 6 months subscription
         </p>
       </div>
       <div className="my-10 flex lg:flex-row flex-col items-center justify-center gap-7">
