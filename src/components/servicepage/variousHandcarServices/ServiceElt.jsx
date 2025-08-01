@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../../../UserContext";
 
 export default function ServiceElt({ icon, content }) {
-  const { activeServiceCategory, setActiveServiceCategory } =
-    useContext(UserContext);
+  const { activeServiceCategory, setActiveServiceCategory } = useContext(UserContext);
   return (
     <button
       onClick={() => setActiveServiceCategory(content)}

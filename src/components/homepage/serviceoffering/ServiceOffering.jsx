@@ -1,5 +1,5 @@
 import React from "react";
-import carImage from "../../../assets/car.png"; 
+import carImage from "../../../assets/car.png";
 
 const ServiceOffering = () => {
   return (
@@ -20,24 +20,17 @@ const ServiceOffering = () => {
             </h3>
             <p className="text-gray-600 leading-relaxed text-justify">
               It may appear more affordable to skip a major{" "}
-              <a
-                href="https://handcar.ae/"
-                className="font-bold hover:text-gray-700 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://handcar.ae/" target="_blank" rel="noopener noreferrer">
                 car repair in Abu Dhabi
               </a>
-              , but the costs can add up much quicker than you'd expect. Timely repairs as part of your scheduled{" "}
-              <a
-                href="https://handcar.ae/"
-                className="font-bold hover:text-gray-700 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              , but the costs can add up much quicker than you'd expect. Timely repairs as part of
+              your scheduled{" "}
+              <a href="https://handcar.ae/" target="_blank" rel="noopener noreferrer">
                 car service in Abu Dhabi
               </a>{" "}
-              help prevent engine failure, improve fuel economy, and can keep your vehicle running for years longer. Addressing major issues early saves you money—and more importantly—offers peace of mind.
+              help prevent engine failure, improve fuel economy, and can keep your vehicle running
+              for years longer. Addressing major issues early saves you money—and more
+              importantly—offers peace of mind.
             </p>
           </div>
         </div>
@@ -50,36 +43,27 @@ const ServiceOffering = () => {
             </h3>
             <p className="text-gray-600 leading-relaxed text-justify">
               Finding the right{" "}
-              <a
-                href="https://handcar.ae/"
-                className="font-bold hover:text-gray-700 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://handcar.ae/" target="_blank" rel="noopener noreferrer">
                 car repair in Abu Dhabi
               </a>{" "}
-              is as essential as the repair itself. A reputable provider should have licensed technicians, clear service processes, and solid customer reviews. Credentials, feedback, and warranties are key signs your car is in good hands.
+              is as essential as the repair itself. A reputable provider should have licensed
+              technicians, clear service processes, and solid customer reviews. Credentials,
+              feedback, and warranties are key signs your car is in good hands.
             </p>
-            <p className="text-gray-600 leading-relaxed text-justify mt-1">
+            <p className=" leading-relaxed text-justify mt-1">
               Multi-brand workshops like Handcar offer trusted{" "}
-              <a
-                href="https://handcar.ae/"
-                className="font-bold hover:text-gray-700 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://handcar.ae/" target="_blank" rel="noopener noreferrer">
                 car service in Abu Dhabi
               </a>
-              , delivering high-quality support for every make and model. Before choosing a provider, check Google reviews and local forums to evaluate customer experiences.
+              , delivering high-quality support for every make and model. Before choosing a
+              provider, check Google reviews and local forums to evaluate customer experiences.
             </p>
-            <p className="text-gray-600 leading-relaxed text-justify mt-1">
-              Most major repairs take 1 to 5 days depending on complexity, parts sourcing, and workload. For exotic cars or rare parts, it may take longer—so always ask for a time estimate in advance. Lastly, don’t overlook the value of service warranties—they ensure your{" "}
-              <a
-                href="https://handcar.ae/"
-                className="font-bold hover:text-gray-700 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <p className=" leading-relaxed text-justify mt-1">
+              Most major repairs take 1 to 5 days depending on complexity, parts sourcing, and
+              workload. For exotic cars or rare parts, it may take longer—so always ask for a time
+              estimate in advance. Lastly, don’t overlook the value of service warranties—they
+              ensure your{" "}
+              <a href="https://handcar.ae/" target="_blank" rel="noopener noreferrer">
                 car maintenance in Abu Dhabi
               </a>{" "}
               remains consistent even after repairs are done.
@@ -100,7 +84,6 @@ const ServiceOffering = () => {
 
 export default ServiceOffering;
 // import React from "react";
-
 
 // const ServiceOffering = () => {
 //   return (

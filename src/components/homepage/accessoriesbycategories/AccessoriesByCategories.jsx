@@ -11,19 +11,19 @@ const AccessoriesByCategories = () => {
   return (
     <div className="accessories_by_categories_container">
       <div className="accessories_by_category_heading">
-        <h1 className="md:text-3xl text-xl font-semibold mb-14 pt-4">
+        <h4 className="md:text-3xl text-xl font-semibold mb-14 pt-4">
           Find Accessories by Categories
-        </h1>
+        </h4>
       </div>
 
       <div className="accessories_by_category">
         <div className="different_accessories">
           <div className="accessories_content">
             <div className="accessories_heading">
-              <h1 className="font-semibold">
+              <h4 className="font-semibold">
                 Car Interior <br />
                 Accessories
-              </h1>
+              </h4>
             </div>
 
             <Link to={"/accessories"} className="accessories_explore_btn">
@@ -40,10 +40,10 @@ const AccessoriesByCategories = () => {
         <div className="different_accessories">
           <div className="accessories_content">
             <div className="accessories_heading">
-              <h1 className="font-semibold">
+              <h4 className="font-semibold">
                 Car Exterior <br />
                 Accessories
-              </h1>
+              </h4>
             </div>
 
             <Link to={"/accessories"} className="accessories_explore_btn">
@@ -62,10 +62,10 @@ const AccessoriesByCategories = () => {
         <div className="different_accessories">
           <div className="accessories_content">
             <div className="accessories_heading">
-              <h1 className="font-semibold">
+              <h4 className="font-semibold">
                 Electronic & <br />
                 Gadgets
-              </h1>
+              </h4>
             </div>
 
             <Link to={"/accessories"} className="accessories_explore_btn">
@@ -82,10 +82,10 @@ const AccessoriesByCategories = () => {
         <div className="different_accessories">
           <div className="accessories_content">
             <div className="accessories_heading">
-              <h1 className="font-semibold">
+              <h4 className="font-semibold">
                 Performance <br />
                 Accessories
-              </h1>
+              </h4>
             </div>
 
             <Link to={"/accessories"} className="accessories_explore_btn">

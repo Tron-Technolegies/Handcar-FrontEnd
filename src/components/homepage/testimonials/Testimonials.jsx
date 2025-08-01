@@ -8,37 +8,41 @@ import Slider from "react-slick";
 const testimonials = [
   {
     id: 1,
-    name: "Abu Ibrahim",
-    location: "Dubai",
+    name: "Ahmed R",
+    location: "Abu Dubai",
     message:
-      "The quality is outstanding, and the customer service team went above and beyond to ensure I had a great experience. It's rare to find a company that genuinely cares about its customers as much as they do about their product. I've noticed a significant improvement in, and it's made a huge difference in my . ",
+      "Excellent service from Handcar. I ordered seat covers and floor mats, and they arrived on time with perfect fitting. The quality is much better than what I found in local shops. Highly recommended for anyone in Abu Dhabi looking for genuine accessories.",
     imgSrc: "/testimonial.png",
+    rating: 4.5,
   },
   {
     id: 2,
-    name: "Fatima Ali",
-    location: "Abu Dhabi",
+    name: "Khalid K",
+    location: "Dubai",
     message:
-      "The quality is outstanding, and the customer service team went above and beyond to ensure I had a great experience. It's rare to find a company that genuinely cares about its customers as much as they do about their product. I've noticed a significant improvement in, and it's made a huge difference in my . ",
+      "Handcar made it very easy to find the right spare parts using the chassis number search. The team confirmed compatibility before shipping and the parts were delivered within two days. Very professional service and great communication.",
     imgSrc: "/testimonial.png",
+    rating: 4.7,
   },
+
   {
     id: 3,
-    name: "Omar Khan",
-    location: "Sharjah",
+    name: "Mohammed",
+    location: "UAE",
     message:
-      "The quality is outstanding, and the customer service team went above and beyond to ensure I had a great experience. It's rare to find a company that genuinely cares about its customers as much as they do about their product. I've noticed a significant improvement in, and it's made a huge difference in my . ",
+      "I booked a painting and fitting service through Handcar. The workmanship is outstanding, and they completed the job ahead of schedule. My car looks brand new again. Definitely my go‑to place for car care in the UAE.",
     imgSrc: "/testimonial.png",
+    rating: 3.2,
   },
   {
     id: 4,
-    name: "Sara Ahmed",
-    location: "Ajman",
+    name: "Faizal M",
+    location: "Abu Dhabi",
     message:
-      "The quality is outstanding, and the customer service team went above and beyond to ensure I had a great experience. It's rare to find a company that genuinely cares about its customers as much as they do about their product. I've noticed a significant improvement in, and it's made a huge difference in my . ",
+      "I had a great experience shopping from Handcar. The prices are reasonable, products are high quality, and customer support is always responsive. I will be coming back for more accessories and recommending them to my friends in Abu Dhabi.",
     imgSrc: "/testimonial.png",
+    rating: 2.7,
   },
-  // Add more testimonials if needed
 ];
 
 const Testimonials = () => {
@@ -61,7 +65,7 @@ const Testimonials = () => {
   };
   return (
     <div className="lg:px-[120px] px-10 pt-10 pb-20 flex flex-col gap-5 bg-[#F5F5F7] ">
-      <h1 className="md:text-3xl text-xl font-semibold text-center my-5">What our Customers Say</h1>
+      <h4 className="md:text-3xl text-xl font-semibold text-center my-5">Customer Reviews</h4>
       <Slider {...settings}>
         {testimonials.map((x, index) => (
           <TestimonialCard
@@ -70,6 +74,7 @@ const Testimonials = () => {
             quote={x.message}
             name={x.name}
             place={x.location}
+            rating={x.rating}
           />
         ))}
         {/* Add more <TestimonialCard /> components as needed */}

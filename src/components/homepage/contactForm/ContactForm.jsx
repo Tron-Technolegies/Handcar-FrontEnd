@@ -26,10 +26,10 @@ const ContactForm = () => {
     }
   }
   return (
-    <div id="contact" className="contact_form_container">
+    <div id="contact" className="contact_form_container bg-stone-200">
       <div className="contact_section">
         <div className="contact_details">
-          <h1>Contact us</h1>
+          <h4>Get in Touch</h4>
         </div>
 
         <div className="contact_detail_content">
@@ -64,6 +64,8 @@ const ContactForm = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+        </div>
+        <div className="contact_form_phone">
           <input
             type="tel"
             placeholder="Phone Number"
