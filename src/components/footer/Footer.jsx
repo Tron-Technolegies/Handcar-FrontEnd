@@ -105,14 +105,14 @@ const Footer = () => {
             <div className="flex gap-3">
               <a href="https://play.google.com/store/apps/details?id=com.handcar" target="_blank">
                 <img
-                  src="/public/icons/google-play-badge-logo-svgrepo-com.svg"
+                  src="/icons/google-play-badge-logo-svgrepo-com.svg"
                   alt="Google Play"
                   className="w-32"
                 />
               </a>
               <a href="https://apps.apple.com/app/handcar" target="_blank">
                 <img
-                  src="/public/icons/download-on-the-app-store-apple-logo-svgrepo-com.svg"
+                  src="/icons/download-on-the-app-store-apple-logo-svgrepo-com.svg"
                   alt="App Store"
                   className="w-32"
                 />

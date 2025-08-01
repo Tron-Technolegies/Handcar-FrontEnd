@@ -47,9 +47,10 @@ export default function MaintenancePlans() {
           Plans for <span className="underline underline-offset-8">Maintainance</span> Services
         </h1>
         <p className="text-black text-sm text-center">
-          Explore our subscription plans for additional services and keep your car looking its best
-          year-round. Enjoy exclusive benefits and regular maintenance with our comprehensive
-          packages.
+          Keep your car in top condition with our maintenance plans. We take care of everything from
+          regular servicing and oil changes to inspections and tyre care, ensuring your vehicle is
+          always ready for the road. Select the plan that works best for you and enjoy trusted
+          service anywhere in the UAE.
         </p>
         <div className="bg-[#EEEEEE] px-2 py-2 rounded-s-full rounded-e-full flex items-center gap-5">
           <motion.button

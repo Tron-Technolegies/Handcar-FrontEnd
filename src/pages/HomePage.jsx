@@ -27,11 +27,12 @@ const HomePage = () => {
     <div>
       {/* Meta Info */}
       <Helmet>
-        <title>HandCar | Expert Car Service & Repair  in Abu Dhabi, UAE </title>
+        <title>HandCar | Expert Car Service & Repair in Abu Dhabi, UAE </title>
         <meta
           name="description"
           content="Need car service in Abu Dhabi? HandCar makes it easy. Trusted by UAE drivers for fast, reliable car repair in Abu Dhabi. Book now!"
         />
+        <link rel="canonical" href="https://handcar.ae/" />
       </Helmet>
 
       {/* Component Structure */}
@@ -42,22 +43,22 @@ const HomePage = () => {
       {/* <ExclusiveOffers /> */}
       <HandCarServices />
       <GuaranteedFeatures />
-      
+
       <WhyChooseUs />
       <BrandSpareParts />
       {/* <BrandAccessories /> */}
-        <AboutHandcar />
+      <AboutHandcar />
       <AccessoriesByCategories />
       <SparePartsSlider />
       <CarAccessoriesList />
-      
+
       <ServiceOffering />
-      
+
       <FAQ />
       {/* <WhatsApp/> */}
       <Testimonials />
       <ServiceOffering2 />
-      
+
       <ContactForm />
       {/* <LoginPage/> */}
       {/* <OtpVerification/> */}

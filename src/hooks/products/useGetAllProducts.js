@@ -10,9 +10,12 @@ const useGetAllProducts = ({
   min_price,
   max_price,
   sort,
+  page = 1,
+  limit = 6, // default: 6 products per page
 }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
 
   const getAllProducts = async () => {
     setLoading(true);
@@ -26,10 +29,14 @@ const useGetAllProducts = ({
           min_price,
           max_price,
           sort,
+          page,
+          limit,
         },
       });
+
       const data = res.data;
-      setProducts(data.product);
+      setProducts(data.products); // updated key (previously data.product)
+      setTotalPages(data.pages || 1);
     } catch (err) {
       console.log(
         err?.response?.data?.message ||
@@ -38,20 +45,18 @@ const useGetAllProducts = ({
           err ||
           "something went wrong"
       );
-      console.log(err);
     } finally {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     getAllProducts();
-  }, []);
+  }, [search, category, brand, min_price, max_price, sort, page, limit]);
 
-  const refetch = () => {
-    getAllProducts();
-  };
+  const refetch = () => getAllProducts();
 
-  return { loading, products, refetch };
+  return { loading, products, totalPages, refetch };
 };
 
 export default useGetAllProducts;
