@@ -6,7 +6,7 @@ import MapLocation from "../components/servicepage/vendorService/MapLocation";
 import { UserContext } from "../UserContext";
 import useGetAllServices from "../hooks/vendorservices/useGetAllServices";
 import Loading from "../components/Loading";
-import { Helmet } from "react-helmet"; // ⬅️ Add Helmet
+import { Helmet } from "react-helmet";
 import WhyChooseUs from "../components/servicepage/WhyChooseUsinService/WhyChooseUs";
 import FAQ from "../components/homepage/faq/FAQ";
 import { FaQ } from "react-icons/fa6";
