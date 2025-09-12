@@ -36,6 +36,10 @@ const AccessoriesByCategories = () => {
             <img
               src={car_seat}
               alt="Black and red premium leather car seat covers with headrests for front and rear seats"
+              loading="lazy"
+              width="300"
+              height="200"
+              style={{ objectFit: "cover", aspectRatio: "3/2" }}
             />
           </div>
         </div>
@@ -59,6 +63,10 @@ const AccessoriesByCategories = () => {
             <img
               src={car_exterior}
               alt="Red sports car partially covered with a black car cover for exterior protection | car service abudhabi"
+              loading="lazy"
+              width="300"
+              height="200"
+              style={{ objectFit: "cover", aspectRatio: "3/2" }}
             />
           </div>
         </div>
@@ -84,6 +92,10 @@ const AccessoriesByCategories = () => {
             <img
               src={car_gadgets}
               alt="High-quality car audio system with Bluetooth stereo, speakers, and subwoofers | car repair abudhabi"
+              loading="lazy"
+              width="300"
+              height="200"
+              style={{ objectFit: "cover", aspectRatio: "3/2" }}
             />
           </div>
         </div>
@@ -104,7 +116,14 @@ const AccessoriesByCategories = () => {
           </div>
 
           <div className="accessories_img">
-            <img src={car_performance_accessories} alt="Performance Accessories" />
+            <img
+              src={car_performance_accessories}
+              alt="Performance Accessories"
+              loading="lazy"
+              width="300"
+              height="200"
+              style={{ objectFit: "cover", aspectRatio: "3/2" }}
+            />
           </div>
         </div>
       </div>

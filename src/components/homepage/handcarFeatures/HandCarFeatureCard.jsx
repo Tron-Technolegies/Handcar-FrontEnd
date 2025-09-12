@@ -8,6 +8,7 @@ const HandCarFeatureCard = ({
   type,
   action,
   image,
+  alt,
   imageSize = "w-28 h-28 md:w-40 md:h-40",
   isLarge = false,
 }) => {
@@ -30,11 +31,18 @@ const HandCarFeatureCard = ({
           </button>
         )}
       </div>
-      <img
-        src={image}
-        alt={title}
-        className={`absolute bottom-0 right-0 object-contain ${imageSize}`}
-      />
+
+      {/* Reserve space with aspect ratio */}
+      <div className={`absolute bottom-0 right-0 ${imageSize}`} style={{ aspectRatio: "1 / 1" }}>
+        <img
+          src={image}
+          alt={alt || title}
+          className="object-contain w-full h-full"
+          loading="lazy"
+          width="160" // reserve space
+          height="160" // reserve space
+        />
+      </div>
     </div>
   );
 };
