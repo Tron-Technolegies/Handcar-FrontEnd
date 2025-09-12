@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import handcar_logo from "../../assets/handcar_logo.svg";
-import { IoIosLogOut } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CiShoppingCart, CiHeart } from "react-icons/ci";
 import SmallHeader from "./SmallHeader";
@@ -12,42 +11,35 @@ import useGetSubscriptionStatus from "../../hooks/plans/useGetSubscriptionStatus
 const Header = () => {
   const [showSmallBar, setShowSmallBar] = useState(false);
   const { setShowLogin, setShowSignup, user } = useContext(UserContext);
-
   const { data } = useGetSubscriptionStatus();
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  function handleAboutClick() {
+  function handleScrollToId(e, id) {
+    e.preventDefault();
     if (location.pathname === "/") {
-      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/");
+      navigate("/#" + id);
       setTimeout(() => {
-        document.getElementById("about").scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }
-
-  function handleContactClick() {
-    if (location.pathname === "/") {
-      document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
-      }, 100);
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 200);
     }
   }
 
   return (
     <nav className="lg:px-[120px] py-5 px-10 bg-white flex justify-between items-center">
+      {/* Logo */}
       <div>
-        <img src={handcar_logo} alt="logo" className="w-[44px] h-[55px]" />
+        <Link to="/">
+          <img src={handcar_logo} alt="logo" className="w-[44px] h-[55px]" />
+        </Link>
       </div>
 
+      {/* Desktop Menu */}
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
 
         {user && data?.subscribed ? (
           <NavLink to="/myplan">My Plan</NavLink>
@@ -58,15 +50,23 @@ const Header = () => {
         <NavLink to="/accessories">Accessories</NavLink>
         <NavLink to="/spareparts">Spare Parts</NavLink>
         <NavLink to="/servicepage">Services</NavLink>
-        <a className="cursor-pointer" onClick={handleAboutClick}>
+
+        {/* SEO-friendly About / Contact */}
+        <a href="/#about" onClick={(e) => handleScrollToId(e, "about")} className="cursor-pointer">
           About Us
         </a>
-        <a className="cursor-pointer" onClick={handleContactClick}>
+        <a
+          href="/#contact"
+          onClick={(e) => handleScrollToId(e, "contact")}
+          className="cursor-pointer"
+        >
           Contact Us
         </a>
       </div>
 
+      {/* Right Side */}
       <div className="flex xl:gap-5 gap-3 items-center">
+        {/* Wishlist + Cart */}
         <div className="flex gap-2 items-center text-2xl">
           <Link to="/wishlist">
             <CiHeart />
@@ -76,6 +76,7 @@ const Header = () => {
           </Link>
         </div>
 
+        {/* Auth Buttons or Dropdown */}
         {user ? (
           <MenuDropdown user={user} />
         ) : (
@@ -95,14 +96,20 @@ const Header = () => {
           </>
         )}
 
+        {/* Mobile Hamburger */}
         <div className="lg:hidden text-xl" onClick={() => setShowSmallBar(!showSmallBar)}>
           <RxHamburgerMenu />
         </div>
       </div>
 
+      {/* Small Screen Header */}
       {showSmallBar && (
         <div className="absolute w-full top-20 left-0 z-20 animate-slideInTop">
-          <SmallHeader setSmallBar={setShowSmallBar} setShowPopup={setShowLogin} />
+          <SmallHeader
+            setSmallBar={setShowSmallBar}
+            setShowPopup={setShowLogin}
+            handleScrollToId={handleScrollToId} // pass scroll handler for mobile
+          />
         </div>
       )}
     </nav>

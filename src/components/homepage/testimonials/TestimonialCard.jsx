@@ -20,7 +20,7 @@ export default function TestimonialCard({ active, quote, name, place, rating = 5
     <div
       className={`bg-white p-5 rounded-lg flex flex-col gap-5 ${active} shadow-md transform transition-transform duration-500`}
     >
-      <img src="/comma1.png" className="w-16 h-10 me-auto" />
+      {/* <img src="/comma1.png" className="w-16 h-10 me-auto" /> */}
       <p>{quote}</p>
 
       <div className="flex items-center gap-2">{renderStars(rating)}</div>

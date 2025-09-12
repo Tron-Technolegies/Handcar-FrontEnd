@@ -28,6 +28,7 @@ const BrandSpareParts = () => {
       <div>
         <img
           src={topbrand_spare_parts}
+          alt="High-quality car spare parts including engine gears | car maintenance abudhabi"
           className="sm:max-w-[450px] sm:max-h-[337px] w-[300px] h-[225px]"
         ></img>
       </div>
