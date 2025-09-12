@@ -120,7 +120,8 @@ const PartsFinder = () => {
             <img
               src="/hero-img.webp"
               alt="App Preview"
-              className="w-full h-auto object-cover drop-shadow-lg"
+              className="w-full h-auto object-cover drop-shadow-lg "
+              fetchPriority="high"
             />
           </div>
         </div>

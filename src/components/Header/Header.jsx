@@ -16,12 +16,13 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Smooth scroll handler
   function handleScrollToId(e, id) {
     e.preventDefault();
     if (location.pathname === "/") {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/#" + id);
+      navigate("/");
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 200);
@@ -33,7 +34,7 @@ const Header = () => {
       {/* Logo */}
       <div>
         <Link to="/">
-          <img src={handcar_logo} alt="logo" className="w-[44px] h-[55px]" />
+          <img src={handcar_logo} alt="Handcar Logo" className="w-[44px] h-[55px]" />
         </Link>
       </div>
 
@@ -52,27 +53,25 @@ const Header = () => {
         <NavLink to="/servicepage">Services</NavLink>
 
         {/* SEO-friendly About / Contact */}
-        <a href="/#about" onClick={(e) => handleScrollToId(e, "about")} className="cursor-pointer">
+        <a href="/" onClick={(e) => handleScrollToId(e, "about")} className="cursor-pointer">
           About Us
         </a>
-        <a
-          href="/#contact"
-          onClick={(e) => handleScrollToId(e, "contact")}
-          className="cursor-pointer"
-        >
+        <a href="/" onClick={(e) => handleScrollToId(e, "contact")} className="cursor-pointer">
           Contact Us
         </a>
       </div>
 
       {/* Right Side */}
       <div className="flex xl:gap-5 gap-3 items-center">
-        {/* Wishlist + Cart */}
+        {/* Wishlist + Cart with accessibility */}
         <div className="flex gap-2 items-center text-2xl">
-          <Link to="/wishlist">
-            <CiHeart />
+          <Link to="/wishlist" aria-label="Wishlist">
+            <CiHeart aria-hidden="true" />
+            <span className="sr-only">Wishlist</span>
           </Link>
-          <Link to="/cart">
-            <CiShoppingCart />
+          <Link to="/cart" aria-label="Shopping Cart">
+            <CiShoppingCart aria-hidden="true" />
+            <span className="sr-only">Shopping Cart</span>
           </Link>
         </div>
 
@@ -105,11 +104,7 @@ const Header = () => {
       {/* Small Screen Header */}
       {showSmallBar && (
         <div className="absolute w-full top-20 left-0 z-20 animate-slideInTop">
-          <SmallHeader
-            setSmallBar={setShowSmallBar}
-            setShowPopup={setShowLogin}
-            handleScrollToId={handleScrollToId} // pass scroll handler for mobile
-          />
+          <SmallHeader setSmallBar={setShowSmallBar} setShowPopup={setShowLogin} />
         </div>
       )}
     </nav>
