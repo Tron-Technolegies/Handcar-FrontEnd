@@ -23,7 +23,7 @@ const SparePartsHeader = () => {
       <img
         src={"/spareparts/header.png"}
         className="xl:max-w-[582px] xl:max-h-[561px] lg:max-w-[500px] lg:max-h-[359px] max-w-[350px] max-h-[251px] rounded-md mr-16"
-        alt=""
+        alt="Worker in warehouse with boxes | spare parts uae"
         srcset=""
       />
     </div>
