@@ -102,20 +102,12 @@ const Footer = () => {
           {/* App & Social */}
           <div className="flex flex-col min-w-[200px]">
             <h4 className="text-white font-semibold text-sm">Download Our App</h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3 mt-6">
               <a href="https://play.google.com/store/apps/details?id=com.handcar" target="_blank">
-                <img
-                  src="/icons/google-play-badge-logo-svgrepo-com.svg"
-                  alt="Google Play"
-                  className="w-32"
-                />
+                <img src="/icons/playstore.png" alt="Google Play" className="w-32" />
               </a>
               <a href="https://apps.apple.com/app/handcar" target="_blank">
-                <img
-                  src="/icons/download-on-the-app-store-apple-logo-svgrepo-com.svg"
-                  alt="App Store"
-                  className="w-32"
-                />
+                <img src="/icons/appstore.png" alt="App Store" className="w-32" />
               </a>
             </div>
           </div>

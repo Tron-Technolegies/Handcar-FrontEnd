@@ -1,6 +1,6 @@
 import React from "react";
 import "../aboutHandcar/AboutHandcar.css";
-import black_car from "../../../assets/black_car.png";
+import black_car from "../../../assets/black_car.webp";
 
 const AboutHandcar = () => {
   return (
@@ -50,7 +50,7 @@ const AboutHandcar = () => {
         <img
           src={black_car}
           className="hidden lg:block max-h-[700px]"
-          alt="Professional car service in Abu Dhabi - HandCar automotive experts"
+          alt="Black Toyota Land Cruiser Prado after premium car servicing and detailing"
         />
         <img
           src="/car.png"

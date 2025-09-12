@@ -1,8 +1,8 @@
 import React from "react";
 import "../accessoriesbycategories/AccessoriesByCategories.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import car_seat from "../../../assets/car_seat.png";
-import car_exterior from "../../../assets/car_exterior.png";
+import car_seat from "../../../assets/car_seat.webp";
+import car_exterior from "../../../assets/car_exterior.webp";
 import car_gadgets from "../../../assets/car_gadgets.png";
 import car_performance_accessories from "../../../assets/car_performance_accessories.png";
 import { Link } from "react-router-dom";
@@ -33,7 +33,10 @@ const AccessoriesByCategories = () => {
           </div>
 
           <div className="accessories_img">
-            <img src={car_seat} alt="Car Interior Accessories" />
+            <img
+              src={car_seat}
+              alt="Black and red premium leather car seat covers with headrests for front and rear seats"
+            />
           </div>
         </div>
 
@@ -53,7 +56,10 @@ const AccessoriesByCategories = () => {
           </div>
 
           <div className="accessories_img">
-            <img src={car_exterior} alt="Car Exterior Accessories" />
+            <img
+              src={car_exterior}
+              alt="Red sports car partially covered with a black car cover for exterior protection | car service abudhabi"
+            />
           </div>
         </div>
       </div>
@@ -75,7 +81,10 @@ const AccessoriesByCategories = () => {
           </div>
 
           <div className="accessories_img">
-            <img src={car_gadgets} alt="Electronic & Gadgets" />
+            <img
+              src={car_gadgets}
+              alt="High-quality car audio system with Bluetooth stereo, speakers, and subwoofers | car repair abudhabi"
+            />
           </div>
         </div>
 

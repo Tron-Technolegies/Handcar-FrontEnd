@@ -56,8 +56,8 @@
 
 // export default HandCarFeatures;
 import React from "react";
-import car_accessories from "../../../assets/car_accessories.png";
-import car_image from "../../../assets/car_image.png";
+import car_accessories from "../../../assets/car_accessories.webp";
+import car_image from "../../../assets/car_image.webp";
 import third_featureimg from "../../../assets/third_featureimg.png";
 import { handleEnquiry } from "../../../utils/WhatsApp";
 import HandCarFeatureCard from "./HandCarFeatureCard";
@@ -80,6 +80,8 @@ const HandCarFeatures = () => {
           type="link"
           action="/accessories"
           image={car_accessories}
+          alt="Premium car accessories and spare parts | car repair in AbuDhabi
+"
           imageSize="w-52 h-44 md:w-80 md:h-70"
           isLarge
         />
@@ -103,6 +105,7 @@ const HandCarFeatures = () => {
           type="button"
           action={buttonAction}
           image={third_featureimg}
+          alt="High-quality car spare parts including engine gears | car maintenance abudhabi"
           imageSize="w-24 h-24 md:w-36 md:h-36"
         />
       </div>

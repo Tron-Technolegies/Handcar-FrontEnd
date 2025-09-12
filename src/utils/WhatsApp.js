@@ -1,5 +1,5 @@
 export const handleEnquiry = ({ name }) => {
-  const phoneNumber = "+971503507618";
+  const phoneNumber = "+971507483343";
   const messageContent = `${name}`;
   const encodedMessage = encodeURIComponent(messageContent);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -8,7 +8,7 @@ export const handleEnquiry = ({ name }) => {
 };
 
 export const handleEnquiryFormClick = ({ name, email, phone, message }) => {
-  const phoneNumber = "+971544463803";
+  const phoneNumber = "+971507483343";
   const messageContent = `NAME : ${name}\n EMAIL : ${email}\n PHONE : ${phone}\n MESSAGE : ${message}`;
   const encodedMessage = encodeURIComponent(messageContent);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -17,7 +17,7 @@ export const handleEnquiryFormClick = ({ name, email, phone, message }) => {
 };
 
 export const handlePlaceOrder = ({ data }) => {
-  const phoneNumber = "+971544463803";
+  const phoneNumber = "+971507483343";
   const messageContent = `I have placed an Order with orderId: ${
     data.order_id
   }.\n  ${data.cartItems.map(
@@ -36,7 +36,7 @@ export const handlePlaceOrder = ({ data }) => {
 };
 
 export const handleSubscription = ({ data }) => {
-  const phoneNumber = "+971544463803";
+  const phoneNumber = "+971507483343";
   const messageContent = `Hello I would like to subscribe for ${data.name} plan (${data.type}) for ${data.month} months at AED ${data.price}`;
   const encodedMessage = encodeURIComponent(messageContent);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
