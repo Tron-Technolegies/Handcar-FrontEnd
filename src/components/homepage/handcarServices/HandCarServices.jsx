@@ -42,7 +42,7 @@ const HandCarServices = () => {
   return (
     <div className="lg:px-[120px] px-10 py-14 flex flex-col gap-10 text-center">
       <div className="flex flex-col gap-3 items-center">
-        <h4 className="text-3xl font-semibold mb-2">Our Car Services Include</h4>
+        <h2 className="text-3xl font-semibold mb-2">Our Car Services Include</h2>
         {/* <p className="font-medium text-gray-700 max-w-2xl">
           We Deliver Comprehensive Car Solutions! Explore Our Range of Services
         </p> */}

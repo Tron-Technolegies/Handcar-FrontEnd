@@ -1,6 +1,6 @@
 import React from "react";
 import "../brandSpareparts/BrandSpareParts.css";
-import topbrand_spare_parts from "../../../assets/topbrand_spare_parts.png";
+import topbrand_spare_parts from "../../../assets/topbrand_spare_parts.webp";
 import { handleEnquiry } from "../../../utils/WhatsApp";
 // import WhatsApp from "../../../utils/WhatsApp"; // Correctly import WhatsApp component
 

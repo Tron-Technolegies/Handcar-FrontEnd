@@ -47,6 +47,10 @@ const ServicePage = () => {
           name="description"
           content="Looking for the best car service in Abu Dhabi? HandCar offers expert maintenance, fast car repair, and honest pricing. Trusted by drivers across the UAE."
         />
+        <meta
+          name="keywords"
+          content="Car service in Abu Dhabi, Car repair in Abu Dhabi, Car maintainance in abudhabi"
+        />
         <link rel="canonical" href="https://handcar.ae/servicepage" />
       </Helmet>
 

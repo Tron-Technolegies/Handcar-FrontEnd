@@ -86,7 +86,7 @@ const AccessoriesContentSection = () => {
                 <div className="text-6xl mb-4">
                   <img
                     src="/Car-accessories.jpg"
-                    className="h-80 rounded-lg w-72"
+                    className="h-auto rounded-lg w-auto"
                     alt="Car Accessories"
                   />
                 </div>
@@ -103,7 +103,7 @@ const AccessoriesContentSection = () => {
                 <div className="text-6xl mb-4">
                   <img
                     src="/new-car-accessories.jpg"
-                    className="h-96 rounded-lg w-full"
+                    className="h-auto rounded-lg w-auto"
                     alt="New Car Accessories"
                   />
                 </div>

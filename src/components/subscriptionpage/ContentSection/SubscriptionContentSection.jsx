@@ -8,7 +8,7 @@ const SubscriptionContentSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="order-2 lg:order-1">
             <h2 className="text-3xl font-bold mb-6 text-gray-800">
-              More than Just Maintenance – It's Total Car Care
+              More than Just Maintenance It's Total Car Care
             </h2>
             <p className="text-gray-600 leading-relaxed text-justify mb-4">
               When you subscribe to our car service in Abu Dhabi, you're getting more than just
@@ -26,9 +26,9 @@ const SubscriptionContentSection = () => {
               <div className="bg-white rounded-lg p-6 text-center ">
                 <div className="text-6xl mb-4 ">
                   <img
-                    src="/total-car-care.jpg"
+                    src="/total-car-care.webp"
                     className="h-96 rounded-lg w-80 ml-2"
-                    alt="Total Car Care"
+                    alt="Car detailing and care process | car subscription uae"
                   />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-800 mb-2">Total Care</h4>

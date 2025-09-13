@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
                   <img
-                    src="/ask.jpg"
+                    src="/ask.webp"
                     className="h-96 rounded-lg w-full"
                     alt="Smiling auto mechanic giving thumbs up with clipboard in hand | car subscription uae"
                   />
@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
               <div className="bg-white rounded-lg p-6 text-center">
                 <div className="text-6xl mb-4">
                   <img
-                    src="/rightgarage.jpg"
+                    src="/rightgarage.webp"
                     className="rounded-lg w-full"
                     alt="Mechanic working on a red car in a garage |  car subscription uae"
                   />
