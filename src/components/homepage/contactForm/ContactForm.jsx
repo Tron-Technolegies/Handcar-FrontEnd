@@ -31,7 +31,7 @@ const ContactForm = () => {
       <div className="max-w-4xl w-full bg-gray-50 rounded-xl shadow-2xl overflow-hidden flex flex-col lg:flex-row">
         {/* Contact Details Section */}
         <div className="lg:w-1/2 p-8 bg-gradient-to-br from-red-400 via-red-500 to-red-600 text-white">
-          <h2 className="text-3xl font-bold text-center items-center my-16 mb-6">Get in Touch</h2>
+          <h4 className="text-3xl font-bold text-center items-center my-16 mb-6">Get in Touch</h4>
           <p className="mb-8 text-gray-300">
             We're here to help with any questions about our car services in Abu Dhabi. Reach out via
             the form or our direct contacts below.

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaPhoneAlt, FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
@@ -77,8 +78,9 @@ const Footer = () => {
             <a href="tel:+971544463803" className="flex items-center gap-2">
               <FaPhoneAlt /> +971 54446 3803
             </a>
-            <a href="mailto:info@handcar.com" className="flex items-center gap-2">
-              <MdEmail /> info@handcar.com
+            <a href="mailto:handcar@trondigital.ae" className="flex items-center gap-2">
+              <MdEmail />
+              handcar@trondigital.ae
             </a>
             <p className="flex items-center gap-2">
               <IoLocationOutline /> Based in Abu Dhabi, UAE
@@ -86,14 +88,14 @@ const Footer = () => {
             <div className="mt-4">
               <h4 className="text-white font-semibold text-sm mb-2">Follow Us</h4>
               <div className="flex gap-4 text-xl">
-                <a href="#">
+                <a href="https://www.instagram.com/handcar.uae/">
                   <FaInstagram />
                 </a>
-                <a href="#">
+                <a href="https://www.facebook.com/HandCar.uae/">
                   <FaFacebookF />
                 </a>
-                <a href="#">
-                  <FaLinkedinIn />
+                <a href="https://x.com/HandCar_UAE">
+                  <FaXTwitter />
                 </a>
               </div>
             </div>

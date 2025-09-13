@@ -1,6 +1,6 @@
 import React from "react";
-import carImage from "../../../assets/car.png";
-import suvside from "../../../assets/RedSUV-side-view.png";
+// import carImage from "../../../assets/car.png";
+// import suvside from "../../../assets/RedSUV-side-view.webp";
 
 const ServiceOffering2 = () => {
   return (
@@ -10,7 +10,7 @@ const ServiceOffering2 = () => {
         <div className="flex flex-col md:flex-row items-center gap-10 mb-4">
           <div className="w-10/12 mr-9 md:w-1/2">
             <img
-              src={"/WhatsApp Image 2025-07-25 at 14.05.26_dd192db8.png"}
+              src={"/red-car.webp"}
               className="w-full h-auto  object-contain"
               alt="Red SUV front three‑quarter view—professional auto repair and service"
             />
@@ -45,7 +45,7 @@ const ServiceOffering2 = () => {
           </div>
           <div className="w-full md:w-1/2 order-1 md:order-2">
             <img
-              src={suvside}
+              src={"RedSUV-side-view.webp"}
               className="w-full h-auto object-contain ml-28"
               alt="Red compact SUV side profile on black background |  car maintenance abudhabi"
             />

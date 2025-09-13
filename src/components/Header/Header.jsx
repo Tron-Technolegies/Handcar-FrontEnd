@@ -22,7 +22,7 @@ const Header = () => {
     if (location.pathname === "/") {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate("/");
+      navigate("/#" + id);
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 200);
@@ -30,40 +30,74 @@ const Header = () => {
   }
 
   return (
-    <nav className="lg:px-[120px] py-5 px-10 bg-white flex justify-between items-center">
+    <nav className="lg:px-[120px] py-5 px-10 bg-white flex justify-between items-center relative z-50">
       {/* Logo */}
       <div>
-        <Link to="/">
-          <img src={handcar_logo} alt="Handcar Logo" className="w-[44px] h-[55px]" />
+        <Link to="/" aria-label="Go to Home">
+          <img src={handcar_logo} alt="HandCar Logo" className="w-[44px] h-[55px]" />
         </Link>
       </div>
 
       {/* Desktop Menu */}
       <div className="lg:flex hidden xl:gap-5 gap-3 items-center xl:text-lg text-base font-semibold">
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+        >
+          Home
+        </NavLink>
 
         {user && data?.subscribed ? (
-          <NavLink to="/myplan">My Plan</NavLink>
+          <NavLink
+            to="/myplan"
+            className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+          >
+            My Plan
+          </NavLink>
         ) : (
-          <NavLink to="/subscription">Subscribe</NavLink>
+          <NavLink
+            to="/subscription"
+            className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+          >
+            Subscribe
+          </NavLink>
         )}
 
-        <NavLink to="/accessories">Accessories</NavLink>
-        <NavLink to="/spareparts">Spare Parts</NavLink>
-        <NavLink to="/servicepage">Services</NavLink>
+        <NavLink
+          to="/accessories"
+          className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+        >
+          Accessories
+        </NavLink>
+        <NavLink
+          to="/spareparts"
+          className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+        >
+          Spare Parts
+        </NavLink>
+        <NavLink
+          to="/servicepage"
+          className={({ isActive }) => (isActive ? "text-black font-bold" : "text-black")}
+        >
+          Services
+        </NavLink>
 
         {/* SEO-friendly About / Contact */}
-        <a href="/" onClick={(e) => handleScrollToId(e, "about")} className="cursor-pointer">
+        <a href="/#about" onClick={(e) => handleScrollToId(e, "about")} className="cursor-pointer">
           About Us
         </a>
-        <a href="/" onClick={(e) => handleScrollToId(e, "contact")} className="cursor-pointer">
+        <a
+          href="/#contact"
+          onClick={(e) => handleScrollToId(e, "contact")}
+          className="cursor-pointer"
+        >
           Contact Us
         </a>
       </div>
 
       {/* Right Side */}
       <div className="flex xl:gap-5 gap-3 items-center">
-        {/* Wishlist + Cart with accessibility */}
+        {/* Wishlist + Cart */}
         <div className="flex gap-2 items-center text-2xl">
           <Link to="/wishlist" aria-label="Wishlist">
             <CiHeart aria-hidden="true" />
@@ -96,7 +130,10 @@ const Header = () => {
         )}
 
         {/* Mobile Hamburger */}
-        <div className="lg:hidden text-xl" onClick={() => setShowSmallBar(!showSmallBar)}>
+        <div
+          className="lg:hidden text-xl cursor-pointer"
+          onClick={() => setShowSmallBar(!showSmallBar)}
+        >
           <RxHamburgerMenu />
         </div>
       </div>
